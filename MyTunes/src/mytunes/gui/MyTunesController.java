@@ -88,5 +88,13 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnClose(ActionEvent event) {
     }
+
+    @FXML
+    private void btnStop(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnPause(ActionEvent event) {
+    }
     
 }

@@ -10,26 +10,17 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
- * @author Anders
+ * @author pmj
  */
-public class NewAndEditController implements Initializable {
+public class NewPlaylistController implements Initializable {
 
     @FXML
-    private TextField EditSongTitel;
-    @FXML
-    private TextField EditArtistName;
-    @FXML
-    private TextField EditSongDuration;
-    @FXML
-    private TextField EditFileLoaction;
-    @FXML
-    private ComboBox<?> comboNewEdit;
+    private TextField txtNewPlaylistName;
 
     /**
      * Initializes the controller class.
@@ -39,21 +30,12 @@ public class NewAndEditController implements Initializable {
         // TODO
     }    
 
-
     @FXML
-    private void btnCancelEdit(ActionEvent event) {
+    private void btnCancelNewPlaylist(ActionEvent event) {
     }
 
     @FXML
-    private void btnChooseEdit(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnSaveEdit(ActionEvent event) {
-    }
-
-    @FXML
-    private void comboChooseGenre(ActionEvent event) {
+    private void btnCreateNewPlaylist(ActionEvent event) {
     }
     
 }
