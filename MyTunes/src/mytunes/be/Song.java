@@ -9,7 +9,7 @@ package mytunes.be;
  *
  * @author pmj
  */
-public class Songs {
+public class Song {
     
     private int id;
     private String name;
