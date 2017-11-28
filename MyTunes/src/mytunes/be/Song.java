@@ -12,10 +12,29 @@ package mytunes.be;
 public class Song {
     
     private int id;
-    private String name;
+    private String title;
     private String genre;
     private float duration;
     private String file;
+    private String artist;
+
+    /**
+     * Get the value of artist
+     *
+     * @return the value of artist
+     */
+    public String getArtist() {
+        return artist;
+    }
+
+    /**
+     * Set the value of artist
+     *
+     * @param artist new value of artist
+     */
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
 
     /**
      * Get the value of id
@@ -41,7 +60,7 @@ public class Song {
      * @return the value of name
      */
     public String getName() {
-        return name;
+        return title;
     }
 
     /**
@@ -50,7 +69,7 @@ public class Song {
      * @param name new value of name
      */
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
     
     /**
