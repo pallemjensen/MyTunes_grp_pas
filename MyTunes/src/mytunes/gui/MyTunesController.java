@@ -5,15 +5,24 @@
  */
 package mytunes.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -32,7 +41,8 @@ public class MyTunesController implements Initializable {
     private Button btnNewSong;
     @FXML
     private Label lblNowPlaying;
-
+    
+   
     /**
      * Initializes the controller class.
      */
@@ -62,11 +72,17 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnNewPlaylist(ActionEvent event) {
+    private void btnNewPlaylist(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
-    private void btnEditPlaylist(ActionEvent event) {
+    private void btnEditPlaylist(ActionEvent event)  {
+        
     }
 
     @FXML
@@ -78,7 +94,12 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnEditSong(ActionEvent event) {
+    private void btnEditSong(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewAndEdit.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -87,6 +108,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnClose(ActionEvent event) {
+        
     }
 
     @FXML
@@ -97,4 +119,6 @@ public class MyTunesController implements Initializable {
     private void btnPause(ActionEvent event) {
     }
     
+    
 }
+
