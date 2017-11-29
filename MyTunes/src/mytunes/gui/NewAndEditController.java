@@ -5,6 +5,8 @@
  */
 package mytunes.gui;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -20,6 +24,9 @@ import javafx.scene.control.TextField;
  */
 public class NewAndEditController implements Initializable {
 
+    private Stage stage;
+    private String audioFile = "No file selected!";
+    
     @FXML
     private TextField EditSongTitel;
     @FXML
@@ -45,7 +52,20 @@ public class NewAndEditController implements Initializable {
     }
 
     @FXML
-    private void btnChooseEdit(ActionEvent event) {
+    private void btnChooseEdit(ActionEvent event) throws MalformedURLException {
+        FileChooser chooser = new FileChooser();
+            FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
+            FileChooser.ExtensionFilter filterWav = new FileChooser.ExtensionFilter("select your media(*.wav)", "*.wav");
+            chooser.getExtensionFilters().add(filterMp3);
+            chooser.getExtensionFilters().add(filterWav);
+            File file = chooser.showOpenDialog(this.stage);
+            if ( file !=null){
+                this.audioFile = file.toURI().toURL().toString();
+                EditFileLoaction.setText(audioFile);
+            }else{
+                EditFileLoaction.setText("Invalid Filename");
+                this.audioFile = null;
+            }
     }
 
     @FXML
