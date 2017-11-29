@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -28,6 +30,7 @@ public class EditPlaylistNameController implements Initializable {
 
     @FXML
     private void btnCancelEditPlaylistNAme(ActionEvent event) {
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     @FXML

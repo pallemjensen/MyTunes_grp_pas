@@ -81,8 +81,12 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnEditPlaylist(ActionEvent event)  {
-        
+    private void btnEditPlaylist(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditPlaylistName.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -108,6 +112,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnClose(ActionEvent event) {
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         
     }
 
