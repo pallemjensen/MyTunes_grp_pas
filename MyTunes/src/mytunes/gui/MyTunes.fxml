@@ -49,7 +49,7 @@
       <Button layoutX="385.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSongFromPlaylist" text="Delete" />
       <Button fx:id="btnNewSong" layoutX="453.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" text="New" />
       <Button layoutX="523.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" text="Edit" />
-      <Button layoutX="596.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" text="Delete" />
+      <Button layoutX="571.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" text="Delete" />
       <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="125.0" text="Playlists" />
       <Label layoutX="453.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" text="Songs" />
       <Label fx:id="lblNowPlaying" layoutX="254.0" layoutY="35.0" prefHeight="26.0" prefWidth="194.0" text="Now playing:" />
@@ -57,5 +57,6 @@
       <Button layoutX="76.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnStop" text="Stop" />
       <Button layoutX="125.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPause" text="Pause" />
       <Label layoutX="294.0" layoutY="543.0" prefHeight="17.0" prefWidth="81.0" text="ps. move song" />
+      <Button layoutX="647.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnLoadSongs" prefHeight="25.0" prefWidth="92.0" text="Load songs" />
    </children>
 </AnchorPane>
