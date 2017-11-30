@@ -8,6 +8,7 @@ package mytunes.gui;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
+import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -31,11 +33,13 @@ import mytunes.be.Song;
  * @author pmj
  */
 public class MyTunesController implements Initializable {
-    @FXML
-    private TableView<Song> TVSongs;
-        
+    
     private MyTunesModel myTunesModel = new MyTunesModel();
-
+    private SongDAO songdao = new SongDAO();
+    
+    
+    @FXML
+    private TableView<Song> TVSongs;  
     @FXML
     private TextField txtFilter;
     @FXML
@@ -120,7 +124,14 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnPause(ActionEvent event) {
+    private void btnPause(ActionEvent event) throws SQLException {
+        int id = 0;
+        String title = "lilleper i brand";
+        String genre = "rock";
+        String duration = "300 seconds";
+        String songPath = "www.whatelse.com";
+        String artist = "sorte sarah";
+        songdao.createSong(id, title, genre, duration, songPath, artist);
     }
 
     @FXML

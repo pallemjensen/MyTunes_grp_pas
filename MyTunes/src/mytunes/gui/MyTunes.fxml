@@ -29,10 +29,10 @@
       </TableView>
       <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" prefHeight="417.0" prefWidth="517.0">
         <columns>
-          <TableColumn fx:id="SongsTitleColumn" prefWidth="200.0" text="Title" />
-          <TableColumn fx:id="SongsArtistColumn" prefWidth="157.0" text="Artist" />
-            <TableColumn fx:id="SongsGenreColumn" prefWidth="95.0" text="Genre" />
-            <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="64.0" text="Duration" />
+          <TableColumn fx:id="SongsTitleColumn" prefWidth="174.0" text="Title" />
+          <TableColumn fx:id="SongsArtistColumn" prefWidth="128.0" text="Artist" />
+            <TableColumn fx:id="SongsGenreColumn" prefWidth="118.0" text="Genre" />
+            <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="96.0" text="Duration" />
         </columns>
       </TableView>
       <ListView layoutX="426.0" layoutY="130.0" prefHeight="391.0" prefWidth="155.0" />
