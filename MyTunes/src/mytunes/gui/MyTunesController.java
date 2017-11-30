@@ -79,26 +79,6 @@ public class MyTunesController implements Initializable {
     }    
 
     @FXML
-    private void btnPlaySong(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnNextSong(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnPreviousSong(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnFilter(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) {
-    }
-
-    @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
@@ -126,12 +106,13 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnDeleteSong(ActionEvent event) {
-    }
-
-    @FXML
     private void btnClose(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
+    }
+    
+    
+    @FXML
+    private void btnDeleteSong(ActionEvent event) {
     }
 
     @FXML
@@ -150,6 +131,25 @@ public class MyTunesController implements Initializable {
      @FXML
     private void btnDeletePlaylist(ActionEvent event) {
     }
+    
+    @FXML
+    private void btnPlaySong(ActionEvent event) {
+    }
 
+    @FXML
+    private void btnNextSong(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnPreviousSong(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnFilter(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnAddSongToPlaylist(ActionEvent event) {
+    }
 }
 
