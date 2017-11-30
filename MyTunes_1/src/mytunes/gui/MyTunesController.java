@@ -9,6 +9,8 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,12 +19,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import mytunes.be.Playlist;
-import mytunes.be.Song;
+import mytunes.dal.ConnectionManager;
 
 /**
  * FXML Controller class
@@ -30,33 +32,17 @@ import mytunes.be.Song;
  * @author pmj
  */
 public class MyTunesController implements Initializable {
-    @FXML
-    private TableView<Song> TVSongs;
-        
-    private MyTunesModel myTunesModel = new MyTunesModel();
 
     @FXML
     private TextField txtFilter;
     @FXML
     private TableView<?> TVPlaylists;
     @FXML
+    private TableView<?> TVSongs;
+    @FXML
     private Button btnNewSong;
     @FXML
     private Label lblNowPlaying;
-    @FXML
-    private TableColumn<Playlist, String> PlaylistsNameColumn;
-    @FXML
-    private TableColumn<Playlist, Integer> PlaylistsNrOfSongsColumn;
-    @FXML
-    private TableColumn<Playlist, Float> PlaylistsSongDurationColumn;
-    @FXML
-    private TableColumn<Song, String> SongsTitleColumn;
-    @FXML
-    private TableColumn<Song, String> SongsArtistColumn;
-    @FXML
-    private TableColumn<Song, String> SongsGenreColumn;
-    @FXML
-    private TableColumn<Song, Float> SongsDurationColumn;
     
    
     /**

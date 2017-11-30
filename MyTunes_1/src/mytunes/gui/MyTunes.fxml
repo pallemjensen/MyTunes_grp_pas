@@ -22,17 +22,17 @@
       <Button layoutX="505.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="73.0" text="Filter" />
       <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" prefHeight="417.0" prefWidth="248.0">
         <columns>
-          <TableColumn fx:id="PlaylistsNameColumn" minWidth="50.0" prefWidth="76.0" text="Name" />
-          <TableColumn fx:id="PlaylistsNrOfSongsColumn" minWidth="0.0" prefWidth="91.0" text="# of Songs" />
-            <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="81.0" text="Duration" />
+          <TableColumn minWidth="50.0" prefWidth="76.0" text="Name" />
+          <TableColumn minWidth="0.0" prefWidth="91.0" text="# of Songs" />
+            <TableColumn prefWidth="81.0" text="Duration" />
         </columns>
       </TableView>
       <TableView fx:id="TVSongs" layoutX="453.0" layoutY="105.0" prefHeight="417.0" prefWidth="304.0">
         <columns>
-          <TableColumn fx:id="SongsTitleColumn" prefWidth="75.0" text="Title" />
-          <TableColumn fx:id="SongsArtistColumn" prefWidth="75.0" text="Artist" />
-            <TableColumn fx:id="SongsGenreColumn" prefWidth="75.0" text="Genre" />
-            <TableColumn fx:id="SongsDurationColumn" prefWidth="75.0" text="Duration" />
+          <TableColumn prefWidth="75.0" text="Title" />
+          <TableColumn prefWidth="75.0" text="Artist" />
+            <TableColumn prefWidth="75.0" text="Category" />
+            <TableColumn prefWidth="75.0" text="Duration" />
         </columns>
       </TableView>
       <ListView layoutX="282.0" layoutY="131.0" prefHeight="391.0" prefWidth="155.0" />
