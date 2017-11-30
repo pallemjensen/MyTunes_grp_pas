@@ -53,9 +53,9 @@ public class SongDAO {
     public void remove(Song song) {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
-            stmt.execute(
-                "DELETE FROM Songs WHERE id="+song.getId());
+            stmt.execute("DELETE FROM MytunesSongs WHERE id="+song.getId());
         }
+                
         catch (SQLException ex) {
             Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

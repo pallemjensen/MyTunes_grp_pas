@@ -14,12 +14,12 @@ import mytunes.dal.SongDAO;
  * @author pmj
  */
 public class BLLManager {
-    private SongDAO songDAO = new SongDAO();
+    private final SongDAO songDAO = new SongDAO();
     public List<Song> getAllSongs() {
         return songDAO.getAllSongs();
     }
 
-//    public void remove(Song car) {
-//        SongDAO.remove(car);
-//    }
+    public void remove(Song song) {
+        songDAO.remove(song);
+    }
 }

@@ -25,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
+import mytunes.bll.BLLManager;
 import mytunes.dal.SongDAO;
 
 /**
@@ -34,8 +35,9 @@ import mytunes.dal.SongDAO;
  */
 public class MyTunesController implements Initializable {
     
-    private MyTunesModel myTunesModel = new MyTunesModel();
-    private SongDAO songdao = new SongDAO();
+    private final MyTunesModel myTunesModel = new MyTunesModel();
+    private final SongDAO songdao = new SongDAO();
+    private final BLLManager bllmanager = new BLLManager();
     
     
     @FXML
@@ -62,6 +64,7 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
+    private Song song;
     
    
     /**
@@ -114,9 +117,10 @@ public class MyTunesController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
     
-    
+  
     @FXML
     private void btnDeleteSong(ActionEvent event) {
+    bllmanager.remove(song);
     }
 
     @FXML
@@ -125,13 +129,13 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnPause(ActionEvent event) throws SQLException {
-        int id = 0;
+    int id = 0;
         String title = "lilleper i brand";
         String genre = "rock";
         String duration = "300 seconds";
         String songPath = "www.whatelse.com";
         String artist = "sorte sarah";
-        songdao.createSong(id, title, genre, duration, songPath, artist);
+        songdao.createSong(id, title, genre, duration, songPath, artist);   
     }
 
     @FXML
