@@ -39,7 +39,7 @@ public class SongDAO {
                 currentSong.setArtist(rs.getString("artist_name"));
                 currentSong.setDuration(rs.getString("song_duration"));
                 currentSong.setGenre(rs.getString("song_genre"));
-                currentSong.setFile(rs.getString("song_path"));
+                currentSong.setSongPath(rs.getString("song_path"));
                 songs.add(currentSong);
             }
         }
@@ -62,7 +62,7 @@ public class SongDAO {
 
     }
     
-//    public Song createSong(int song_id, String title, String genre, String duration, String file, String artist) throws SQLServerException, SQLException 
+//    public Song createSong(int song_id, String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
 //    {
 //        try (Connection con = cm.getConnection())
 //        {
