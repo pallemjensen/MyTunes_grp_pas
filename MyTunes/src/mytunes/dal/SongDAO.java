@@ -62,29 +62,29 @@ public class SongDAO {
 
     }
     
-//    public Song createSong(int song_id, String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
-//    {
-//        try (Connection con = cm.getConnection())
-//        {
-//            String sql = "INSERT INTO Songs VALUES (?, ?, ?, ?, ?);";
-//
-//            PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//
-//            statement.setString(1, title);
-//            statement.setString(2, genre);
-//            statement.setString(3, duration);
-//            statement.setString(4, file);
-//            statement.setString(5, artist);
-//
-//            if (statement.executeUpdate() == 1)
-//            {
-//                ResultSet rs = statement.getGeneratedKeys();
-//                rs.next();
-//                int id = rs.getInt(1);
-//                Song newSong = new Song(id, title, genre, duration, file, artist);
-//                return newSong;
-//            }
-//            throw new RuntimeException("Can't create song");
-//        }
-//    }
+    public Song createSong(int id, String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
+    {
+        try (Connection con = cm.getConnection())
+        {
+            String sql = "INSERT INTO Songs VALUES (?, ?, ?, ?, ?);";
+
+            PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setString(1, title);
+            statement.setString(2, genre);
+            statement.setString(3, duration);
+            statement.setString(4, songPath);
+            statement.setString(5, artist);
+
+            if (statement.executeUpdate() == 1)
+            {
+                ResultSet rs = statement.getGeneratedKeys();
+                rs.next();
+                id = rs.getInt(1);
+                Song newSong = new Song(id, title, genre, duration, songPath, artist);
+                return newSong;
+            }
+            throw new RuntimeException("Can't create song");
+        }
+    }
 }

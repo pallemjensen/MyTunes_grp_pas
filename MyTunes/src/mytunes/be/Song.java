@@ -18,6 +18,20 @@ public class Song {
     private String songPath;
     private String artist;
 
+    public Song(int id, String title, String genre, String duration, String songPath, String artist) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.duration = duration;
+        this.songPath = songPath;
+        this.artist = artist;
+    }
+
+    public Song() {
+    }
+    
+    
+
     /**
      *
      * @return
