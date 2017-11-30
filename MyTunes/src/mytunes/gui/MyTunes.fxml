@@ -9,54 +9,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="663.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
+<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
    <children>
       <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPlaySong" prefHeight="25.0" prefWidth="43.0" text="Play" />
       <Button layoutX="172.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnNextSong" prefHeight="25.0" prefWidth="54.0" text="Next" />
       <Button layoutX="85.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnPreviousSong" prefHeight="25.0" prefWidth="73.0" text="Previous" />
-      <Label layoutX="19.0" layoutY="1.0" prefHeight="17.0" prefWidth="113.0" text="MyTunes">
+      <Label layoutX="477.0" layoutY="1.0" prefHeight="17.0" prefWidth="113.0" text="MyTunes">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="505.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="73.0" text="Filter" />
-      <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" prefHeight="417.0" prefWidth="248.0">
+      <Button layoutX="868.0" layoutY="63.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="73.0" text="Filter" />
+      <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" prefHeight="417.0" prefWidth="394.0">
         <columns>
-          <TableColumn fx:id="PlaylistsNameColumn" minWidth="50.0" prefWidth="76.0" text="Name" />
-          <TableColumn fx:id="PlaylistsNrOfSongsColumn" minWidth="0.0" prefWidth="91.0" text="# of Songs" />
-            <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="81.0" text="Duration" />
+          <TableColumn fx:id="PlaylistsNameColumn" minWidth="50.0" prefWidth="243.0" text="Name" />
+          <TableColumn fx:id="PlaylistsNrOfSongsColumn" minWidth="0.0" prefWidth="84.0" text="# of Songs" />
+            <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="66.0" text="Duration" />
         </columns>
       </TableView>
-      <TableView fx:id="TVSongs" layoutX="453.0" layoutY="105.0" prefHeight="417.0" prefWidth="304.0">
+      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" prefHeight="417.0" prefWidth="517.0">
         <columns>
-          <TableColumn fx:id="SongsTitleColumn" prefWidth="75.0" text="Title" />
-          <TableColumn fx:id="SongsArtistColumn" prefWidth="75.0" text="Artist" />
-            <TableColumn fx:id="SongsGenreColumn" prefWidth="75.0" text="Genre" />
-            <TableColumn fx:id="SongsDurationColumn" prefWidth="75.0" text="Duration" />
+          <TableColumn fx:id="SongsTitleColumn" prefWidth="200.0" text="Title" />
+          <TableColumn fx:id="SongsArtistColumn" prefWidth="157.0" text="Artist" />
+            <TableColumn fx:id="SongsGenreColumn" prefWidth="95.0" text="Genre" />
+            <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="64.0" text="Duration" />
         </columns>
       </TableView>
-      <ListView layoutX="282.0" layoutY="131.0" prefHeight="391.0" prefWidth="155.0" />
-      <Label layoutX="294.0" layoutY="105.0" prefHeight="25.0" prefWidth="132.0" text="Songs on playlist">
+      <ListView layoutX="426.0" layoutY="130.0" prefHeight="391.0" prefWidth="155.0" />
+      <Label layoutX="427.0" layoutY="100.0" prefHeight="25.0" prefWidth="132.0" text="Songs on playlist">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFilter" layoutX="596.0" layoutY="41.0" />
-      <Button layoutX="453.0" layoutY="581.0" mnemonicParsing="false" onAction="#btnAddSongToPlaylist" prefHeight="25.0" prefWidth="194.0" text="Add selected song to playlist" />
-      <Button layoutX="23.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnNewPlaylist" prefHeight="25.0" prefWidth="43.0" text="New" />
-      <Button layoutX="85.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditPlaylist" prefHeight="25.0" prefWidth="113.0" text="Edit playlist name" />
-      <Button layoutX="220.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeletePlaylist" text="Delete" />
-      <Button layoutX="385.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSongFromPlaylist" text="Delete" />
-      <Button fx:id="btnNewSong" layoutX="453.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" text="New" />
-      <Button layoutX="523.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" text="Edit" />
-      <Button layoutX="571.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" text="Delete" />
+      <TextField fx:id="txtFilter" layoutX="950.0" layoutY="63.0" />
+      <Button layoutX="417.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnAddSongToPlaylist" prefHeight="25.0" prefWidth="174.0" text="Add selected song to playlist" />
+      <Button layoutX="23.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnNewPlaylist" prefHeight="25.0" prefWidth="113.0" text="New playlist" />
+      <Button layoutX="149.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditPlaylist" prefHeight="25.0" prefWidth="113.0" text="Edit playlist name" />
+      <Button layoutX="286.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeletePlaylist" prefHeight="25.0" prefWidth="92.0" text="Delete playlist" />
+      <Button fx:id="btnNewSong" layoutX="899.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" prefHeight="25.0" prefWidth="103.0" text="New song" />
+      <Button layoutX="784.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" prefHeight="25.0" prefWidth="103.0" text="Edit song" />
+      <Button layoutX="682.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" prefHeight="25.0" prefWidth="92.0" text="Delete song" />
       <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="125.0" text="Playlists" />
       <Label layoutX="453.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" text="Songs" />
-      <Label fx:id="lblNowPlaying" layoutX="254.0" layoutY="35.0" prefHeight="26.0" prefWidth="194.0" text="Now playing:" />
-      <Button layoutX="664.0" layoutY="581.0" mnemonicParsing="false" onAction="#btnClose" prefHeight="25.0" prefWidth="73.0" text="Close" />
+      <Label fx:id="lblNowPlaying" layoutX="291.0" layoutY="23.0" prefHeight="26.0" prefWidth="471.0" text="Now playing:" />
+      <Button layoutX="1015.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnClose" prefHeight="25.0" prefWidth="73.0" text="Close" />
       <Button layoutX="76.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnStop" text="Stop" />
       <Button layoutX="125.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPause" text="Pause" />
-      <Label layoutX="294.0" layoutY="543.0" prefHeight="17.0" prefWidth="81.0" text="ps. move song" />
-      <Button layoutX="647.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnLoadSongs" prefHeight="25.0" prefWidth="92.0" text="Load songs" />
+      <Label layoutX="423.0" layoutY="585.0" prefHeight="17.0" prefWidth="163.0" text="ps. move song up or down" />
+      <Button layoutX="590.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnLoadSongs" prefHeight="25.0" prefWidth="92.0" text="Load songs" />
+      <Button layoutX="236.0" layoutY="76.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Load playlists" />
    </children>
 </AnchorPane>

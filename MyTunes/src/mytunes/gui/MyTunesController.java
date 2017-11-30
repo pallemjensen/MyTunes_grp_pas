@@ -117,14 +117,6 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnDeletePlaylist(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnDeleteSongFromPlaylist(ActionEvent event) throws SQLServerException {
-    }
-
-    @FXML
     private void btnEditSong(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewAndEdit.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
@@ -154,5 +146,10 @@ public class MyTunesController implements Initializable {
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();
     } 
+    
+     @FXML
+    private void btnDeletePlaylist(ActionEvent event) {
+    }
+
 }
 
