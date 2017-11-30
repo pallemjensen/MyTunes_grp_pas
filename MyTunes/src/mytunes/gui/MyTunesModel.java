@@ -30,7 +30,6 @@ public class MyTunesModel {
         
         songs.clear();
         songs.addAll(loadedSongs);
-        
     }
 
 //    public void remove(Song selectedCar) {

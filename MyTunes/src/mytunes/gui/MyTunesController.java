@@ -139,8 +139,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnClose(ActionEvent event) {
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-        
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
 
     @FXML
@@ -154,8 +153,6 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();
-    }
-    
-    
+    } 
 }
 

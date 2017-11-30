@@ -14,10 +14,20 @@ public class Song {
     private int id;
     private String title;
     private String genre;
-    private float duration;
+    private String duration;
     private String file;
     private String artist;
 
+ 
+//    public Song(int id, String title, String genre, String duration, String file, String artist) {
+//        this.id = id;
+//        this.title = title;
+//        this.genre = genre;
+//        this.duration = duration;
+//        this.file = file;
+//        this.artist = artist;
+//    }
+   
     /**
      * Get the value of artist
      *
@@ -45,14 +55,9 @@ public class Song {
         return id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param id new value of id
-     */
     public void setId(int id) {
         this.id = id;
-    }
+    } 
     
     /**
      * Get the value of name
@@ -95,7 +100,7 @@ public class Song {
      *
      * @return the value of duration
      */
-    public float getDuration() {
+    public String getDuration() {
         return duration;
     }
 
@@ -104,7 +109,7 @@ public class Song {
      *
      * @param duration new value of duration
      */
-    public void setDuration(float duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
     
@@ -136,5 +141,11 @@ public class Song {
         this.title = title;
     }
 
+    @Override
+    public String toString() {
+        return "Song{" + "id=" + id + ", title=" + title + ", genre=" + genre + ", duration=" + duration + ", file=" + file + ", artist=" + artist + '}';
+    }
+
+    
     
 }

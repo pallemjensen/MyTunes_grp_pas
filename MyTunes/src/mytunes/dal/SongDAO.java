@@ -5,7 +5,10 @@
  */
 package mytunes.dal;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +23,7 @@ import mytunes.be.Song;
  * @author pmj
  */
 public class SongDAO {
-    ConnectionManager cm = new ConnectionManager();
+   ConnectionManager cm = new ConnectionManager();
 
     public List<Song> getAllSongs() {
         List<Song> songs = new ArrayList();
@@ -34,7 +37,7 @@ public class SongDAO {
                 currentSong.setId(rs.getInt("song_id"));
                 currentSong.setTitle(rs.getString("song_title"));
                 currentSong.setArtist(rs.getString("artist_name"));
-                currentSong.setDuration(rs.getFloat("song_duration"));
+                currentSong.setDuration(rs.getString("song_duration"));
                 currentSong.setGenre(rs.getString("song_genre"));
                 currentSong.setFile(rs.getString("song_path"));
                 songs.add(currentSong);
@@ -43,7 +46,7 @@ public class SongDAO {
         catch (SQLException ex) {
             Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         return songs;
     }
 
@@ -58,4 +61,30 @@ public class SongDAO {
         }
 
     }
+    
+//    public Song createSong(int song_id, String title, String genre, String duration, String file, String artist) throws SQLServerException, SQLException 
+//    {
+//        try (Connection con = cm.getConnection())
+//        {
+//            String sql = "INSERT INTO Songs VALUES (?, ?, ?, ?, ?);";
+//
+//            PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//
+//            statement.setString(1, title);
+//            statement.setString(2, genre);
+//            statement.setString(3, duration);
+//            statement.setString(4, file);
+//            statement.setString(5, artist);
+//
+//            if (statement.executeUpdate() == 1)
+//            {
+//                ResultSet rs = statement.getGeneratedKeys();
+//                rs.next();
+//                int id = rs.getInt(1);
+//                Song newSong = new Song(id, title, genre, duration, file, artist);
+//                return newSong;
+//            }
+//            throw new RuntimeException("Can't create song");
+//        }
+//    }
 }
