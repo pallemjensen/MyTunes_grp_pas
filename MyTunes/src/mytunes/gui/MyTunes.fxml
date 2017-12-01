@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
+<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
    <children>
       <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPlaySong" prefHeight="25.0" prefWidth="43.0" text="Play" />
       <Button layoutX="172.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnNextSong" prefHeight="25.0" prefWidth="54.0" text="Next" />
@@ -46,7 +46,7 @@
       <Button layoutX="23.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnNewPlaylist" prefHeight="25.0" prefWidth="113.0" text="New playlist" />
       <Button layoutX="149.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditPlaylist" prefHeight="25.0" prefWidth="113.0" text="Edit playlist name" />
       <Button layoutX="286.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeletePlaylist" prefHeight="25.0" prefWidth="92.0" text="Delete playlist" />
-      <Button fx:id="btnNewSong" layoutX="899.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" prefHeight="25.0" prefWidth="103.0" text="New song" />
+      <Button layoutX="899.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnNewSong" prefHeight="25.0" prefWidth="103.0" text="New song" />
       <Button layoutX="784.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" prefHeight="25.0" prefWidth="103.0" text="Edit song" />
       <Button layoutX="682.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" prefHeight="25.0" prefWidth="92.0" text="Delete song" />
       <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="125.0" text="Playlists" />

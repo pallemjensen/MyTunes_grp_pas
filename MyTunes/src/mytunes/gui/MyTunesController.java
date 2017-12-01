@@ -5,7 +5,6 @@
  */
 package mytunes.gui;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,8 +45,6 @@ public class MyTunesController implements Initializable {
     private TextField txtFilter;
     @FXML
     private TableView<?> TVPlaylists;
-    @FXML
-    private Button btnNewSong;
     @FXML
     private Label lblNowPlaying;
     @FXML
@@ -105,7 +102,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnEditSong(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewAndEdit.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditSong.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -165,6 +162,15 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnNewSong(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewSong.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
 
