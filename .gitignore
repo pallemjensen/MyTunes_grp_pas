@@ -35,3 +35,4 @@ nbdist/
 # End of https://www.gitignore.io/api/java,netbeans
 /MyTunes/nbproject/private/
 /MyTunes_1/nbproject/private/
+/MyTunes_BackUp/nbproject/private/
