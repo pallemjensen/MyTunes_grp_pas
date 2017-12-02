@@ -5,12 +5,14 @@
  */
 package mytunes.be;
 
+import mytunes.gui.MyTunesController;
+
 /**
  *
  * @author pmj
  */
 public class Song {
-    
+    private final mytunes.gui.MyTunesController mytunescontroller = new MyTunesController();
     private int id;
     private String title;
     private String genre;
@@ -34,7 +36,8 @@ public class Song {
      * @return
      */
     public int getId() {
-        return id;
+     id = mytunescontroller.getId();
+     return id;
     }
 
     /**

@@ -62,6 +62,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
     private Song song;
+    private int id;
     
    
     /**
@@ -77,10 +78,15 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
-        
-          
+
         TVSongs.setItems(myTunesModel.getSongs());
-    }    
+        
+    }  
+    
+    public int getId(){
+    id = TVSongs.getSelectionModel().getSelectedItem().getId();
+    return id;
+    }
 
     @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
@@ -118,6 +124,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnDeleteSong(ActionEvent event) {
     bllmanager.remove(song);
+    myTunesModel.remove(song);
     }
 
     @FXML

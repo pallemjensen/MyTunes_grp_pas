@@ -32,9 +32,9 @@ public class MyTunesModel {
         songs.addAll(loadedSongs);
     }
 
-//    public void remove(Song selectedCar) {
-//        songs.remove(selectedSongs);
-//        bllManager.remove(selectedCar);
-//    }
+    public void remove(Song selectedSongs) {
+        songs.remove(selectedSongs);
+        bllManager.remove(selectedSongs);
+    }
 
 }
