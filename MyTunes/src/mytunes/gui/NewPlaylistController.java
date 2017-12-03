@@ -39,6 +39,8 @@ public class NewPlaylistController implements Initializable {
 
     @FXML
     private void btnCreateNewPlaylist(ActionEvent event) {
+//        todo
+//    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
 }

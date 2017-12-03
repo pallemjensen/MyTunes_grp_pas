@@ -35,6 +35,8 @@ public class EditPlaylistNameController implements Initializable {
 
     @FXML
     private void btnSaveEditPlaylistName(ActionEvent event) {
+        //        todo
+    //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
 }

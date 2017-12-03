@@ -44,6 +44,8 @@ public class EditSongController implements Initializable {
 
     @FXML
     private void btnSave(ActionEvent event) {
+        //        todo
+    //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
 
     @FXML

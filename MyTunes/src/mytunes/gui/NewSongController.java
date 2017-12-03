@@ -58,6 +58,7 @@ public class NewSongController implements Initializable {
         String songPath = txtNewSongPath.getText();
         String artist = txtNewSongArtist.getText();
         songdao.createSong(id, title, genre, duration, songPath, artist); 
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
 
     @FXML
