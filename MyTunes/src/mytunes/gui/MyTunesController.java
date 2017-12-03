@@ -132,14 +132,8 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void btnPause(ActionEvent event) throws SQLException {
-//    int idCreateSong = 0;
-//        String title = "lilleper i brand";
-//        String genre = "rock";
-//        String duration = "300 seconds";
-//        String songPath = "www.whatelse.com";
-//        String artist = "sorte sarah";
-//        songdao.createSong(id, title, genre, duration, songPath, artist);   
+    private void btnPause(ActionEvent event) {
+  
     }
 
     @FXML

@@ -8,6 +8,7 @@ package mytunes.gui;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
  * @author Anders
  */
 public class NewSongController implements Initializable {
+    private final SongDAO songdao = new SongDAO();
 
     private Stage stage;
     private String audioFile;
@@ -34,7 +37,9 @@ public class NewSongController implements Initializable {
     @FXML
     private TextField txtNewSongDuration;
     @FXML
-    private ComboBox<?> comboNewSongGenre;
+    private TextField txtNewSongPath;
+    @FXML
+    private TextField txtNewSongGenre;
     
     /**
      * Initializes the controller class.
@@ -45,7 +50,14 @@ public class NewSongController implements Initializable {
     }    
 
     @FXML
-    private void btnSave(ActionEvent event) {
+    private void btnSave(ActionEvent event) throws SQLException {
+        int id = 0;
+        String title = txtNewSongTitle.getText();
+        String genre = txtNewSongGenre.getText();
+        String duration = txtNewSongDuration.getText();
+        String songPath = txtNewSongPath.getText();
+        String artist = txtNewSongArtist.getText();
+        songdao.createSong(id, title, genre, duration, songPath, artist); 
     }
 
     @FXML
