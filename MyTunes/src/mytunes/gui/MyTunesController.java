@@ -123,8 +123,10 @@ public class MyTunesController implements Initializable {
   
     @FXML
     private void btnDeleteSong(ActionEvent event) {
-    bllmanager.remove(song);
-    myTunesModel.remove(song);
+        Song selectedSong = 
+        TVSongs.getSelectionModel().getSelectedItem();
+        myTunesModel.remove(selectedSong);
+
     }
 
     @FXML
