@@ -36,7 +36,6 @@ public class Song {
      * @return
      */
     public int getId() {
-     id = mytunescontroller.getId();
      return id;
     }
 

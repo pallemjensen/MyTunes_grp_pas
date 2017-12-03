@@ -50,16 +50,11 @@ public class SongDAO {
         return songs;
     }
 
-    public void remove(Song song) {
+    public void remove(Song song) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
-            stmt.execute("DELETE FROM MytunesSongs WHERE id="+song.getId());
-        }
-                
-        catch (SQLException ex) {
-            Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+            stmt.execute("DELETE FROM MytunesSongs WHERE song_id="+song.getId());
+        }       
     }
     
     public Song createSong(int id, String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 

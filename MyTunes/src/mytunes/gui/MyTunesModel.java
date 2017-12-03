@@ -5,6 +5,7 @@
  */
 package mytunes.gui;
 
+import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +33,7 @@ public class MyTunesModel {
         songs.addAll(loadedSongs);
     }
 
-    public void remove(Song selectedSongs) {
+    public void remove(Song selectedSongs) throws SQLException {
         songs.remove(selectedSongs);
         bllManager.remove(selectedSongs);
     }

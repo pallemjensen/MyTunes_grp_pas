@@ -62,7 +62,8 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
     private Song song;
-    private int id;
+//    private int id;
+//    private int idCreateSong;
     
    
     /**
@@ -83,10 +84,7 @@ public class MyTunesController implements Initializable {
         
     }  
     
-    public int getId(){
-    id = TVSongs.getSelectionModel().getSelectedItem().getId();
-    return id;
-    }
+    
 
     @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
@@ -122,7 +120,7 @@ public class MyTunesController implements Initializable {
     
   
     @FXML
-    private void btnDeleteSong(ActionEvent event) {
+    private void btnDeleteSong(ActionEvent event) throws SQLException {
         Song selectedSong = 
         TVSongs.getSelectionModel().getSelectedItem();
         myTunesModel.remove(selectedSong);
@@ -135,13 +133,13 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnPause(ActionEvent event) throws SQLException {
-    int id = 0;
-        String title = "lilleper i brand";
-        String genre = "rock";
-        String duration = "300 seconds";
-        String songPath = "www.whatelse.com";
-        String artist = "sorte sarah";
-        songdao.createSong(id, title, genre, duration, songPath, artist);   
+//    int idCreateSong = 0;
+//        String title = "lilleper i brand";
+//        String genre = "rock";
+//        String duration = "300 seconds";
+//        String songPath = "www.whatelse.com";
+//        String artist = "sorte sarah";
+//        songdao.createSong(id, title, genre, duration, songPath, artist);   
     }
 
     @FXML

@@ -5,6 +5,7 @@
  */
 package mytunes.bll;
 
+import java.sql.SQLException;
 import java.util.List;
 import mytunes.be.Song;
 import mytunes.dal.SongDAO;
@@ -20,7 +21,7 @@ public class BLLManager {
         return songDAO.getAllSongs();
     }
 
-    public void remove(Song song) {
+    public void remove(Song song) throws SQLException {
         songDAO.remove(song);
     }
 }
