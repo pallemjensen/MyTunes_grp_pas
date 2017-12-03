@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.EditSongController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.EditSongController">
    <children>
-      <TextField layoutX="139.0" layoutY="66.0" prefHeight="25.0" prefWidth="273.0" />
-      <TextField layoutX="139.0" layoutY="117.0" prefHeight="25.0" prefWidth="273.0" />
-      <TextField layoutX="139.0" layoutY="219.0" />
+      <TextField fx:id="txtEditTitle" layoutX="139.0" layoutY="66.0" prefHeight="25.0" prefWidth="273.0" />
+      <TextField fx:id="txtEditArtist" layoutX="139.0" layoutY="117.0" prefHeight="25.0" prefWidth="273.0" />
+      <TextField fx:id="txtEditDuration" layoutX="139.0" layoutY="219.0" />
       <TextField layoutX="139.0" layoutY="265.0" prefHeight="25.0" prefWidth="223.0" />
       <Button layoutX="470.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="42.0" prefWidth="96.0" text="Save" />
       <Button layoutX="334.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="42.0" prefWidth="102.0" text="Cancel" />
@@ -41,11 +41,11 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="252.0" layoutY="14.0" prefHeight="25.0" prefWidth="96.0" text="New Song">
+      <Label layoutX="252.0" layoutY="14.0" prefHeight="25.0" prefWidth="96.0" text="Edit Song">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox layoutX="139.0" layoutY="167.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboEditGenre" layoutX="139.0" layoutY="167.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -7,14 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="mytunes.gui.NewSongController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.NewSongController">
    <children>
-      <TextField layoutX="162.0" layoutY="72.0" prefHeight="25.0" prefWidth="286.0" />
-      <TextField layoutX="162.0" layoutY="126.0" prefHeight="25.0" prefWidth="286.0" />
-      <TextField layoutX="162.0" layoutY="227.0" />
+      <TextField fx:id="txtNewSongTitle" layoutX="162.0" layoutY="72.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="txtNewSongArtist" layoutX="162.0" layoutY="126.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="txtNewSongDuration" layoutX="162.0" layoutY="227.0" />
       <TextField layoutX="162.0" layoutY="267.0" prefHeight="25.0" prefWidth="241.0" />
-      <Label layoutX="236.0" layoutY="13.0" prefHeight="25.0" prefWidth="113.0" text="Edit Song">
+      <Label layoutX="236.0" layoutY="13.0" prefHeight="25.0" prefWidth="113.0" text="New song">
          <font>
             <Font size="20.0" />
          </font>
@@ -47,6 +46,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox layoutX="162.0" layoutY="173.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboNewSongGenre" layoutX="162.0" layoutY="173.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

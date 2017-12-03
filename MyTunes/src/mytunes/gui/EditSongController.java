@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -23,6 +25,14 @@ import javafx.stage.Stage;
 public class EditSongController implements Initializable {
 
     private Stage stage;
+    @FXML
+    private TextField txtEditTitle;
+    @FXML
+    private TextField txtEditArtist;
+    @FXML
+    private TextField txtEditDuration;
+    @FXML
+    private ComboBox<?> comboEditGenre;
     
     /**
      * Initializes the controller class.

@@ -13,6 +13,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -25,6 +27,14 @@ public class NewSongController implements Initializable {
 
     private Stage stage;
     private String audioFile;
+    @FXML
+    private TextField txtNewSongTitle;
+    @FXML
+    private TextField txtNewSongArtist;
+    @FXML
+    private TextField txtNewSongDuration;
+    @FXML
+    private ComboBox<?> comboNewSongGenre;
     
     /**
      * Initializes the controller class.
