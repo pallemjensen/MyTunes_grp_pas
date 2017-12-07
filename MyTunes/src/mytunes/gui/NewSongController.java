@@ -18,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mytunes.bll.Mediaplayer;
 import mytunes.dal.SongDAO;
 
 /**
@@ -27,6 +28,7 @@ import mytunes.dal.SongDAO;
  */
 public class NewSongController implements Initializable {
     private final SongDAO songdao = new SongDAO();
+    Mediaplayer mediaplayer;
 
     private Stage stage;
     private String audioFile;
@@ -40,6 +42,7 @@ public class NewSongController implements Initializable {
     private TextField txtNewSongPath;
     @FXML
     private TextField txtNewSongGenre;
+    String newSongPath = null;
     
     /**
      * Initializes the controller class.
@@ -50,31 +53,40 @@ public class NewSongController implements Initializable {
     }    
 
     @FXML
-    private void btnSave(ActionEvent event) throws SQLException {
-        int id = 0;
-        String title = txtNewSongTitle.getText();
-        String genre = txtNewSongGenre.getText();
-        String duration = txtNewSongDuration.getText();
-        String songPath = txtNewSongPath.getText();
-        String artist = txtNewSongArtist.getText();
-        songdao.createSong(id, title, genre, duration, songPath, artist); 
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    }
-
-    @FXML
     private void btnCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     @FXML
     private void btnChoose(ActionEvent event) throws MalformedURLException {
-        String newSongPath = null;
+        int duration;
         FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().clear();
             FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
             FileChooser.ExtensionFilter filterWav = new FileChooser.ExtensionFilter("select your media(*.wav)", "*.wav");
             chooser.getExtensionFilters().add(filterMp3);
             chooser.getExtensionFilters().add(filterWav);
             File file = chooser.showOpenDialog(this.stage);
+            newSongPath = file.getAbsolutePath();
+            duration = mediaplayer.getDuration(file);
+            txtNewSongPath.setText(newSongPath);
+           
+    }
+    
+    
+    @FXML
+    private void btnSave(ActionEvent event) throws SQLException {
+        int id = 0;
+        String title = txtNewSongTitle.getText();
+        String genre = txtNewSongGenre.getText();
+        String duration = txtNewSongDuration.getText();
+        String artist = txtNewSongArtist.getText();
+        songdao.createSong(id, title, genre, duration, newSongPath, artist); 
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    }
+    
+}
+
 //            if ( file !=null){
 //                this.audioFile = file.toURI().toURL().toString();
 //                EditFileLoaction.setText(audioFile);
@@ -82,6 +94,3 @@ public class NewSongController implements Initializable {
 //                EditFileLoaction.setText("Invalid Filename");
 //                this.audioFile = null;
 //            }
-    }
-    
-}
