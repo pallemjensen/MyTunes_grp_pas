@@ -93,7 +93,6 @@ public class NewSongController implements Initializable {
             txtNewSongTitle.setText(songTitle);
             txtNewSongGenre.setText(songGenre);
             newSongPath = file.getAbsolutePath();
-//            duration = mediaplayer.getDuration(file);
             txtNewSongPath.setText(newSongPath);
              
 
