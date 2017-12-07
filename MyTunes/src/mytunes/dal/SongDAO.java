@@ -31,7 +31,7 @@ public class SongDAO {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
             ResultSet rs
-                    = stmt.executeQuery("SELECT * FROM MytunesSongs");
+                    = stmt.executeQuery("SELECT * FROM MytunesSongs2");
             while (rs.next()) {
                 Song currentSong = new Song();
                 currentSong.setId(rs.getInt("song_id"));
@@ -53,7 +53,7 @@ public class SongDAO {
     public void remove(Song song) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
-            stmt.execute("DELETE FROM MytunesSongs WHERE song_id="+song.getId());
+            stmt.execute("DELETE FROM MytunesSongs2 WHERE song_id="+song.getId());
         }       
     }
     
@@ -62,7 +62,7 @@ public class SongDAO {
         
         try (Connection con = cm.getConnection())
         {
-            String sql = "INSERT INTO MyTunesSongs VALUES (?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO MyTunesSongs2 VALUES (?, ?, ?, ?, ?);";
 
             PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             

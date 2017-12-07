@@ -68,6 +68,7 @@ public class NewSongController implements Initializable {
 
     @FXML
     private void btnChoose(ActionEvent event) throws MalformedURLException {
+        String newSongPath = null;
         FileChooser chooser = new FileChooser();
             FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
             FileChooser.ExtensionFilter filterWav = new FileChooser.ExtensionFilter("select your media(*.wav)", "*.wav");
