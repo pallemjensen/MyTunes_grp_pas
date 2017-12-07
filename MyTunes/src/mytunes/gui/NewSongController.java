@@ -20,6 +20,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import mytunes.bll.Mediaplayer;
 import mytunes.dal.SongDAO;
+import org.jaudiotagger.audio.AudioFile;
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.mp3.MP3File;
+import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.id3.ID3v1Tag;
 
 /**
  * FXML Controller class
@@ -59,6 +64,9 @@ public class NewSongController implements Initializable {
 
     @FXML
     private void btnChoose(ActionEvent event) throws MalformedURLException {
+        String songTitle = null;
+        String songArtist = null;
+        String songGenre = null;
         int duration;
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().clear();
@@ -67,9 +75,32 @@ public class NewSongController implements Initializable {
             chooser.getExtensionFilters().add(filterMp3);
             chooser.getExtensionFilters().add(filterWav);
             File file = chooser.showOpenDialog(this.stage);
+            
+            try {
+            AudioFile audioFile = AudioFileIO.read(file);
+            
+            MP3File mp3file = new MP3File(file);
+            Tag tag = mp3file.getTag();
+            ID3v1Tag v1Tag = (ID3v1Tag) tag;
+
+            duration = audioFile.getAudioHeader().getTrackLength();
+            songTitle = v1Tag.getFirstTitle();
+            songArtist = v1Tag.getFirstArtist();
+            songGenre = v1Tag.getFirstGenre();
+
+            txtNewSongDuration.setText(Integer.toString(duration));
+            txtNewSongArtist.setText(songArtist);
+            txtNewSongTitle.setText(songTitle);
+            txtNewSongGenre.setText(songGenre);
             newSongPath = file.getAbsolutePath();
-            duration = mediaplayer.getDuration(file);
+//            duration = mediaplayer.getDuration(file);
             txtNewSongPath.setText(newSongPath);
+             
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+           
            
     }
     
