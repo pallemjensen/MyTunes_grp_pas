@@ -18,7 +18,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import mytunes.bll.Mediaplayer;
 import mytunes.dal.SongDAO;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -33,7 +32,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  */
 public class NewSongController implements Initializable {
     private final SongDAO songdao = new SongDAO();
-    Mediaplayer mediaplayer;
+    
 
     private Stage stage;
     private String audioFile;
