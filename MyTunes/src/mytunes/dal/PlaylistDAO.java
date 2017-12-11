@@ -36,7 +36,6 @@ public class PlaylistDAO {
                 Playlist currentPlaylist = new Playlist();
                 currentPlaylist.setId(rs.getInt("playlist_id"));
                 currentPlaylist.setName(rs.getString("playlist_name"));
-               
                 playlists.add(currentPlaylist);
             }
         }
@@ -48,7 +47,17 @@ public class PlaylistDAO {
     
     public Playlist createPlaylist(String name, int song1, int song2, int song3, int song4, int song5, int song6, int song7, int song8, int song9, int song10) throws SQLServerException, SQLException 
     {   
-        
+        name = "palleTest";
+        song1 = 1;
+        song2 = 2;
+        song3 = 3;
+        song4 = 4;
+        song5 = 5;
+        song6 = 6;
+        song7 = 7;
+        song8 = 8;
+        song9 = 9;
+        song10 = 10;
         try (Connection con = cm.getConnection())
         {
             String sql = "INSERT INTO playlist VALUES (?,?,?,?,?,?,?,?,?,?,?);";
