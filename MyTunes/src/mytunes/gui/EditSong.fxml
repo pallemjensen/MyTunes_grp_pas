@@ -10,11 +10,8 @@
    <children>
       <TextField fx:id="txtEditTitle" layoutX="139.0" layoutY="66.0" prefHeight="25.0" prefWidth="273.0" />
       <TextField fx:id="txtEditArtist" layoutX="139.0" layoutY="117.0" prefHeight="25.0" prefWidth="273.0" />
-      <TextField fx:id="txtEditDuration" layoutX="139.0" layoutY="219.0" />
-      <TextField layoutX="139.0" layoutY="265.0" prefHeight="25.0" prefWidth="223.0" />
-      <Button layoutX="470.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="42.0" prefWidth="96.0" text="Save" />
-      <Button layoutX="334.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="42.0" prefWidth="102.0" text="Cancel" />
-      <Button layoutX="394.0" layoutY="265.0" mnemonicParsing="false" onAction="#btnChoose" prefHeight="25.0" prefWidth="83.0" text="Choose..." />
+      <Button layoutX="316.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="42.0" prefWidth="96.0" text="Save" />
+      <Button layoutX="139.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="42.0" prefWidth="102.0" text="Cancel" />
       <Label layoutX="87.0" layoutY="63.0" prefHeight="30.0" prefWidth="52.0" text="Title:">
          <font>
             <Font size="20.0" />
@@ -26,16 +23,6 @@
          </font>
       </Label>
       <Label layoutX="66.0" layoutY="164.0" prefHeight="30.0" prefWidth="66.0" text="Genre:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="43.0" layoutY="216.0" prefHeight="30.0" prefWidth="89.0" text="Duration:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="87.0" layoutY="262.0" prefHeight="30.0" prefWidth="43.0" text="File:">
          <font>
             <Font size="20.0" />
          </font>

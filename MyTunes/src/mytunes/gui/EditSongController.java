@@ -29,8 +29,6 @@ public class EditSongController implements Initializable {
     @FXML
     private TextField txtEditArtist;
     @FXML
-    private TextField txtEditDuration;
-    @FXML
     private TextField txtEditSongGenre;
     
     /**
@@ -52,7 +50,6 @@ public class EditSongController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
-    @FXML
     private void btnChoose(ActionEvent event) {
         FileChooser chooser = new FileChooser();
             FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
