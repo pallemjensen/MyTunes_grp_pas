@@ -27,6 +27,12 @@ public class Playlist {
     private int song8;
     private int song9;
     private int song10;
+    
+//    public Playlist(int id, String name) {
+//        this.songs = new ArrayList<>();
+//        this.id = id;
+//        this.name = name;
+//    }
 
     public Playlist() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -57,11 +63,7 @@ public class Playlist {
         this.songs = songs;
     }
 
-    public Playlist(int id, String name) {
-        this.songs = new ArrayList<>();
-        this.id = id;
-        this.name = name;
-    }
+    
     
     /**
      * Get the value of name

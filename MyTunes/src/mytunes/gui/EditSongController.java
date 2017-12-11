@@ -32,7 +32,7 @@ public class EditSongController implements Initializable {
     @FXML
     private TextField txtEditDuration;
     @FXML
-    private ComboBox<?> comboEditGenre;
+    private TextField txtEditSongGenre;
     
     /**
      * Initializes the controller class.
