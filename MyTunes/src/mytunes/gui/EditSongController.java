@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -61,13 +60,6 @@ public class EditSongController implements Initializable {
             chooser.getExtensionFilters().add(filterMp3);
             chooser.getExtensionFilters().add(filterWav);
             File file = chooser.showOpenDialog(this.stage);
-//            if ( file !=null){
-//                this.audioFile = file.toURI().toURL().toString();
-//                EditFileLoaction.setText(audioFile);
-//            }else{
-//                EditFileLoaction.setText("Invalid Filename");
-//                this.audioFile = null;
-//            }
     }
     
 }
