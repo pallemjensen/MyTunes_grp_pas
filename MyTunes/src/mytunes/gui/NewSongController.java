@@ -75,6 +75,8 @@ public class NewSongController implements Initializable {
             chooser.getExtensionFilters().add(filterMp3);
             chooser.getExtensionFilters().add(filterWav);
             File file = chooser.showOpenDialog(this.stage);
+            newSongPath = file.getAbsolutePath();
+            txtNewSongPath.setText(newSongPath);
             
             try {
             AudioFile audioFile = AudioFileIO.read(file);
@@ -92,8 +94,7 @@ public class NewSongController implements Initializable {
             txtNewSongArtist.setText(songArtist);
             txtNewSongTitle.setText(songTitle);
             txtNewSongGenre.setText(songGenre);
-            newSongPath = file.getAbsolutePath();
-            txtNewSongPath.setText(newSongPath);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }     
