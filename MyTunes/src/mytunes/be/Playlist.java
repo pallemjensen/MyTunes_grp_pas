@@ -13,13 +13,27 @@ import java.util.List;
  * @author pmj
  */
 public class Playlist {
-    
+    private int id;
     private String name;
     private List<Song> songs;
     private double totalDuration;
 
     public Playlist() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
+
+    public Playlist(int id, String name) {
         this.songs = new ArrayList<>();
+        this.id = id;
+        this.name = name;
     }
     
     /**
@@ -40,6 +54,22 @@ public class Playlist {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getTotalDuration() {
+        return totalDuration;
+    }
+
+    public void setTotalDuration(double totalDuration) {
+        this.totalDuration = totalDuration;
+    }
+    
     
     
     

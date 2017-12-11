@@ -12,7 +12,6 @@ import mytunes.gui.MyTunesController;
  * @author pmj
  */
 public class Song {
-    private final mytunes.gui.MyTunesController mytunescontroller = new MyTunesController();
     private int id;
     private String title;
     private String genre;
