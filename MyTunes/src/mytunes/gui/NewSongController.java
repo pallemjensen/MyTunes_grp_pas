@@ -18,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mytunes.bll.BLLManager;
 import mytunes.dal.SongDAO;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -32,7 +33,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  */
 public class NewSongController implements Initializable {
     private final SongDAO songdao = new SongDAO();
-    
+    private final BLLManager bllmanager = new BLLManager();
 
     private Stage stage;
     private String audioFile;
@@ -93,13 +94,9 @@ public class NewSongController implements Initializable {
             txtNewSongGenre.setText(songGenre);
             newSongPath = file.getAbsolutePath();
             txtNewSongPath.setText(newSongPath);
-             
-
         } catch (Exception e) {
             e.printStackTrace();
-        }
-           
-           
+        }     
     }
     
     
@@ -110,16 +107,8 @@ public class NewSongController implements Initializable {
         String genre = txtNewSongGenre.getText();
         String duration = txtNewSongDuration.getText();
         String artist = txtNewSongArtist.getText();
-        songdao.createSong(id, title, genre, duration, newSongPath, artist); 
+        bllmanager.createSong(id, title, genre, duration, newSongPath, artist); 
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    }
-    
+    }  
 }
 
-//            if ( file !=null){
-//                this.audioFile = file.toURI().toURL().toString();
-//                EditFileLoaction.setText(audioFile);
-//            }else{
-//                EditFileLoaction.setText("Invalid Filename");
-//                this.audioFile = null;
-//            }

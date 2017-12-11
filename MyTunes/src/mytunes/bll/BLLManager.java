@@ -15,6 +15,7 @@ import mytunes.dal.SongDAO;
  * @author pmj
  */
 public class BLLManager {
+
     private final SongDAO songDAO = new SongDAO();
     
     public List<Song> getAllSongs() {
@@ -23,5 +24,9 @@ public class BLLManager {
 
     public void remove(Song song) throws SQLException {
         songDAO.remove(song);
+    }
+    
+    public void createSong(int id, String title, String genre, String duration, String songPath, String artist) throws SQLException{
+        songDAO.createSong(id, title, genre, duration, songPath, artist);
     }
 }
