@@ -65,7 +65,6 @@ public class SongDAO {
 
             PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
-            
             statement.setString(1, title);
             statement.setString(2, artist);
             statement.setString(3, duration);
