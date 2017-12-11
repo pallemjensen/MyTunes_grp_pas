@@ -37,5 +37,11 @@ public class MyTunesModel {
         songs.remove(selectedSongs);
         bllManager.remove(selectedSongs);
     }
+    
+    public void addNewSong(String title, String genre, String duration, String newSongPath, String artist) throws SQLException{
+        Song newSong =
+        bllManager.createSong(title, genre, duration, newSongPath, artist);
+        songs.add(newSong);
+    }
 
 }

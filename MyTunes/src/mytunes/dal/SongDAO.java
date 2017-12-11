@@ -56,7 +56,7 @@ public class SongDAO {
         }       
     }
     
-    public Song createSong(int id, String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
+    public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
     {   
         
         try (Connection con = cm.getConnection())
@@ -76,7 +76,7 @@ public class SongDAO {
             {
                 ResultSet rs = statement.getGeneratedKeys();
                 rs.next();
-                id = rs.getInt(1);
+                int id = rs.getInt(1);
                 Song newSong = new Song(id, title, artist, duration, genre, songPath);
                 return newSong;
             }

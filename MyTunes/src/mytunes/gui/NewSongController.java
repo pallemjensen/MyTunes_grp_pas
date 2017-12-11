@@ -34,6 +34,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
 public class NewSongController implements Initializable {
     private final SongDAO songdao = new SongDAO();
     private final BLLManager bllmanager = new BLLManager();
+    private final MyTunesModel model = new MyTunesModel();
 
     private Stage stage;
     private String audioFile;
@@ -77,6 +78,8 @@ public class NewSongController implements Initializable {
             File file = chooser.showOpenDialog(this.stage);
             newSongPath = file.getAbsolutePath();
             txtNewSongPath.setText(newSongPath);
+            txtNewSongArtist.setText(file.getName());
+            txtNewSongTitle.setText(file.getName());
             
             try {
             AudioFile audioFile = AudioFileIO.read(file);
@@ -103,12 +106,11 @@ public class NewSongController implements Initializable {
     
     @FXML
     private void btnSave(ActionEvent event) throws SQLException {
-        int id = 0;
         String title = txtNewSongTitle.getText();
         String genre = txtNewSongGenre.getText();
         String duration = txtNewSongDuration.getText();
         String artist = txtNewSongArtist.getText();
-        bllmanager.createSong(id, title, genre, duration, newSongPath, artist); 
+        model.addNewSong(title, genre, duration, newSongPath, artist); 
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }  
 }

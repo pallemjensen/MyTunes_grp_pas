@@ -26,7 +26,8 @@ public class BLLManager {
         songDAO.remove(song);
     }
     
-    public void createSong(int id, String title, String genre, String duration, String songPath, String artist) throws SQLException{
-        songDAO.createSong(id, title, genre, duration, songPath, artist);
+    public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLException{
+        Song newSong = songDAO.createSong(title, genre, duration, songPath, artist);
+        return newSong;
     }
 }
