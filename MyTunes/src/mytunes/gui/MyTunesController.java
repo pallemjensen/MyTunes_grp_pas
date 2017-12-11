@@ -5,6 +5,7 @@
  */
 package mytunes.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -21,6 +22,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
@@ -37,7 +40,7 @@ public class MyTunesController implements Initializable {
     private final MyTunesModel myTunesModel = new MyTunesModel();
     private final SongDAO songdao = new SongDAO();
     private final BLLManager bllmanager = new BLLManager();
-    
+    private MediaPlayer player;
     
     @FXML
     private TableView<Song> TVSongs;  
@@ -129,11 +132,12 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnStop(ActionEvent event) {
+        player.stop();
     }
 
     @FXML
     private void btnPause(ActionEvent event) {
-  
+        player.pause();
     }
 
     @FXML
@@ -147,6 +151,11 @@ public class MyTunesController implements Initializable {
     
     @FXML
     private void btnPlaySong(ActionEvent event) {
+        Song selectedSong = 
+        TVSongs.getSelectionModel().getSelectedItem();
+        File file = new File(selectedSong.getSongPath());
+        player = new MediaPlayer(new Media(file.toURI().toString()));
+        player.play();
     }
 
     @FXML
