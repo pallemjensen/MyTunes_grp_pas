@@ -5,6 +5,7 @@
  */
 package mytunes.bll;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.SQLException;
 import java.util.List;
 import mytunes.be.Playlist;
@@ -37,5 +38,20 @@ public class BLLManager {
         Song newSong = songDAO.createSong(title, genre, duration, songPath, artist);
         return newSong;
     }
+
+    public PlaylistDAO getPlaylistDAO() {
+        return playlistDAO;
+    }
+
+    public SongDAO getSongDAO() {
+        return songDAO;
+    }
+
+    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
+        songDAO.editSong(i, title, artist, genre);
+    }
+
+    
+    
 
 }

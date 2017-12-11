@@ -191,5 +191,16 @@ public class MyTunesController implements Initializable {
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
+    
+    
+    public void editSong() throws SQLException{
+      
+    }
+    
+    public int returnSelectedSongId(){
+    int selectedSongId = 
+    TVSongs.getSelectionModel().getSelectedItem().getId(); 
+    return selectedSongId;
+    }
 }
 

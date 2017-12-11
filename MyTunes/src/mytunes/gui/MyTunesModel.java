@@ -5,6 +5,7 @@
  */
 package mytunes.gui;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -17,8 +18,8 @@ import mytunes.bll.BLLManager;
  *
  * @author Anders
  */
-public class MyTunesModel {
-
+public class MyTunesModel {   
+    
     private final ObservableList<Song> songs
             = FXCollections.observableArrayList();
     private final ObservableList<Playlist> playlists
@@ -54,6 +55,10 @@ public class MyTunesModel {
         Song newSong =
         bllManager.createSong(title, genre, duration, newSongPath, artist);
         songs.add(newSong);
+    }
+
+    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
+        bllManager.editSong(i, title, artist, genre);
     }
 
 }

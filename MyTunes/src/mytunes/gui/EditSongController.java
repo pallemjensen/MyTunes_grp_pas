@@ -7,6 +7,7 @@ package mytunes.gui;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mytunes.bll.BLLManager;
+import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -22,6 +25,10 @@ import javafx.stage.Stage;
  * @author Anders
  */
 public class EditSongController implements Initializable {
+    MyTunesController myTunesController = new MyTunesController();
+    private final SongDAO songdao = new SongDAO();
+    private final BLLManager bllmanager = new BLLManager();
+    private final MyTunesModel myTunesModel = new MyTunesModel();
 
     private Stage stage;
     @FXML
@@ -37,18 +44,19 @@ public class EditSongController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-
-    private void btnCancel(ActionEvent event) {
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }   
+    }      
 
     @FXML
-    private void btnEditSongSave(ActionEvent event) {
+    public void btnEditSongSave(ActionEvent event) throws SQLException {
+      int i = myTunesController.returnSelectedSongId();
+      String artist = txtEditSongArtist.getText();
+      String title = txtEditSongTitle.getText();
+      String genre = txtEditSongGenre.getText();
+      myTunesModel.editSong(i, artist, title, genre);
     }
 
     @FXML
     private void btnEditSongCancel(ActionEvent event) {
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 }
