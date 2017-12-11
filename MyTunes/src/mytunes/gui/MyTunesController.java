@@ -47,7 +47,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private TextField txtFilter;
     @FXML
-    private TableView<?> TVPlaylists;
+    private TableView<Playlist> TVPlaylists;
     @FXML
     private Label lblNowPlaying;
     @FXML
@@ -82,7 +82,11 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
-
+        
+        PlaylistsNameColumn.setCellValueFactory(
+                new PropertyValueFactory("name"));
+        
+        TVPlaylists.setItems(myTunesModel.getPlaylists());
         TVSongs.setItems(myTunesModel.getSongs());
         
     }  
@@ -181,6 +185,11 @@ public class MyTunesController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @FXML
+    private void btnLoadPlaylists(ActionEvent event) {
+        myTunesModel.loadPlaylists();
     }
 }
 

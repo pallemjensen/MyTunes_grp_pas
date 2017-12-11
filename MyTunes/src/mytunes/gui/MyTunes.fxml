@@ -56,7 +56,7 @@
       <Button layoutX="125.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPause" text="Pause" />
       <Label layoutX="423.0" layoutY="585.0" prefHeight="17.0" prefWidth="163.0" text="ps. move song up or down" />
       <Button layoutX="590.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnLoadSongs" prefHeight="25.0" prefWidth="92.0" text="Load songs" />
-      <Button layoutX="236.0" layoutY="76.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Load playlists" />
+      <Button layoutX="236.0" layoutY="76.0" mnemonicParsing="false" onAction="#btnLoadPlaylists" prefHeight="25.0" prefWidth="92.0" text="Load playlists" />
       <Label layoutX="343.0" layoutY="31.0" prefHeight="17.0" prefWidth="84.0" text="Now playing:" />
       <Label fx:id="lblNowPlaying" layoutX="427.0" layoutY="27.0" prefHeight="25.0" prefWidth="322.0" />
    </children>
