@@ -25,11 +25,11 @@ public class EditSongController implements Initializable {
 
     private Stage stage;
     @FXML
-    private TextField txtEditTitle;
-    @FXML
-    private TextField txtEditArtist;
-    @FXML
     private TextField txtEditSongGenre;
+    @FXML
+    private TextField txtEditSongTitle;
+    @FXML
+    private TextField txtEditSongArtist;
     
     /**
      * Initializes the controller class.
@@ -39,24 +39,16 @@ public class EditSongController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void btnSave(ActionEvent event) {
-        //        todo
-    //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    }
 
-    @FXML
     private void btnCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+    }   
+
+    @FXML
+    private void btnEditSongSave(ActionEvent event) {
     }
 
-    private void btnChoose(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-            FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
-            FileChooser.ExtensionFilter filterWav = new FileChooser.ExtensionFilter("select your media(*.wav)", "*.wav");
-            chooser.getExtensionFilters().add(filterMp3);
-            chooser.getExtensionFilters().add(filterWav);
-            File file = chooser.showOpenDialog(this.stage);
+    @FXML
+    private void btnEditSongCancel(ActionEvent event) {
     }
-    
 }
