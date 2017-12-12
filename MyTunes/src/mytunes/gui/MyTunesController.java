@@ -157,10 +157,7 @@ public class MyTunesController implements Initializable {
     
     @FXML
     private void btnPlaySong(ActionEvent event) {
-//        Song selectedSong = 
-//        TVSongs.getSelectionModel().getSelectedItem();
-//        File file = new File(songSelected.getSongPath());
-//        player = new MediaPlayer(new Media(file.toURI().toString()));
+        
         player.play();
     }
 
