@@ -32,7 +32,6 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  * @author Anders
  */
 public class NewSongController implements Initializable {
-    private final SongDAO songdao = new SongDAO();
     private final BLLManager bllmanager = new BLLManager();
     private final MyTunesModel model = new MyTunesModel();
 

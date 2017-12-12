@@ -23,6 +23,9 @@ import mytunes.be.Playlist;
  */
 public class PlaylistDAO {
     ConnectionManager cm = new ConnectionManager();
+
+    public PlaylistDAO() {
+    }
     
     public List<Playlist> getAllPlaylists() {
         List<Playlist> playlists = new ArrayList();

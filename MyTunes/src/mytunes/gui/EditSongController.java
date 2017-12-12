@@ -5,7 +5,6 @@
  */
 package mytunes.gui;
 
-import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -14,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import mytunes.bll.BLLManager;
-import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -26,8 +22,6 @@ import mytunes.dal.SongDAO;
  */
 public class EditSongController implements Initializable {
     MyTunesController myTunesController = new MyTunesController();
-    private final SongDAO songdao = new SongDAO();
-    private final BLLManager bllmanager = new BLLManager();
     private final MyTunesModel myTunesModel = new MyTunesModel();
 
     private Stage stage;

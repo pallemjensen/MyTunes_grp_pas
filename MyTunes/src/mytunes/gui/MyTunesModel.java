@@ -19,22 +19,18 @@ import mytunes.dal.PlaylistDAO;
  *
  * @author Anders
  */
-<<<<<<< HEAD
-public class MyTunesModel {
-    private BLLManager bllManager = new BLLManager();
-    private PlaylistDAO playlistDAO = new PlaylistDAO();
 
-    private ObservableList<Song> songs
-            = FXCollections.observableArrayList();
-=======
-public class MyTunesModel {   
-    
+public class MyTunesModel {
+    private final BLLManager bllManager = new BLLManager();
+    private final PlaylistDAO playlistDAO = new PlaylistDAO();
+
     private final ObservableList<Song> songs
             = FXCollections.observableArrayList();
+    
     private final ObservableList<Playlist> playlists
             = FXCollections.observableArrayList();
-    private final BLLManager bllManager = new BLLManager();
->>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
+   
+
     
     public ObservableList<Song> getSongs() {
         return songs;
@@ -55,19 +51,6 @@ public class MyTunesModel {
         songs.clear();
         songs.addAll(loadedSongs);
     }
-    
-    private ObservableList<Playlist> playlists
-            = FXCollections.observableArrayList();
-    
-    ObservableList<Playlist> getPlaylists() {
-        return playlists;
-    }
-    
-    public void loadPlaylists() {
-        List<Playlist> loadedPlaylists = playlistDAO.getAllPlaylists();
-        playlists.clear();
-        playlists.addAll(loadedPlaylists);
-    }
 
     public void remove(Song selectedSongs) throws SQLException {
         songs.remove(selectedSongs);
@@ -79,13 +62,7 @@ public class MyTunesModel {
         bllManager.createSong(title, genre, duration, newSongPath, artist);
         songs.add(newSong);
     }
-
-<<<<<<< HEAD
-    
-=======
     public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
         bllManager.editSong(i, title, artist, genre);
     }
->>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
-
 }

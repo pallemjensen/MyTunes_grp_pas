@@ -21,6 +21,9 @@ public class BLLManager {
 
     private final SongDAO songDAO = new SongDAO();
     private final PlaylistDAO playlistDAO = new PlaylistDAO();
+
+    public BLLManager() {
+    }
     
     public List<Song> getAllSongs() {
         return songDAO.getAllSongs();

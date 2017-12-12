@@ -38,7 +38,6 @@ import mytunes.dal.SongDAO;
 public class MyTunesController implements Initializable {
     
     private final MyTunesModel myTunesModel = new MyTunesModel();
-    private final SongDAO songdao = new SongDAO();
     private final BLLManager bllmanager = new BLLManager();
     private MediaPlayer player;
     
@@ -82,26 +81,14 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
-<<<<<<< HEAD
-=======
-        
-        PlaylistsNameColumn.setCellValueFactory(
-                new PropertyValueFactory("name"));
-        
-        TVPlaylists.setItems(myTunesModel.getPlaylists());
->>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
+
         TVSongs.setItems(myTunesModel.getSongs());
-<<<<<<< HEAD
-=======
-        
+
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
         PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
->>>>>>> 214f9e44abe90e37b0256c726984319d791d8751
     }  
-    
-    
 
     @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
@@ -200,15 +187,12 @@ public class MyTunesController implements Initializable {
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
-<<<<<<< HEAD
-=======
-    
-    
+
     public int returnSelectedSongId(){
     int selectedSongId;
     selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
     return selectedSongId;        
     }
->>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
+
 }
 
