@@ -9,7 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,14 +67,9 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
+    private final ObservableList<Song> filteredSongs
+            = FXCollections.observableArrayList();
     
-//    private int id;
-//    private int idCreateSong;
-    
-   
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SongsTitleColumn.setCellValueFactory(
@@ -172,6 +170,16 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnFilter(ActionEvent event) {
+        String filterString = txtFilter.getText().trim();
+        List<Song> loadedSongs = bllmanager.getAllSongs();
+        for (Song song : loadedSongs) {
+            if (song.getArtist().trim().contains(filterString) || (song.getTitle().trim().contains(filterString)))
+            {
+                filteredSongs.add(song);
+                TVSongs.setItems(filteredSongs);
+            }
+      
+        }
     }
 
     @FXML
@@ -192,18 +200,20 @@ public class MyTunesController implements Initializable {
         myTunesModel.loadPlaylists();
     }
 
-//    public int returnSelectedSongId(){
-//    int selectedSongId;
-//    selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
-//    return selectedSongId;        
-//    }
-
     @FXML
     private void actionMouseClicked(MouseEvent event) {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
     }
+
+    @FXML
+    private void btnClearFilter(ActionEvent event) {
+            txtFilter.clear();
+            TVSongs.getItems().clear();
+            TVSongs.setItems(myTunesModel.getSongs());
+    }
     
+         
 }
 
