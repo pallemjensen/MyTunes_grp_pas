@@ -23,6 +23,10 @@ import javafx.stage.Stage;
 public class EditSongController implements Initializable {
     
     int id;
+    String Artist;
+    String Genre;
+    String Title;
+    
     private final MyTunesModel myTunesModel = new MyTunesModel();
     
     @FXML
@@ -43,6 +47,7 @@ public class EditSongController implements Initializable {
     @FXML
     public void btnEditSongSave(ActionEvent event) throws SQLException {
       int i = id;
+      
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
@@ -57,4 +62,21 @@ public class EditSongController implements Initializable {
     public void setId(int id) {
         this.id = id;
     } 
+
+    public void setArtist(String Artist) {
+        this.Artist = Artist;
+    }
+
+    public void setGenre(String Genre) {
+        this.Genre = Genre;
+    }
+
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+    
+    
+    
+    
+    
 }
