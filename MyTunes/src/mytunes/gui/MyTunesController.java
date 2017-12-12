@@ -82,6 +82,14 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
+<<<<<<< HEAD
+=======
+        
+        PlaylistsNameColumn.setCellValueFactory(
+                new PropertyValueFactory("name"));
+        
+        TVPlaylists.setItems(myTunesModel.getPlaylists());
+>>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
         TVSongs.setItems(myTunesModel.getSongs());
         
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
@@ -189,5 +197,15 @@ public class MyTunesController implements Initializable {
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
+<<<<<<< HEAD
+=======
+    
+    
+    public int returnSelectedSongId(){
+    int selectedSongId;
+    selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
+    return selectedSongId;        
+    }
+>>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
 }
 

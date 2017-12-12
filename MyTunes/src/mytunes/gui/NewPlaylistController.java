@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import mytunes.dal.PlaylistDAO;
-import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -25,6 +24,7 @@ import mytunes.dal.SongDAO;
 public class NewPlaylistController implements Initializable {
     
     private final PlaylistDAO playlistDAO = new PlaylistDAO();
+    int song1, song2, song3, song4, song5, song6, song7, song8, song9, song10;
 
     @FXML
     private TextField txtNewPlaylistName;
@@ -44,12 +44,9 @@ public class NewPlaylistController implements Initializable {
 
     @FXML
     private void btnCreateNewPlaylist(ActionEvent event) throws SQLException {
-    int id = 0;
-        String name = txtNewPlaylistName.getText();
-        playlistDAO.createPlaylist(id,name); 
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+        String name = null;
+        name = txtNewPlaylistName.getText();
+        playlistDAO.createPlaylist(name, song1, song2, song3, song4, song5, song6, song7, song8, song9, song10);
+//        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
-        
-    
-    
 }

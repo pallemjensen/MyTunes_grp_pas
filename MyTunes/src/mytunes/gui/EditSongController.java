@@ -7,15 +7,17 @@ package mytunes.gui;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mytunes.bll.BLLManager;
+import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -23,16 +25,18 @@ import javafx.stage.Stage;
  * @author Anders
  */
 public class EditSongController implements Initializable {
+    MyTunesController myTunesController = new MyTunesController();
+    private final SongDAO songdao = new SongDAO();
+    private final BLLManager bllmanager = new BLLManager();
+    private final MyTunesModel myTunesModel = new MyTunesModel();
 
     private Stage stage;
     @FXML
-    private TextField txtEditTitle;
+    private TextField txtEditSongGenre;
     @FXML
-    private TextField txtEditArtist;
+    private TextField txtEditSongTitle;
     @FXML
-    private TextField txtEditDuration;
-    @FXML
-    private ComboBox<?> comboEditGenre;
+    private TextField txtEditSongArtist;
     
     /**
      * Initializes the controller class.
@@ -40,34 +44,20 @@ public class EditSongController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }      
 
     @FXML
-    private void btnSave(ActionEvent event) {
-        //        todo
-    //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    public void btnEditSongSave(ActionEvent event) throws SQLException {
+//      int i = myTunesController.returnSelectedSongId();
+      int i = 18;
+      String artist = txtEditSongArtist.getText();
+      String title = txtEditSongTitle.getText();
+      String genre = txtEditSongGenre.getText();
+      myTunesModel.editSong(i, artist, title, genre);
     }
 
     @FXML
-    private void btnCancel(ActionEvent event) {
+    private void btnEditSongCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
-
-    @FXML
-    private void btnChoose(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-            FileChooser.ExtensionFilter filterMp3 = new FileChooser.ExtensionFilter("select your media(*.mp3)", "*.mp3");
-            FileChooser.ExtensionFilter filterWav = new FileChooser.ExtensionFilter("select your media(*.wav)", "*.wav");
-            chooser.getExtensionFilters().add(filterMp3);
-            chooser.getExtensionFilters().add(filterWav);
-            File file = chooser.showOpenDialog(this.stage);
-//            if ( file !=null){
-//                this.audioFile = file.toURI().toURL().toString();
-//                EditFileLoaction.setText(audioFile);
-//            }else{
-//                EditFileLoaction.setText("Invalid Filename");
-//                this.audioFile = null;
-//            }
-    }
-    
 }

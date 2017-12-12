@@ -65,7 +65,6 @@ public class SongDAO {
 
             PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
-            
             statement.setString(1, title);
             statement.setString(2, artist);
             statement.setString(3, duration);
@@ -83,4 +82,17 @@ public class SongDAO {
             throw new RuntimeException("Can't create song");
         }
     }
+    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException{
+        String query = "UPDATE MyTunesSongs2 SET song_title = ?, artist_name = ?, song_genre = ? WHERE song_id = ?;";
+     try (Connection con = cm.getConnection())
+     {
+         PreparedStatement preparedStmt = con.prepareStatement(query);
+         preparedStmt.setString(1, title);
+         preparedStmt.setString(2, genre);
+         preparedStmt.setString(3, artist);
+         preparedStmt.setInt(4, i);
+         preparedStmt.executeUpdate();
+     }   
+    }
 }
+

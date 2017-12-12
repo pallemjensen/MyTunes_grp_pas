@@ -5,9 +5,12 @@
  */
 package mytunes.bll;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.SQLException;
 import java.util.List;
+import mytunes.be.Playlist;
 import mytunes.be.Song;
+import mytunes.dal.PlaylistDAO;
 import mytunes.dal.SongDAO;
 
 /**
@@ -17,9 +20,14 @@ import mytunes.dal.SongDAO;
 public class BLLManager {
 
     private final SongDAO songDAO = new SongDAO();
+    private final PlaylistDAO playlistDAO = new PlaylistDAO();
     
     public List<Song> getAllSongs() {
         return songDAO.getAllSongs();
+    }
+    
+    public List<Playlist> getAllPlaylists() {
+        return playlistDAO.getAllPlaylists();
     }
 
     public void remove(Song song) throws SQLException {
@@ -30,4 +38,20 @@ public class BLLManager {
         Song newSong = songDAO.createSong(title, genre, duration, songPath, artist);
         return newSong;
     }
+
+    public PlaylistDAO getPlaylistDAO() {
+        return playlistDAO;
+    }
+
+    public SongDAO getSongDAO() {
+        return songDAO;
+    }
+
+    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
+        songDAO.editSong(i, title, artist, genre);
+    }
+
+    
+    
+
 }
