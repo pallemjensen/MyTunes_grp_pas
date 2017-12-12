@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,10 +67,6 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
-    @FXML
-    private final ObservableList<Song> songs
-            = FXCollections.observableArrayList();
-    @FXML
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     
@@ -174,13 +171,14 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnFilter(ActionEvent event) {
         String filterString = txtFilter.getText().trim();
-        for (Song song : songs) {
+        List<Song> loadedSongs = bllmanager.getAllSongs();
+        for (Song song : loadedSongs) {
             if (song.getArtist().trim().contains(filterString) || (song.getTitle().trim().contains(filterString)))
             {
                 filteredSongs.add(song);
-                TVSongs.getItems().clear();
                 TVSongs.setItems(filteredSongs);
             }
+      
         }
     }
 
@@ -207,6 +205,13 @@ public class MyTunesController implements Initializable {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
+    }
+
+    @FXML
+    private void btnClearFilter(ActionEvent event) {
+            txtFilter.clear();
+            TVSongs.getItems().clear();
+            TVSongs.setItems(myTunesModel.getSongs());
     }
     
          
