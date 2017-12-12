@@ -12,9 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import mytunes.be.Song;
 
 /**
@@ -94,5 +97,44 @@ public class SongDAO {
          preparedStmt.executeUpdate();
      }   
     }
+    
+ 
+    public void filterSongs(String oldVal, String newVal) {
+       
+    // If the number of characters in the text box is less than last time
+    // it must be because the user pressed delete
+    if ( oldVal != null && (newVal.length() < oldVal.length()) ) {
+        // Restore the lists original set of entries 
+        // and start from the beginning
+        list.setItems( entries );
+    }
+     
+    // Break out all of the parts of the search text 
+    // by splitting on white space
+    String[] parts = newVal.toUpperCase().split(" ");
+ 
+    // Filter out the entries that don't contain the entered text
+    ObservableList<String> subentries = FXCollections.observableArrayList();
+    for ( Object entry: list.getItems() ) {
+        boolean match = true;
+        String entryText = (String)entry;
+        for ( String part: parts ) {
+            // The entry needs to contain all portions of the
+            // search string *but* in any order
+            if ( ! entryText.toUpperCase().contains(part) ) {
+                match = false;
+                break;
+            }
+        }
+ 
+        if ( match ) {
+            subentries.add(entryText);
+        }
+    }
+    list.setItems(subentries);
+}
+    
+            
+            
 }
 
