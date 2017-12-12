@@ -193,14 +193,10 @@ public class MyTunesController implements Initializable {
     }
     
     
-    public void editSong() throws SQLException{
-      
-    }
-    
     public int returnSelectedSongId(){
-    int selectedSongId = 
-    TVSongs.getSelectionModel().getSelectedItem().getId(); 
-    return selectedSongId;
+    int selectedSongId;
+    selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
+    return selectedSongId;        
     }
 }
 

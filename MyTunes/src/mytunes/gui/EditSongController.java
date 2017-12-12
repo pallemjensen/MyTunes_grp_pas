@@ -48,7 +48,8 @@ public class EditSongController implements Initializable {
 
     @FXML
     public void btnEditSongSave(ActionEvent event) throws SQLException {
-      int i = myTunesController.returnSelectedSongId();
+//      int i = myTunesController.returnSelectedSongId();
+      int i = 18;
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
