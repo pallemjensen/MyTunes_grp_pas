@@ -82,12 +82,23 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
+<<<<<<< HEAD
+=======
         
         PlaylistsNameColumn.setCellValueFactory(
                 new PropertyValueFactory("name"));
         
         TVPlaylists.setItems(myTunesModel.getPlaylists());
+>>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
         TVSongs.setItems(myTunesModel.getSongs());
+<<<<<<< HEAD
+=======
+        
+        PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
+        PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
+        PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
+        TVPlaylists.setItems(myTunesModel.getPlaylists());
+>>>>>>> 214f9e44abe90e37b0256c726984319d791d8751
     }  
     
     
@@ -130,7 +141,6 @@ public class MyTunesController implements Initializable {
         Song selectedSong = 
         TVSongs.getSelectionModel().getSelectedItem();
         myTunesModel.remove(selectedSong);
-
     }
 
     @FXML
@@ -190,6 +200,8 @@ public class MyTunesController implements Initializable {
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
+<<<<<<< HEAD
+=======
     
     
     public int returnSelectedSongId(){
@@ -197,5 +209,6 @@ public class MyTunesController implements Initializable {
     selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
     return selectedSongId;        
     }
+>>>>>>> 5d0292e6a99c4d749ee4008b5411ae0128cd292d
 }
 
