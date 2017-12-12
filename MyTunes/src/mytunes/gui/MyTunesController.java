@@ -133,10 +133,19 @@ public class MyTunesController implements Initializable {
     
   
     @FXML
-    private void btnDeleteSong(ActionEvent event) throws SQLException {
-        Song selectedSong = 
-        TVSongs.getSelectionModel().getSelectedItem();
-        myTunesModel.remove(selectedSong);
+    private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
+         Song selectedSong = 
+            TVSongs.getSelectionModel().getSelectedItem();
+         if(selectedSong != null){
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        DeleteSongConfirmationController dscc = fxmlLoader1.getController();
+        dscc.setUp(myTunesModel,selectedSong);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+        }
     }
 
     @FXML
@@ -155,10 +164,14 @@ public class MyTunesController implements Initializable {
     } 
     
      @FXML
-    private void btnDeletePlaylist(ActionEvent event) throws SQLException {
+    private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
         Playlist selectedPlaylist = 
         TVPlaylists.getSelectionModel().getSelectedItem();
-        myTunesModel.remove(selectedPlaylist);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
     
     @FXML
@@ -192,12 +205,15 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
+        
     }
 
     @FXML
     private void btnNewSong(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewSong.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
+        NewSongController nsc = fxmlLoader1.getController();
+        nsc.setUp(myTunesModel);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
