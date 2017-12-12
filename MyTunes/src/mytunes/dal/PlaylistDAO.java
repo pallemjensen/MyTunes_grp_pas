@@ -47,32 +47,22 @@ public class PlaylistDAO {
         return playlists;
     }
     
-    public Playlist createPlaylist(String name, int song1, int song2, int song3, int song4, int song5, int song6, int song7, int song8, int song9, int song10) throws SQLServerException, SQLException 
+    public Playlist createPlaylist(String name) throws SQLServerException, SQLException 
     {   
         try (Connection con = cm.getConnection())
         {
-            String sql = "INSERT INTO playlist VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO playlist(playlist_name) VALUES (?);";
 
             PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             statement.setString(1, name);
-            statement.setInt(2, song1);
-            statement.setInt(3, song2);
-            statement.setInt(4, song3);
-            statement.setInt(5, song4);
-            statement.setInt(6, song5);
-            statement.setInt(7, song6);
-            statement.setInt(8, song7);
-            statement.setInt(9, song8);
-            statement.setInt(10, song9);
-            statement.setInt(11, song10);
 
             if (statement.executeUpdate() == 1)
             {
                 ResultSet rs = statement.getGeneratedKeys();
                 rs.next();
                 int id = rs.getInt(1);
-                Playlist newPlaylist = new Playlist(id, name, song1, song2, song3, song4, song5, song6, song7, song8, song9, song10);
+                Playlist newPlaylist = new Playlist(id, name);
                 return newPlaylist; 
                 
             }

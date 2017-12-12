@@ -46,7 +46,7 @@ public class NewPlaylistController implements Initializable {
     private void btnCreateNewPlaylist(ActionEvent event) throws SQLException {
         String name = null;
         name = txtNewPlaylistName.getText();
-        playlistDAO.createPlaylist(name, song1, song2, song3, song4, song5, song6, song7, song8, song9, song10);
-//        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
+        playlistDAO.createPlaylist(name);
+       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
 }
