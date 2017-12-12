@@ -86,4 +86,14 @@ public class PlaylistDAO {
             stmt.execute("DELETE FROM playlist WHERE playlist_id="+playlist.getId());
         }       
     }
+    public void editPlaylist(String name, int i ) throws SQLServerException, SQLException{
+        String query = "UPDATE playlist SET playlist_name = ? WHERE playlist_id = ?;";
+     try (Connection con = cm.getConnection())
+     {
+         PreparedStatement preparedStmt = con.prepareStatement(query);
+         preparedStmt.setString(1, name);
+         preparedStmt.setInt(2, i);
+         preparedStmt.executeUpdate();
+     }   
+    }     
 }

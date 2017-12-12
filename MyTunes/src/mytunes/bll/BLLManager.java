@@ -57,6 +57,10 @@ public class BLLManager {
     public void remove(Playlist playlist) throws SQLServerException, SQLException {
         playlistDAO.remove(playlist);
     }
+
+    public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
+        playlistDAO.editPlaylist(name, i);
+    }
     
     
 

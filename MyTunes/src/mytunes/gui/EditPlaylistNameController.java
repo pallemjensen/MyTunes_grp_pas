@@ -6,6 +6,7 @@
 package mytunes.gui;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,9 @@ import javafx.stage.Stage;
  * @author pmj
  */
 public class EditPlaylistNameController implements Initializable {
+    
+    private final MyTunesModel myTunesModel = new MyTunesModel();
+    
      String name;
      int id;
 
@@ -40,9 +44,11 @@ public class EditPlaylistNameController implements Initializable {
     }
 
     @FXML
-    private void btnSaveEditPlaylistName(ActionEvent event) {
-        //        todo
-    //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    private void btnSaveEditPlaylistName(ActionEvent event) throws SQLException {
+    int i = id;
+    String name2 = txtEditPlaylistName.getText();
+    myTunesModel.editPlaylist(name2, i);
+    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
     public void insertPlaylistInfo(){

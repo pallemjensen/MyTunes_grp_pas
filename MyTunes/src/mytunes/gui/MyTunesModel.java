@@ -70,6 +70,10 @@ public class MyTunesModel {
         playlists.remove(playlist);
         bllManager.remove(playlist);
     }
+
+    public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
+        bllManager.editPlaylist(name, i);
+    }
     
     
 }
