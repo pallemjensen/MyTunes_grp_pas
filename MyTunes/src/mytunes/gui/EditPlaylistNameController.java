@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -19,6 +20,11 @@ import javafx.stage.Stage;
  * @author pmj
  */
 public class EditPlaylistNameController implements Initializable {
+     String name;
+     int id;
+
+    @FXML
+    private TextField txtEditPlaylistName;
 
     /**
      * Initializes the controller class.
@@ -39,4 +45,18 @@ public class EditPlaylistNameController implements Initializable {
     //    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
-}
+    public void insertPlaylistInfo(){
+    txtEditPlaylistName.setText(name);
+    } 
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
+    
+}   

@@ -102,6 +102,10 @@ public class MyTunesController implements Initializable {
     private void btnEditPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditPlaylistName.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
+        EditPlaylistNameController epnc = fxmlLoader1.getController();
+        epnc.setId(TVPlaylists.getSelectionModel().getSelectedItem().getId());
+        epnc.setName(TVPlaylists.getSelectionModel().getSelectedItem().getName());
+        epnc.insertPlaylistInfo();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
