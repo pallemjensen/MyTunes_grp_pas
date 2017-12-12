@@ -83,7 +83,7 @@ public class PlaylistDAO {
     public void remove(Playlist playlist) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
-            stmt.execute("DELETE FROM MytunesSongs2 WHERE song_id="+playlist.getId());
+            stmt.execute("DELETE FROM playlist WHERE playlist_id="+playlist.getId());
         }       
     }
 }
