@@ -170,6 +170,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnFilter(ActionEvent event) {
+        TVSongs.getItems().clear();
         String filterString = txtFilter.getText().trim();
         List<Song> loadedSongs = bllmanager.getAllSongs();
         for (Song song : loadedSongs) {
