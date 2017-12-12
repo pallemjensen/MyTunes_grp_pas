@@ -29,7 +29,6 @@ import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
 import mytunes.bll.BLLManager;
-import mytunes.dal.SongDAO;
 
 /**
  * FXML Controller class
@@ -41,6 +40,7 @@ public class MyTunesController implements Initializable {
     private final MyTunesModel myTunesModel = new MyTunesModel();
     private final BLLManager bllmanager = new BLLManager();
     private MediaPlayer player;
+    private Song songSelected;
     
     @FXML
     private TableView<Song> TVSongs;  
@@ -64,7 +64,7 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
-    private Song song;
+    
 //    private int id;
 //    private int idCreateSong;
     
@@ -152,9 +152,9 @@ public class MyTunesController implements Initializable {
     
     @FXML
     private void btnPlaySong(ActionEvent event) {
-        Song selectedSong = 
-        TVSongs.getSelectionModel().getSelectedItem();
-        File file = new File(selectedSong.getSongPath());
+//        Song selectedSong = 
+//        TVSongs.getSelectionModel().getSelectedItem();
+        File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
         player.play();
     }
@@ -197,8 +197,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void actionMouseClicked(MouseEvent event) {
-        song = TVSongs.getSelectionModel().getSelectedItem();
-        System.out.println("Song selected: " + song.getArtist() + " " + song.getTitle());
+        songSelected = TVSongs.getSelectionModel().getSelectedItem();
     }
 
 }
