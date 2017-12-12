@@ -51,7 +51,4 @@ public class BLLManager {
         songDAO.editSong(i, title, artist, genre);
     }
 
-    
-    
-
 }

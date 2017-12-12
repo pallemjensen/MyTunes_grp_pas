@@ -88,7 +88,6 @@ public class MyTunesController implements Initializable {
         
         TVPlaylists.setItems(myTunesModel.getPlaylists());
         TVSongs.setItems(myTunesModel.getSongs());
-        
     }  
     
     
