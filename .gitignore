@@ -40,3 +40,4 @@ MyTunes/nbproject/project.properties
 *.properties
 MyTunes/src/mytunes/dal/SongDAO.java
 *.properties
+*.properties
