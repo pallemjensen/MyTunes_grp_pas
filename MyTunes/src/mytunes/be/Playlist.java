@@ -50,8 +50,10 @@ public class Playlist {
         this.song8 = song8;
         this.song9 = song9;
         this.song10 = song10;
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public Playlist(int id, String name){
+        this.id=id;
+        this.name=name;
     }
 
     public List<Song> getSongs() {
