@@ -151,7 +151,10 @@ public class MyTunesController implements Initializable {
     } 
     
      @FXML
-    private void btnDeletePlaylist(ActionEvent event) {
+    private void btnDeletePlaylist(ActionEvent event) throws SQLException {
+        Playlist selectedPlaylist = 
+        TVPlaylists.getSelectionModel().getSelectedItem();
+        myTunesModel.remove(selectedPlaylist);
     }
     
     @FXML
@@ -171,10 +174,10 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnFilter(ActionEvent event) {
         TVSongs.getItems().clear();
-        String filterString = txtFilter.getText().trim();
+        String filterString = txtFilter.getText().toLowerCase().trim();
         List<Song> loadedSongs = bllmanager.getAllSongs();
         for (Song song : loadedSongs) {
-            if (song.getArtist().trim().contains(filterString) || (song.getTitle().trim().contains(filterString)))
+            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
             {
                 filteredSongs.add(song);
                 TVSongs.setItems(filteredSongs);

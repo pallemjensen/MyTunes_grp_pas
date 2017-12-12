@@ -65,4 +65,11 @@ public class MyTunesModel {
     public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
         bllManager.editSong(i, title, artist, genre);
     }
+
+    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+        playlists.remove(playlist);
+        bllManager.remove(playlist);
+    }
+    
+    
 }

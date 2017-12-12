@@ -79,4 +79,11 @@ public class PlaylistDAO {
             throw new RuntimeException("Can't create playlist");
         }
     }
+    
+    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+        try (Connection con = cm.getConnection();) {
+            Statement stmt = con.createStatement();
+            stmt.execute("DELETE FROM MytunesSongs2 WHERE song_id="+playlist.getId());
+        }       
+    }
 }

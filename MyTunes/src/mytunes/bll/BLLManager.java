@@ -54,4 +54,10 @@ public class BLLManager {
         songDAO.editSong(i, title, artist, genre);
     }
 
+    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+        playlistDAO.remove(playlist);
+    }
+    
+    
+
 }
