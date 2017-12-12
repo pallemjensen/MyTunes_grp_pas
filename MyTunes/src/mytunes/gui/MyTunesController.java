@@ -220,6 +220,7 @@ public class MyTunesController implements Initializable {
             txtFilter.clear();
             TVSongs.getItems().clear();
             TVSongs.setItems(myTunesModel.getSongs());
+            myTunesModel.loadSongs();
     }
     
          
