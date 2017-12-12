@@ -11,21 +11,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mytunes.gui.EditSongController;
 
-/**
- *
- * @author jeppjleemoritzled
- */
+
 public class MyTunes extends Application {
-    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui/MyTunes.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
+    FXMLLoader fxloader = new FXMLLoader(getClass().getResource("gui/MyTunes.fxml"));
+    Parent root = fxloader.load();
+    Scene scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
     }
 
     /**

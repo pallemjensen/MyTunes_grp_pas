@@ -21,10 +21,10 @@ import javafx.stage.Stage;
  * @author Anders
  */
 public class EditSongController implements Initializable {
-    MyTunesController myTunesController = new MyTunesController();
+    
+    int id;
     private final MyTunesModel myTunesModel = new MyTunesModel();
-
-    private Stage stage;
+    
     @FXML
     private TextField txtEditSongGenre;
     @FXML
@@ -42,8 +42,7 @@ public class EditSongController implements Initializable {
 
     @FXML
     public void btnEditSongSave(ActionEvent event) throws SQLException {
-      int i = myTunesController.returnSelectedSongId();
-//      int i = 19;
+      int i = id;
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
@@ -54,4 +53,10 @@ public class EditSongController implements Initializable {
     private void btnEditSongCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 }

@@ -113,6 +113,8 @@ public class MyTunesController implements Initializable {
     private void btnEditSong(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditSong.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
+        EditSongController esc = fxmlLoader1.getController();
+        esc.setId(songSelected.getId());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -189,11 +191,11 @@ public class MyTunesController implements Initializable {
         myTunesModel.loadPlaylists();
     }
 
-    public int returnSelectedSongId(){
-    int selectedSongId;
-    selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
-    return selectedSongId;        
-    }
+//    public int returnSelectedSongId(){
+//    int selectedSongId;
+//    selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
+//    return selectedSongId;        
+//    }
 
     @FXML
     private void actionMouseClicked(MouseEvent event) {
@@ -201,6 +203,6 @@ public class MyTunesController implements Initializable {
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
     }
-
+    
 }
 
