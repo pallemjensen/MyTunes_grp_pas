@@ -27,7 +27,7 @@
             <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="66.0" text="Duration" />
         </columns>
       </TableView>
-      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" prefHeight="417.0" prefWidth="517.0">
+      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" onMouseClicked="#actionMouseClicked" prefHeight="417.0" prefWidth="517.0">
         <columns>
           <TableColumn fx:id="SongsTitleColumn" prefWidth="174.0" text="Title" />
           <TableColumn fx:id="SongsArtistColumn" prefWidth="128.0" text="Artist" />

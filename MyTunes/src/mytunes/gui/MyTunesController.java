@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -192,6 +193,12 @@ public class MyTunesController implements Initializable {
     int selectedSongId;
     selectedSongId = TVSongs.getSelectionModel().getSelectedItem().getId(); 
     return selectedSongId;        
+    }
+
+    @FXML
+    private void actionMouseClicked(MouseEvent event) {
+        song = TVSongs.getSelectionModel().getSelectedItem();
+        System.out.println("Song selected: " + song.getArtist() + " " + song.getTitle());
     }
 
 }
