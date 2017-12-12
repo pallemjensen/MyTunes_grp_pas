@@ -51,7 +51,7 @@ public class EditSongController implements Initializable {
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
-      myTunesModel.editSong(i, artist, title, genre);
+      m_myTunesModel.editSong(i, artist, title, genre);
       m_myTunesModel.loadSongs();
       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
