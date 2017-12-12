@@ -41,17 +41,17 @@ public class EditSongController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    
     }      
 
     @FXML
     public void btnEditSongSave(ActionEvent event) throws SQLException {
       int i = id;
-      
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
       myTunesModel.editSong(i, artist, title, genre);
+      ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     @FXML
@@ -75,8 +75,9 @@ public class EditSongController implements Initializable {
         this.Title = Title;
     }
     
-    
-    
-    
-    
+    public void insertSongInfo(){
+    txtEditSongArtist.setText(Artist);
+    txtEditSongTitle.setText(Title);
+    txtEditSongGenre.setText(Genre);
+    } 
 }

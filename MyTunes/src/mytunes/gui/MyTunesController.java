@@ -118,6 +118,7 @@ public class MyTunesController implements Initializable {
         esc.setArtist(songSelected.getArtist());
         esc.setTitle(songSelected.getTitle());
         esc.setGenre(songSelected.getGenre());
+        esc.insertSongInfo();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
