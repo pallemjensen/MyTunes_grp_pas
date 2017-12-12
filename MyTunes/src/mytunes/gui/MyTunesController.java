@@ -115,6 +115,9 @@ public class MyTunesController implements Initializable {
         Parent root = (Parent) fxmlLoader1.load();
         EditSongController esc = fxmlLoader1.getController();
         esc.setId(songSelected.getId());
+        esc.setArtist(songSelected.getArtist());
+        esc.setTitle(songSelected.getTitle());
+        esc.setGenre(songSelected.getGenre());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

@@ -56,7 +56,5 @@ public class EditSongController implements Initializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-    
-    
+    } 
 }
