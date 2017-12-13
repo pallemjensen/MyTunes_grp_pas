@@ -167,13 +167,17 @@ public class MyTunesController implements Initializable {
     
      @FXML
     private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
-        Parent root = (Parent) fxmlLoader1.load();
         Playlist selectedPlaylist = 
         TVPlaylists.getSelectionModel().getSelectedItem();
+        if(selectedPlaylist != null){
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
+        Parent root = (Parent) fxmlLoader1.load();
+        DeleteSongConfirmationController dscc = fxmlLoader1.getController();
+        dscc.setUp2(myTunesModel,selectedPlaylist);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+        }
     }
     
     @FXML

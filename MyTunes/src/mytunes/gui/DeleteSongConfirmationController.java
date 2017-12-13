@@ -12,12 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
-import mytunes.bll.BLLManager;
 
 /**
  * FXML Controller class
@@ -27,6 +24,7 @@ import mytunes.bll.BLLManager;
 public class DeleteSongConfirmationController implements Initializable {
    private MyTunesModel m_myTunesModel;
    private Song m_selectedSong;
+   private Playlist m_selectedPlaylist;
     
     /**
      * Initializes the controller class.
@@ -38,8 +36,22 @@ public class DeleteSongConfirmationController implements Initializable {
 
     @FXML
     private void btnDeleteSong(ActionEvent event) throws SQLException {
+    if (m_selectedSong != null) 
+    { 
         m_myTunesModel.remove(m_selectedSong);
-       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    } 
+    else if (m_selectedPlaylist != null) 
+    { 
+        m_myTunesModel.remove(m_selectedPlaylist);
+       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    } 
+    else 
+    { 
+    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+    } 
+        
+        
     }
 
     @FXML
@@ -52,6 +64,10 @@ public class DeleteSongConfirmationController implements Initializable {
         m_myTunesModel = myTunesModel;
         m_selectedSong = selectedSong;
     }
-    
+    void setUp2(MyTunesModel myTunesModel, Playlist selectedPlaylist) {
+        m_myTunesModel = myTunesModel;
+        m_selectedPlaylist = selectedPlaylist;
+
+    }
     
 }
