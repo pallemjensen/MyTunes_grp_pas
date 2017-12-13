@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
@@ -21,13 +22,15 @@ import mytunes.be.Song;
  *
  * @author pmj
  */
-public class DeleteSongConfirmationController implements Initializable {
+public class DeleteConfirmationController implements Initializable {
    private MyTunesModel m_myTunesModel;
    private Song m_selectedSong;
    private Playlist m_selectedPlaylist;
+    @FXML
+    private Label lbl;
     
     /**
-     * Initializes the controller class..
+     * Initializes the controller class...
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -35,30 +38,26 @@ public class DeleteSongConfirmationController implements Initializable {
     }    
 
     @FXML
-    private void btnDeleteSong(ActionEvent event) throws SQLException {
-    if (m_selectedSong != null) 
-    { 
-        m_myTunesModel.remove(m_selectedSong);
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    } 
-    else if (m_selectedPlaylist != null) 
-    { 
-        m_myTunesModel.remove(m_selectedPlaylist);
-       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    } 
-    else 
-    { 
-    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
-    } 
+    private void btnDelete(ActionEvent event) throws SQLException {
+        if (m_selectedSong != null) 
+        { 
+            m_myTunesModel.remove(m_selectedSong);
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+        } 
+        else if (m_selectedPlaylist != null) 
+        { 
+            m_myTunesModel.remove(m_selectedPlaylist);
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+        } 
+            else 
+        { 
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
+        } 
         
         
     }
 
-    @FXML
-    private void btnCancelDeleteSong(ActionEvent event) {
-        
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }
+
 
     void setUp(MyTunesModel myTunesModel, Song selectedSong) {
         m_myTunesModel = myTunesModel;
@@ -68,6 +67,11 @@ public class DeleteSongConfirmationController implements Initializable {
         m_myTunesModel = myTunesModel;
         m_selectedPlaylist = selectedPlaylist;
 
+    }
+
+    @FXML
+    private void btnCancel(ActionEvent event) {
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
     
 }

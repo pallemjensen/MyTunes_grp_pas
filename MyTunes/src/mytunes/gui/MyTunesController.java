@@ -139,10 +139,10 @@ public class MyTunesController implements Initializable {
          Song selectedSong = 
             TVSongs.getSelectionModel().getSelectedItem();
          if(selectedSong != null){
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
-        DeleteSongConfirmationController dscc = fxmlLoader1.getController();
-        dscc.setUp(myTunesModel,selectedSong);
+        DeleteConfirmationController dcc = fxmlLoader1.getController();
+        dcc.setUp(myTunesModel,selectedSong);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -170,10 +170,10 @@ public class MyTunesController implements Initializable {
         Playlist selectedPlaylist = 
         TVPlaylists.getSelectionModel().getSelectedItem();
         if(selectedPlaylist != null){
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteSongConfirmation.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
-        DeleteSongConfirmationController dscc = fxmlLoader1.getController();
-        dscc.setUp2(myTunesModel,selectedPlaylist);
+        DeleteConfirmationController dcc = fxmlLoader1.getController();
+        dcc.setUp2(myTunesModel,selectedPlaylist);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
