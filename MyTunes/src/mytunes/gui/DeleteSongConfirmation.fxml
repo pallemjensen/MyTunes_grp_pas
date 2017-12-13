@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="mytunes.gui.DeleteSongConfirmationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.DeleteSongConfirmationController">
    <children>
-      <Label layoutX="84.0" layoutY="121.0" prefHeight="32.0" prefWidth="432.0" text="Are you sure you want to delete this song?">
+      <Label layoutX="143.0" layoutY="130.0" prefHeight="32.0" prefWidth="432.0" text="Are you sure you want to delete?">
          <font>
             <Font size="22.0" />
          </font>
