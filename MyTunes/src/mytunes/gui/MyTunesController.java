@@ -234,7 +234,7 @@ public class MyTunesController implements Initializable {
         myTunesModel.loadPlaylists();
     }
     @FXML
-    private void mouseClickedSongs(MouseEvent event) {
+    private void MouseClickedSongs(MouseEvent event) {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
