@@ -247,8 +247,5 @@ public class MyTunesController implements Initializable {
     @FXML
     private void MouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
-    }
-
-    
+    }    
 }
-

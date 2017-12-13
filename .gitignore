@@ -45,3 +45,11 @@ MyTunes/src/mytunes/dal/PlaylistDAO.java
 *.properties
 MyTunes/nbproject/project.properties
 MyTunes/src/mytunes/dal/PlaylistDAO.java
+MyTunes/src/mytunes/gui/DeleteSongConfirmation.fxml
+MyTunes/src/mytunes/gui/DeleteSongConfirmation.fxml
+MyTunes/src/mytunes/gui/MyTunesController.java
+MyTunes/src/mytunes/gui/DeleteSongConfirmationController.java
+MyTunes/src/mytunes/gui/DeleteSongConfirmation.fxml
+MyTunes/src/mytunes/gui/DeleteSongConfirmation.fxml
+MyTunes/src/mytunes/gui/DeleteSongConfirmationController.java
+MyTunes/src/mytunes/gui/MyTunesController.java
