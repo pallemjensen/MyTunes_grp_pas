@@ -55,6 +55,10 @@ public class Playlist {
         this.id=id;
         this.name=name;
     }
+    
+    public void addSongToPlaylist(Song song){
+        songs.add(song);
+    }
 
     public List<Song> getSongs() {
         return songs;
