@@ -35,7 +35,7 @@
             <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="96.0" text="Duration" />
         </columns>
       </TableView>
-      <ListView layoutX="426.0" layoutY="130.0" prefHeight="391.0" prefWidth="155.0" />
+      <ListView fx:id="TVSongsOnPlaylist" layoutX="426.0" layoutY="130.0" prefHeight="391.0" prefWidth="155.0" />
       <Label layoutX="427.0" layoutY="100.0" prefHeight="25.0" prefWidth="132.0" text="Songs on playlist">
          <font>
             <Font size="16.0" />
