@@ -70,6 +70,10 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, Float> SongsDurationColumn;
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
+    @FXML
+    private TableView<?> TVSongsOnPlaylist;
+    @FXML
+    private TableColumn<?, ?> songsOnPlaylistTitleColumn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
