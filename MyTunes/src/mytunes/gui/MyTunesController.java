@@ -182,7 +182,7 @@ public class MyTunesController implements Initializable {
     
     @FXML
     private void btnPlaySong(ActionEvent event) {
-        lblNowPlaying.setText(songSelected.getArtist()+" "+ songSelected.getTitle());
+        lblNowPlaying.setText(songSelected.getArtist()+": "+ songSelected.getTitle());
         player.play();
     }
 
