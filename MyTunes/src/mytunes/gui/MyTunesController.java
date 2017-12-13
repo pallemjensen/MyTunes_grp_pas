@@ -70,6 +70,10 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, Float> SongsDurationColumn;
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Song> TVSongsOnPlaylist;
+    @FXML
+    private TableColumn<Song, String> songsOnPlaylistTitleColumn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -139,9 +143,9 @@ public class MyTunesController implements Initializable {
   
     @FXML
     private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
-         Song selectedSong = 
-            TVSongs.getSelectionModel().getSelectedItem();
-         if(selectedSong != null){
+        Song selectedSong = 
+        TVSongs.getSelectionModel().getSelectedItem();
+        if(selectedSong != null){
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
         DeleteConfirmationController dcc = fxmlLoader1.getController();
@@ -149,7 +153,6 @@ public class MyTunesController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        
         }
     }
 
@@ -214,6 +217,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
+    
         
     }
 
