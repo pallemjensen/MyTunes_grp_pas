@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
+<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
    <children>
       <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPlaySong" prefHeight="25.0" prefWidth="43.0" text="Play" />
       <Button layoutX="172.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnNextSong" prefHeight="25.0" prefWidth="54.0" text="Next" />
@@ -19,14 +19,14 @@
          </font>
       </Label>
       <Button layoutX="819.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="276.0" text="Filter on Title &amp; Artist" />
-      <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" onMouseClicked="#MouseClickedPlaylists" prefHeight="417.0" prefWidth="394.0">
+      <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" onMouseClicked="#mouseClickedPlaylists" prefHeight="417.0" prefWidth="394.0">
         <columns>
           <TableColumn fx:id="PlaylistsNameColumn" minWidth="50.0" prefWidth="243.0" text="Name" />
           <TableColumn fx:id="PlaylistsNrOfSongsColumn" minWidth="0.0" prefWidth="84.0" text="# of Songs" />
             <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="66.0" text="Duration" />
         </columns>
       </TableView>
-      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" onMouseClicked="#MouseClickedSongs" prefHeight="417.0" prefWidth="517.0">
+      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" onMouseClicked="#mouseClickedSongs" prefHeight="417.0" prefWidth="517.0">
         <columns>
           <TableColumn fx:id="SongsTitleColumn" prefWidth="174.0" text="Title" />
           <TableColumn fx:id="SongsArtistColumn" prefWidth="128.0" text="Artist" />
