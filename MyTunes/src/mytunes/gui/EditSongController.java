@@ -28,6 +28,7 @@ public class EditSongController implements Initializable {
     String Title;
     
     private final MyTunesModel myTunesModel = new MyTunesModel();
+    private MyTunesModel m_myTunesModel;
     
     @FXML
     private TextField txtEditSongGenre;
@@ -50,7 +51,8 @@ public class EditSongController implements Initializable {
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();
       String genre = txtEditSongGenre.getText();
-      myTunesModel.editSong(i, artist, title, genre);
+      m_myTunesModel.editSong(i, artist, title, genre);
+      m_myTunesModel.loadSongs();
       ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
@@ -80,4 +82,8 @@ public class EditSongController implements Initializable {
     txtEditSongTitle.setText(Title);
     txtEditSongGenre.setText(Genre);
     } 
+    void setUp(MyTunesModel myTunesModel) {
+        m_myTunesModel = myTunesModel;
+       
+    }
 }
