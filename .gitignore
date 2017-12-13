@@ -53,3 +53,9 @@ MyTunes/src/mytunes/gui/MyTunesController.java
 MyTunes/src/mytunes/gui/DeleteConfirmation.fxml
 MyTunes/src/mytunes/gui/DeleteConfirmationController.java
 MyTunes/src/mytunes/gui/MyTunesController.java
+MyTunes/src/mytunes/gui/DeleteConfirmationController.java
+MyTunes/src/mytunes/gui/EditPlaylistNameController.java
+MyTunes/src/mytunes/gui/EditSongController.java
+MyTunes/src/mytunes/gui/MyTunesController.java
+MyTunes/src/mytunes/gui/NewPlaylistController.java
+MyTunes/src/mytunes/gui/NewSongController.java

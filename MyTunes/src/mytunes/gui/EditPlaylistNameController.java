@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  */
 public class EditPlaylistNameController implements Initializable {
     
-    private final MyTunesModel myTunesModel = new MyTunesModel();
+    private MyTunesModel m_myTunesModel;
     
      String name;
      int id;
@@ -47,7 +47,8 @@ public class EditPlaylistNameController implements Initializable {
     private void btnSaveEditPlaylistName(ActionEvent event) throws SQLException {
     int i = id;
     String name2 = txtEditPlaylistName.getText();
-    myTunesModel.editPlaylist(name2, i);
+    m_myTunesModel.editPlaylist(name2, i);
+    m_myTunesModel.loadPlaylists();
     ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
@@ -61,6 +62,9 @@ public class EditPlaylistNameController implements Initializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+    void setUp(MyTunesModel myTunesModel) {
+        m_myTunesModel = myTunesModel;
     }
     
     

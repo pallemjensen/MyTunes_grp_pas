@@ -99,6 +99,8 @@ public class MyTunesController implements Initializable {
     private void btnNewPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
+        NewPlaylistController npc = fxmlLoader1.getController();
+        npc.setUp(myTunesModel);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -112,6 +114,7 @@ public class MyTunesController implements Initializable {
         epnc.setId(TVPlaylists.getSelectionModel().getSelectedItem().getId());
         epnc.setName(TVPlaylists.getSelectionModel().getSelectedItem().getName());
         epnc.insertPlaylistInfo();
+        epnc.setUp(myTunesModel);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
