@@ -44,6 +44,7 @@ public class MyTunesController implements Initializable {
     private final BLLManager bllmanager = new BLLManager();
     private MediaPlayer player;
     private Song songSelected;
+    private Playlist playlistSelected;
     
     @FXML
     private TableView<Song> TVSongs;  
@@ -225,8 +226,7 @@ public class MyTunesController implements Initializable {
         myTunesModel.loadPlaylists();
     }
 
-    @FXML
-    private void actionMouseClicked(MouseEvent event) {
+    private void MouseClickedSongs(MouseEvent event) {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
@@ -239,7 +239,12 @@ public class MyTunesController implements Initializable {
             TVSongs.setItems(myTunesModel.getSongs());
             myTunesModel.loadSongs();
     }
+
+    @FXML
+    private void MouseClickedPlaylists(MouseEvent event) {
+        playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
+    }
+
     
-         
 }
 
