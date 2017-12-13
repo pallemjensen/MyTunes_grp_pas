@@ -19,7 +19,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="819.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="125.0" text="Filter" />
+      <Button layoutX="819.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="25.0" prefWidth="276.0" text="Filter on Title &amp; Artist" />
       <TableView fx:id="TVPlaylists" layoutX="23.0" layoutY="105.0" prefHeight="417.0" prefWidth="394.0">
         <columns>
           <TableColumn fx:id="PlaylistsNameColumn" minWidth="50.0" prefWidth="243.0" text="Name" />
@@ -50,7 +50,6 @@
       <Button layoutX="784.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditSong" prefHeight="25.0" prefWidth="103.0" text="Edit song" />
       <Button layoutX="682.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeleteSong" prefHeight="25.0" prefWidth="92.0" text="Delete song" />
       <Label layoutX="23.0" layoutY="75.0" prefHeight="25.0" prefWidth="125.0" text="Playlists" />
-      <Label layoutX="453.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" text="Songs" />
       <Button layoutX="1015.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnClose" prefHeight="25.0" prefWidth="73.0" text="Close" />
       <Button layoutX="76.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnStop" text="Stop" />
       <Button layoutX="125.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPause" text="Pause" />

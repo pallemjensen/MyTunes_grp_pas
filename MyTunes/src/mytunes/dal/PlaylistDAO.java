@@ -84,6 +84,6 @@ public class PlaylistDAO {
          preparedStmt.setString(1, name);
          preparedStmt.setInt(2, i);
          preparedStmt.executeUpdate();
-     }   
-    }     
+}
+    }
 }

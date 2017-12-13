@@ -41,3 +41,4 @@ MyTunes/nbproject/project.properties
 MyTunes/src/mytunes/dal/SongDAO.java
 *.properties
 *.properties
+MyTunes/src/mytunes/dal/PlaylistDAO.java
