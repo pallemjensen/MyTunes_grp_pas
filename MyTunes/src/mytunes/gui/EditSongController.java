@@ -27,7 +27,6 @@ public class EditSongController implements Initializable {
     String Genre;
     String Title;
     
-    private final MyTunesModel myTunesModel = new MyTunesModel();
     private MyTunesModel m_myTunesModel;
     
     @FXML
@@ -82,8 +81,7 @@ public class EditSongController implements Initializable {
     txtEditSongTitle.setText(Title);
     txtEditSongGenre.setText(Genre);
     } 
-    void setUp(MyTunesModel myTunesModel) {
+    public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
-       
     }
 }

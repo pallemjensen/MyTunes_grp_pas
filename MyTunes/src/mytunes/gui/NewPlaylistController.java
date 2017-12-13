@@ -22,6 +22,7 @@ import mytunes.dal.PlaylistDAO;
  * @author pmj
  */
 public class NewPlaylistController implements Initializable {
+    private MyTunesModel m_myTunesModel;
     
     private final PlaylistDAO playlistDAO = new PlaylistDAO();
     int song1, song2, song3, song4, song5, song6, song7, song8, song9, song10;
@@ -47,6 +48,11 @@ public class NewPlaylistController implements Initializable {
         String name = null;
         name = txtNewPlaylistName.getText();
         playlistDAO.createPlaylist(name);
+        m_myTunesModel.loadPlaylists();
        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
+    }
+    public void setUp(MyTunesModel myTunesModel) {
+        m_myTunesModel = myTunesModel;
+       
     }
 }

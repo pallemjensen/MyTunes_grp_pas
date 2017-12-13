@@ -59,11 +59,11 @@ public class DeleteConfirmationController implements Initializable {
 
 
 
-    void setUp(MyTunesModel myTunesModel, Song selectedSong) {
+    public void setUp(MyTunesModel myTunesModel, Song selectedSong) {
         m_myTunesModel = myTunesModel;
         m_selectedSong = selectedSong;
     }
-    void setUp2(MyTunesModel myTunesModel, Playlist selectedPlaylist) {
+    public void setUp2(MyTunesModel myTunesModel, Playlist selectedPlaylist) {
         m_myTunesModel = myTunesModel;
         m_selectedPlaylist = selectedPlaylist;
 

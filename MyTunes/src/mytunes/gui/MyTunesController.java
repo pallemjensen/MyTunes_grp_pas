@@ -46,6 +46,7 @@ public class MyTunesController implements Initializable {
     private Song songSelected;
     private Playlist playlistSelected;
     
+    
     @FXML
     private TableView<Song> TVSongs;  
     @FXML
@@ -100,6 +101,8 @@ public class MyTunesController implements Initializable {
     private void btnNewPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
+        NewPlaylistController npc = fxmlLoader1.getController();
+        npc.setUp(myTunesModel);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -113,6 +116,7 @@ public class MyTunesController implements Initializable {
         epnc.setId(TVPlaylists.getSelectionModel().getSelectedItem().getId());
         epnc.setName(TVPlaylists.getSelectionModel().getSelectedItem().getName());
         epnc.insertPlaylistInfo();
+        epnc.setUp(myTunesModel);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -142,9 +146,9 @@ public class MyTunesController implements Initializable {
   
     @FXML
     private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
-         Song selectedSong = 
-            TVSongs.getSelectionModel().getSelectedItem();
-         if(selectedSong != null){
+        Song selectedSong = 
+        TVSongs.getSelectionModel().getSelectedItem();
+        if(selectedSong != null){
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
         DeleteConfirmationController dcc = fxmlLoader1.getController();
@@ -152,7 +156,6 @@ public class MyTunesController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        
         }
     }
 
@@ -215,10 +218,7 @@ public class MyTunesController implements Initializable {
         }
     }
 
-    @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) {
-        
-    }
+    
 
     @FXML
     private void btnNewSong(ActionEvent event) throws IOException {
@@ -253,6 +253,17 @@ public class MyTunesController implements Initializable {
     @FXML
     private void MouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
+<<<<<<< HEAD
         myTunesModel.showSongsOnPlaylist(playlistSelected);
     }    
+=======
+    } 
+    
+    @FXML
+    private void btnAddSongToPlaylist(ActionEvent event) {
+    int selectedSongId =  TVSongs.getSelectionModel().getSelectedItem().getId();
+    int selectedPlaylistId = TVPlaylists.getSelectionModel().getSelectedItem().getId();
+    
+    }
+>>>>>>> e8249115a99a419a5d6ffcdcd3405689122d0903
 }
