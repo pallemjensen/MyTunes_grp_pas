@@ -197,7 +197,6 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnNextSong(ActionEvent event) {
-        System.out.println(playlistSelected.getSongs().get(0).getArtist());
     }
 
     @FXML
@@ -236,7 +235,7 @@ public class MyTunesController implements Initializable {
         myTunesModel.loadPlaylists();
     }
     @FXML
-    private void MouseClickedSongs(MouseEvent event) {
+    private void mouseClickedSongs(MouseEvent event) {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
@@ -251,9 +250,9 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void MouseClickedPlaylists(MouseEvent event) {
+    private void mouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
-        //myTunesModel.showSongsOnPlaylist(playlistSelected);
+        myTunesModel.showSongsOnPlaylist(playlistSelected);
     }    
     
     @FXML
