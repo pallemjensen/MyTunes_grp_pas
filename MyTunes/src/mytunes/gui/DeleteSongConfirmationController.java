@@ -27,7 +27,7 @@ public class DeleteSongConfirmationController implements Initializable {
    private Playlist m_selectedPlaylist;
     
     /**
-     * Initializes the controller class.
+     * Initializes the controller class..
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
