@@ -71,9 +71,9 @@ public class MyTunesController implements Initializable {
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     @FXML
-    private TableView<?> TVSongsOnPlaylist;
+    private TableView<Song> TVSongsOnPlaylist;
     @FXML
-    private TableColumn<?, ?> songsOnPlaylistTitleColumn;
+    private TableColumn<Song, String> songsOnPlaylistTitleColumn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -214,6 +214,7 @@ public class MyTunesController implements Initializable {
 
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
+    
         
     }
 
