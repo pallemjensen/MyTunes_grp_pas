@@ -86,6 +86,10 @@ public class MyTunesModel {
         bllManager.editPlaylist(name, i);
     }
 
+    void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+        bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+    }
+
     
     
     

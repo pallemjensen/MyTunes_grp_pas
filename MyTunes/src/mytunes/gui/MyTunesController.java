@@ -260,5 +260,6 @@ public class MyTunesController implements Initializable {
         playlistSelected.addSongToPlaylist(songSelected);
     int selectedSongId =  TVSongs.getSelectionModel().getSelectedItem().getId();
     int selectedPlaylistId = TVPlaylists.getSelectionModel().getSelectedItem().getId();
+    myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
 }

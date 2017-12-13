@@ -86,4 +86,8 @@ public class PlaylistDAO {
          preparedStmt.executeUpdate();
 }
     }
+
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
      }   
