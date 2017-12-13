@@ -71,9 +71,9 @@ public class MyTunesController implements Initializable {
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     @FXML
-    private TableView<?> TVSongsOnPlaylist;
+    private TableView<Song> TVSongsOnPlaylist;
     @FXML
-    private TableColumn<?, ?> songsOnPlaylistTitleColumn;
+    private TableColumn<Song, String> songsOnPlaylistTitleColumn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,11 +87,13 @@ public class MyTunesController implements Initializable {
             new PropertyValueFactory("genre"));
 
         TVSongs.setItems(myTunesModel.getSongs());
-
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
         PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
+        
+        songsOnPlaylistTitleColumn.setCellValueFactory(new PropertyValueFactory("title"));
+        TVSongsOnPlaylist.setItems(myTunesModel.getSongsOnPlaylist());
     }  
 
     @FXML
@@ -251,5 +253,6 @@ public class MyTunesController implements Initializable {
     @FXML
     private void MouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
+        myTunesModel.showSongsOnPlaylist(playlistSelected);
     }    
 }

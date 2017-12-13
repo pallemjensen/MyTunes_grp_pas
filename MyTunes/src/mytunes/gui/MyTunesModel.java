@@ -30,7 +30,18 @@ public class MyTunesModel {
     private final ObservableList<Playlist> playlists
             = FXCollections.observableArrayList();
        
-
+    private final ObservableList<Song> songsOnPlaylists
+            = FXCollections.observableArrayList();
+    
+    public ObservableList<Song> getSongsOnPlaylist() {
+        return songsOnPlaylists;
+    }
+    
+    void showSongsOnPlaylist(Playlist playlistSelected) {
+        List<Song> songList = playlistSelected.getSongs();
+        songsOnPlaylists.clear();
+        songsOnPlaylists.addAll(songList);
+    }
     
     public ObservableList<Song> getSongs() {
         return songs;
@@ -74,6 +85,8 @@ public class MyTunesModel {
     public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
         bllManager.editPlaylist(name, i);
     }
+
+    
     
     
 }
