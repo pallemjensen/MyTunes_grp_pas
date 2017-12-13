@@ -253,11 +253,8 @@ public class MyTunesController implements Initializable {
     @FXML
     private void MouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
-<<<<<<< HEAD
         myTunesModel.showSongsOnPlaylist(playlistSelected);
     }    
-=======
-    } 
     
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
@@ -265,5 +262,4 @@ public class MyTunesController implements Initializable {
     int selectedPlaylistId = TVPlaylists.getSelectionModel().getSelectedItem().getId();
     
     }
->>>>>>> e8249115a99a419a5d6ffcdcd3405689122d0903
 }
