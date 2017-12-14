@@ -66,7 +66,8 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
-    private ObservableList<Song> filteredSongs
+    @FXML
+    private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     @FXML
     private TableView<Song> TVSongsOnPlaylist;
@@ -213,10 +214,17 @@ public class MyTunesController implements Initializable {
 
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
-    private void btnFilter(ActionEvent event) {
-        TVSongs.getItems().clear();
+    private void btnFilter(ActionEvent event) {    
         String filterString = txtFilter.getText().toLowerCase().trim();
-        List<Song> loadedSongs = myTunesModel.getSongs();
+        List<Song> loadedSongs = myTunesModel.getSongs();       
+        for (Song song : loadedSongs) {
+            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
+            {
+                filteredSongs.add(song);
+                TVSongs.setItems(filteredSongs);
+            }
+        }
+        TVSongs.getItems().clear();
         for (Song song : loadedSongs) {
             if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
             {
@@ -226,7 +234,6 @@ public class MyTunesController implements Initializable {
         }
     }
 
-    
     //Opens the New song window
     @FXML
     private void btnNewSong(ActionEvent event) throws IOException {
