@@ -18,15 +18,15 @@ import java.util.logging.Logger;
 import mytunes.be.Song;
 
 /**
- *
  * @author pmj
+ * @In this class we manage all traffic from and to our DB concerning our song objects. 
  */
 public class SongDAO {
    ConnectionManager cm = new ConnectionManager();
 
     /**
      *
-     * @return
+     * @return a list with our song objects after a DB query.
      */
     public List<Song> getAllSongs() {
         List<Song> songs = new ArrayList();
@@ -58,6 +58,7 @@ public class SongDAO {
      * @param song
      * @throws SQLServerException
      * @throws SQLException
+     * @Receives a song object and then deletes it from our DB MytunesSongs2 table where the song_id matches.
      */
     public void remove(Song song) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
@@ -76,6 +77,7 @@ public class SongDAO {
      * @return
      * @throws SQLServerException
      * @throws SQLException
+     * Create a new song object in our DB with the parameters given and returns a new song object
      */
     public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
     {   
@@ -112,6 +114,7 @@ public class SongDAO {
      * @param genre
      * @throws SQLServerException
      * @throws SQLException
+     * @Receives parameters for a song and edits the song parameters in our DB.
      */
     public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException{
         String query = "UPDATE MyTunesSongs2 SET song_title = ?, artist_name = ?, song_genre = ? WHERE song_id = ?;";
