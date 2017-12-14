@@ -72,11 +72,13 @@ public class EditPlaylistNameController implements Initializable {
     /**
      *
      * @param id
+     * @set id
      */
     public void setId(int id) {
         this.id = id;
     }
-    void setUp(MyTunesModel myTunesModel) {
+    
+    public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
     }
     
