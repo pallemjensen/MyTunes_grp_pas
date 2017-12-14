@@ -46,7 +46,7 @@ public class MyTunesModel {
      * @param playlistSelected
      */
     public void showSongsOnPlaylist(Playlist playlistSelected) {
-        List<Song> songList = playlistSelected.getSongs();
+        List<Song> songList = playlistSelected.getplaylistSongs();
         songsOnPlaylists.clear();
         songsOnPlaylists.addAll(songList);
     }
