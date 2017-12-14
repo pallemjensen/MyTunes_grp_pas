@@ -23,14 +23,14 @@ public class BLLManager {
     private final PlaylistDAO playlistDAO = new PlaylistDAO();
 
     /**
-     *
+     * BLLManager constructor
      */
     public BLLManager() {
     }
     
     /**
      *
-     * @return
+     * @return list with all songs
      */
     public List<Song> getAllSongs() {
         return songDAO.getAllSongs();
@@ -38,7 +38,7 @@ public class BLLManager {
     
     /**
      *
-     * @return
+     * @return list with all playlists
      */
     public List<Playlist> getAllPlaylists() {
         return playlistDAO.getAllPlaylists();
@@ -48,6 +48,7 @@ public class BLLManager {
      *
      * @param song
      * @throws SQLException
+     * receives a song object and calls the remove song method in our songDAO DAl class.
      */
     public void remove(Song song) throws SQLException {
         songDAO.remove(song);
@@ -62,26 +63,11 @@ public class BLLManager {
      * @param artist
      * @return
      * @throws SQLException
+     * @Receives song parameters, calls the createSong method in songDAO, returns a newSong object.
      */
     public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLException{
         Song newSong = songDAO.createSong(title, genre, duration, songPath, artist);
         return newSong;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public PlaylistDAO getPlaylistDAO() {
-        return playlistDAO;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public SongDAO getSongDAO() {
-        return songDAO;
     }
 
     /**

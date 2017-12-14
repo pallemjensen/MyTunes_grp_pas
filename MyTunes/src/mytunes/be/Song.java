@@ -5,10 +5,8 @@
  */
 package mytunes.be;
 
-import mytunes.gui.MyTunesController;
-
 /**
- *
+ * Class for constructing and managing Song objects
  * @author pmj
  */
 public class Song {
@@ -39,13 +37,13 @@ public class Song {
     }
 
     /**
-     *
+     *@Song constructor
      */
     public Song() {
     }
     /**
      *
-     * @return
+     * @return id
      */
     public int getId() {
      return id;
@@ -54,6 +52,7 @@ public class Song {
     /**
      *
      * @param id
+     * set id
      */
     public void setId(int id) {
         this.id = id;
@@ -61,7 +60,7 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return title
      */
     public String getTitle() {
         return title;
@@ -70,6 +69,7 @@ public class Song {
     /**
      *
      * @param title
+     * set title
      */
     public void setTitle(String title) {
         this.title = title;
@@ -77,7 +77,8 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return genre
+     * 
      */
     public String getGenre() {
         return genre;
@@ -86,6 +87,7 @@ public class Song {
     /**
      *
      * @param genre
+     * @set genre
      */
     public void setGenre(String genre) {
         this.genre = genre;
@@ -93,7 +95,7 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return duration
      */
     public String getDuration() {
         return duration;
@@ -102,6 +104,7 @@ public class Song {
     /**
      *
      * @param duration
+     * set duration
      */
     public void setDuration(String duration) {
         this.duration = duration;
@@ -109,7 +112,8 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return songPath
+     * 
      */
     public String getSongPath() {
         return songPath;
@@ -118,6 +122,7 @@ public class Song {
     /**
      *
      * @param songPath
+     * @set songPath
      */
     public void setSongPath(String songPath) {
         this.songPath = songPath;
@@ -125,7 +130,7 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return artist
      */
     public String getArtist() {
         return artist;
@@ -134,6 +139,7 @@ public class Song {
     /**
      *
      * @param artist
+     * @set artist
      */
     public void setArtist(String artist) {
         this.artist = artist;

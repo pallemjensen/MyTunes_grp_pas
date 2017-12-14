@@ -9,27 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class for constructing and managing playlists.
  *
  * @author pmj
  */
 public class Playlist {
+
     private int id;
     private String name;
-    private List<Song> playlistSongs;
+    private final List<Song> playlistSongs;
     private double totalDuration;
-//    private int song1;
-//    private int song2;
-//    private int song3;
-//    private int song4;
-//    private int song5;
-//    private int song6;
-//    private int song7;
-//    private int song8;
-//    private int song9;
-//    private int song10;
-    
+
     /**
-     *@Playlist constructor
+     * @Playlist constructor
      */
     public Playlist() {
         playlistSongs = new ArrayList<>();
@@ -41,40 +33,32 @@ public class Playlist {
      * @param name
      * @Playlist constructor
      */
-    public Playlist(int id, String name){
-        this.id=id;
-        this.name=name;
+    public Playlist(int id, String name) {
+        this.id = id;
+        this.name = name;
         playlistSongs = new ArrayList<>();
     }
-    
+
     /**
      *
      * @param song
-     * @Add a song object to our songs-list
+     * @Add a song object to our playlist
      */
-    public void addSongToPlaylist(Song song){
+    public void addSongToPlaylist(Song song) {
         playlistSongs.add(song);
     }
 
     /**
      *
-     * @return
+     * @return playlist
      */
-    public List<Song> getSongs() {
+    public List<Song> getplaylistSongs() {
         return playlistSongs;
     }
 
     /**
      *
-     * @param songs
-     */
-    public void setSongs(List<Song> songs) {
-        this.playlistSongs = songs;
-    }
-
-    /**
-     *
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -83,6 +67,7 @@ public class Playlist {
     /**
      *
      * @param name
+     * @set name
      */
     public void setName(String name) {
         this.name = name;
@@ -90,7 +75,7 @@ public class Playlist {
 
     /**
      *
-     * @return
+     * @return id
      */
     public int getId() {
         return id;
@@ -99,6 +84,7 @@ public class Playlist {
     /**
      *
      * @param id
+     * @set id
      */
     public void setId(int id) {
         this.id = id;
@@ -106,7 +92,7 @@ public class Playlist {
 
     /**
      *
-     * @return
+     * @return totalduration
      */
     public double getTotalDuration() {
         return totalDuration;
@@ -115,14 +101,10 @@ public class Playlist {
     /**
      *
      * @param totalDuration
+     * @set totalDuration
      */
     public void setTotalDuration(double totalDuration) {
         this.totalDuration = totalDuration;
     }
-    
-    
-    
-    
-    
-    
+
 }

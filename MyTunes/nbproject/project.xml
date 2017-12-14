@@ -23,6 +23,8 @@
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>playlist</word>
+            <word>playlists</word>
+            <word>totalduration</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
