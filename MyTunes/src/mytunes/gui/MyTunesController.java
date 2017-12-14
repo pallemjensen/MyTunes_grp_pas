@@ -66,7 +66,6 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
-    @FXML
     private final ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     @FXML
@@ -255,6 +254,7 @@ public class MyTunesController implements Initializable {
     //define a new mediaplayer with the selected song from TVSongs table as media.
     @FXML
     private void mouseClickedSongs(MouseEvent event) {
+        TVSongsOnPlaylist.getSelectionModel().clearSelection();
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
@@ -283,6 +283,11 @@ public class MyTunesController implements Initializable {
     int selectedSongId =  songSelected.getId();
     int selectedPlaylistId = playlistSelected.getId();
     myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+    }
+
+    @FXML
+    private void mouseClickedTVSongsOnPlaylist(MouseEvent event) {
+    TVSongs.getSelectionModel().clearSelection();
     }
     
     
