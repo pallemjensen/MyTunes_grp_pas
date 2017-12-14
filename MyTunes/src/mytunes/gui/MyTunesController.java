@@ -202,6 +202,7 @@ public class MyTunesController implements Initializable {
     //Shows the current media playing.
     @FXML
     private void btnPlaySong(ActionEvent event) throws InterruptedException {
+        player.stop();
         lblNowPlaying.setText(songSelected.getArtist() + ": " + songSelected.getTitle());
         player.play();
     }
