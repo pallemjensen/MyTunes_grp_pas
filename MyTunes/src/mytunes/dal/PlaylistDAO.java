@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mytunes.be.Playlist;
+import mytunes.be.Song;
 
 /**
  * @In this class we manage all traffic from and to our DB concerning our playlists.
@@ -44,6 +45,15 @@ public class PlaylistDAO {
                 Playlist currentPlaylist = new Playlist();
                 currentPlaylist.setId(rs.getInt("playlist_id"));
                 currentPlaylist.setName(rs.getString("playlist_name"));
+                
+//                for (int i = 3; i <= 12; i++) {
+//                    int playlistSongId = rs.getInt(i);
+//                        if(playlistSongId != 0){
+//                            Song ns = new Song();
+//                            ns.setId(playlistSongId);
+//                            
+//                        }
+//                }
                 
                 playlists.add(currentPlaylist);
             }
