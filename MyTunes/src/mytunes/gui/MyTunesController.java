@@ -66,7 +66,7 @@ public class MyTunesController implements Initializable {
     private TableColumn<Song, String> SongsGenreColumn;
     @FXML
     private TableColumn<Song, Float> SongsDurationColumn;
-    private final ObservableList<Song> filteredSongs
+    private ObservableList<Song> filteredSongs
             = FXCollections.observableArrayList();
     @FXML
     private TableView<Song> TVSongsOnPlaylist;
@@ -277,4 +277,6 @@ public class MyTunesController implements Initializable {
     int selectedPlaylistId = playlistSelected.getId();
     myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
+    
+    
 }
