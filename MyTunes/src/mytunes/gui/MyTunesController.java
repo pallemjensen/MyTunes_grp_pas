@@ -31,16 +31,14 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
-import mytunes.bll.BLLManager;
 /**
- * FXML Controller class our main window
+ * FXML Controller class for our main window
  *
  * @author pmj
  */
 public class MyTunesController implements Initializable {
     
     private final MyTunesModel myTunesModel = new MyTunesModel();
-    private final BLLManager bllmanager = new BLLManager();
     private MediaPlayer player;
     private Song songSelected;
     private Playlist playlistSelected;
@@ -175,7 +173,7 @@ public class MyTunesController implements Initializable {
     private void btnPause(ActionEvent event) {
         player.pause();
     }
-    //Load our songs fro the DB
+    //Load our songs from the DB
     @FXML
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();
@@ -218,7 +216,7 @@ public class MyTunesController implements Initializable {
     private void btnFilter(ActionEvent event) {
         TVSongs.getItems().clear();
         String filterString = txtFilter.getText().toLowerCase().trim();
-        List<Song> loadedSongs = bllmanager.getAllSongs();
+        List<Song> loadedSongs = myTunesModel.getSongs();
         for (Song song : loadedSongs) {
             if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
             {

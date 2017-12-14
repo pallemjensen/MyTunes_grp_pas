@@ -116,4 +116,9 @@ public class BLLManager {
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         playlistDAO.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
+    
+    public void createNewPlaylist(String name) throws SQLException{
+    playlistDAO.createPlaylist(name);
+    }
+
 }

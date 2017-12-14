@@ -14,7 +14,7 @@ import mytunes.be.Playlist;
 import mytunes.be.Song;
 import mytunes.bll.BLLManager;
 /**
- *
+ * @
  * @author Anders
  */
 
@@ -137,6 +137,7 @@ public class MyTunesModel {
      * @param i
      * @throws SQLServerException
      * @throws SQLException
+     * @Edit the name of the selected playlist
      */
     public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
         bllManager.editPlaylist(name, i);
@@ -146,8 +147,13 @@ public class MyTunesModel {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
+     * @ Add the selected song to the selected playlist
      */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+    }
+    
+    public void createNewPlaylist(String name) throws SQLException{
+    bllManager.createNewPlaylist(name);
     }
 }

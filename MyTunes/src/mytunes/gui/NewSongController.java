@@ -14,13 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import mytunes.be.Song;
-import mytunes.bll.BLLManager;
-import mytunes.dal.SongDAO;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3File;
@@ -33,12 +29,10 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  * @author Anders
  */
 public class NewSongController implements Initializable {
-    private final BLLManager bllmanager = new BLLManager();
     private final MyTunesModel model = new MyTunesModel();
     
     private MyTunesModel m_myTunesModel;
     private Stage stage;
-    private String audioFile;
     @FXML
     private TextField txtNewSongTitle;
     @FXML
