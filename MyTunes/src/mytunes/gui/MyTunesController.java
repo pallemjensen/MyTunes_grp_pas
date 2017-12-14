@@ -271,7 +271,7 @@ public class MyTunesController implements Initializable {
     
     //Add the selected song to the selected playlist using both their id's.
     @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) {
+    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
         playlistSelected.addSongToPlaylist(songSelected);
     int selectedSongId =  songSelected.getId();
     int selectedPlaylistId = playlistSelected.getId();

@@ -113,7 +113,7 @@ public class BLLManager {
      * @param selectedSongId
      * @Recieves playlist id and song id and adds  song to a playlist in our DB via addSongToPlaylist in playlistDAO.
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {
         playlistDAO.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
     

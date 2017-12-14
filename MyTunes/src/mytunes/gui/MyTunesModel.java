@@ -149,7 +149,7 @@ public class MyTunesModel {
      * @param selectedSongId
      * @ Add the selected song to the selected playlist
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {
         bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
     
