@@ -31,21 +31,21 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
+
 /**
  * FXML Controller class for our main window
  *
  * @author pmj
  */
 public class MyTunesController implements Initializable {
-    
+
     private final MyTunesModel myTunesModel = new MyTunesModel();
     private MediaPlayer player;
     private Song songSelected;
     private Playlist playlistSelected;
-    
-    
+
     @FXML
-    private TableView<Song> TVSongs;  
+    private TableView<Song> TVSongs;
     @FXML
     private TextField txtFilter;
     @FXML
@@ -72,30 +72,30 @@ public class MyTunesController implements Initializable {
     private TableView<Song> TVSongsOnPlaylist;
     @FXML
     private TableColumn<Song, String> songsOnPlaylistTitleColumn;
-    
+
     //set the property value of the parameters on our song objects
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SongsTitleColumn.setCellValueFactory(
-            new PropertyValueFactory("title"));
+                new PropertyValueFactory("title"));
         SongsArtistColumn.setCellValueFactory(
-            new PropertyValueFactory("artist"));
+                new PropertyValueFactory("artist"));
         SongsDurationColumn.setCellValueFactory(
-            new PropertyValueFactory("duration"));
+                new PropertyValueFactory("duration"));
         SongsGenreColumn.setCellValueFactory(
-            new PropertyValueFactory("genre"));
+                new PropertyValueFactory("genre"));
 
-    //Get our songs and insert them into our song tableview.
+        //Get our songs and insert them into our song tableview.
         TVSongs.setItems(myTunesModel.getSongs());
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
         PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
-        
+
         songsOnPlaylistTitleColumn.setCellValueFactory(new PropertyValueFactory("title"));
         TVSongsOnPlaylist.setItems(myTunesModel.getSongsOnPlaylist());
-    }  
-    
+    }
+
     //Open the new playlist window
     @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
@@ -107,7 +107,7 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     //Open the edit playlist window. Add the playlist parameter values to a 
     //new myTunesModel instance with the new controller.
     @FXML
@@ -141,65 +141,68 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     //Close the main application
     @FXML
     private void btnClose(ActionEvent event) {
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
+        ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
     }
-    
+
     //Delete the selected song in our TVSongs tableview from our object list and DB through
     // our DeleteConfirmationController.
     @FXML
     private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
         Song selectedSong = TVSongs.getSelectionModel().getSelectedItem();
-        if(selectedSong != null){
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
-        Parent root = (Parent) fxmlLoader1.load();
-        DeleteConfirmationController dcc = fxmlLoader1.getController();
-        dcc.setUp(myTunesModel,selectedSong);
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (selectedSong != null) {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
+            Parent root = (Parent) fxmlLoader1.load();
+            DeleteConfirmationController dcc = fxmlLoader1.getController();
+            dcc.setUp(myTunesModel, selectedSong);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
     }
+
     //Stop playing the current media playing.
     @FXML
     private void btnStop(ActionEvent event) {
-        player.stop();
+    player.stop();
     }
+
     //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
-        player.pause();
+    player.stop(); 
     }
+
     //Load our songs from the DB
     @FXML
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();
-    } 
-    
+    }
+
     //Delete the selected playlist in our TVPlaylists tableview from our object list and DB through
     // our btnDelete method in DeleteConfirmationController.
-     @FXML
+    @FXML
     private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
-        Playlist selectedPlaylist = 
-        TVPlaylists.getSelectionModel().getSelectedItem();
-        if(selectedPlaylist != null){
-        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
-        Parent root = (Parent) fxmlLoader1.load();
-        DeleteConfirmationController dcc = fxmlLoader1.getController();
-        dcc.setUp2(myTunesModel,selectedPlaylist);
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        Playlist selectedPlaylist
+                = TVPlaylists.getSelectionModel().getSelectedItem();
+        if (selectedPlaylist != null) {
+            FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
+            Parent root = (Parent) fxmlLoader1.load();
+            DeleteConfirmationController dcc = fxmlLoader1.getController();
+            dcc.setUp2(myTunesModel, selectedPlaylist);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
     }
-    
+
     //Shows the current media playing.
     @FXML
-    private void btnPlaySong(ActionEvent event) {
-        lblNowPlaying.setText(songSelected.getArtist()+": "+ songSelected.getTitle());
+    private void btnPlaySong(ActionEvent event) throws InterruptedException {
+        lblNowPlaying.setText(songSelected.getArtist() + ": " + songSelected.getTitle());
         player.play();
     }
 
@@ -213,20 +216,18 @@ public class MyTunesController implements Initializable {
 
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
-    private void btnFilter(ActionEvent event) {    
+    private void btnFilter(ActionEvent event) {
         String filterString = txtFilter.getText().toLowerCase().trim();
-        List<Song> loadedSongs = myTunesModel.getSongs();       
+        List<Song> loadedSongs = myTunesModel.getSongs();
         for (Song song : loadedSongs) {
-            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
-            {
+            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString))) {
                 filteredSongs.add(song);
                 TVSongs.setItems(filteredSongs);
             }
         }
         TVSongs.getItems().clear();
         for (Song song : loadedSongs) {
-            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
-            {
+            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString))) {
                 filteredSongs.add(song);
                 TVSongs.setItems(filteredSongs);
             }
@@ -244,13 +245,13 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     //load our playlists
     @FXML
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
-    
+
     //define a new mediaplayer with the selected song from TVSongs table as media.
     @FXML
     private void mouseClickedSongs(MouseEvent event) {
@@ -263,10 +264,10 @@ public class MyTunesController implements Initializable {
     // We clear our search filter, songs tableview and load our songs
     @FXML
     private void btnClearFilter(ActionEvent event) {
-            txtFilter.clear();
-            TVSongs.getItems().clear();
-            TVSongs.setItems(myTunesModel.getSongs());
-            myTunesModel.loadSongs();
+        txtFilter.clear();
+        TVSongs.getItems().clear();
+        TVSongs.setItems(myTunesModel.getSongs());
+        myTunesModel.loadSongs();
     }
 
     //Show the songs in the selected playlist
@@ -274,22 +275,25 @@ public class MyTunesController implements Initializable {
     private void mouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
         myTunesModel.showSongsOnPlaylist(playlistSelected);
-    }    
-    
+    }
+
     //Add the selected song to the selected playlist using both their id's.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
-    playlistSelected.addSongToPlaylist(songSelected);
-    int selectedSongId =  songSelected.getId();
-    int selectedPlaylistId = playlistSelected.getId();
-    myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+        playlistSelected.addSongToPlaylist(songSelected);
+        int selectedSongId = songSelected.getId();
+        int selectedPlaylistId = playlistSelected.getId();
+        myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
 
     @FXML
     private void mouseClickedTVSongsOnPlaylist(MouseEvent event) {
-    TVSongs.getSelectionModel().clearSelection();
-    TVPlaylists.getSelectionModel().clearSelection();
+        TVSongs.getSelectionModel().clearSelection();
+        TVPlaylists.getSelectionModel().clearSelection();
+
+        songSelected = TVSongsOnPlaylist.getSelectionModel().getSelectedItem();
+        File file = new File(songSelected.getSongPath());
+        player = new MediaPlayer(new Media(file.toURI().toString()));
     }
-    
-    
+
 }
