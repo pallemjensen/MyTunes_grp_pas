@@ -12,22 +12,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
 
 /**
  * FXML Controller class
- *
+ *  Manages the delete confirmation function
  * @author pmj
  */
 public class DeleteConfirmationController implements Initializable {
    private MyTunesModel m_myTunesModel;
    private Song m_selectedSong;
    private Playlist m_selectedPlaylist;
-    @FXML
-    private Label lbl;
     
     /**
      * Initializes the controller class...
@@ -39,6 +36,8 @@ public class DeleteConfirmationController implements Initializable {
         // TODO
     }    
 
+    
+    // We delete a song if one is selected or a playlist if one is selected.
     @FXML
     private void btnDelete(ActionEvent event) throws SQLException {
         if (m_selectedSong != null) 
@@ -55,14 +54,14 @@ public class DeleteConfirmationController implements Initializable {
         { 
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
         } 
-        
-        
     }
 
     /**
      *
      * @param myTunesModel
      * @param selectedSong
+     * @Recieves an instance of our myTunesModel class and a song object
+     * @and creates a new instance of both in a new controller.
      */
     public void setUp(MyTunesModel myTunesModel, Song selectedSong) {
         m_myTunesModel = myTunesModel;
@@ -73,16 +72,17 @@ public class DeleteConfirmationController implements Initializable {
      *
      * @param myTunesModel
      * @param selectedPlaylist
+     * @Recieves an instance of our myTunesModel class and a playlist object
+     * @and creates a new instance of both in a new controller.
      */
     public void setUp2(MyTunesModel myTunesModel, Playlist selectedPlaylist) {
         m_myTunesModel = myTunesModel;
         m_selectedPlaylist = selectedPlaylist;
-
     }
-
+    
+    //Closes the window
     @FXML
     private void btnCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }
-    
+    } 
 }

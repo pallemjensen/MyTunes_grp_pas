@@ -10,15 +10,15 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 
 /**
- *
+ *@ Class for constructing a connector we can use when we want to connect to our DB throughout our application.
  * @author pmj
  */
 public class ConnectionManager {
-    private SQLServerDataSource ds
+    private final SQLServerDataSource ds
                 = new SQLServerDataSource();
 
     /**
-     *
+     * Connection constructor with connector parameters.
      */
     public ConnectionManager() {
         ds.setDatabaseName("MytunesAPS");
@@ -30,7 +30,7 @@ public class ConnectionManager {
     
     /**
      *
-     * @return
+     * @return our connection
      * @throws SQLServerException
      */
     public Connection getConnection() throws SQLServerException

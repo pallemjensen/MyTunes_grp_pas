@@ -11,10 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mytunes.gui.EditSongController;
-
 /**
- *
+ *@Main class
  * @author pmj
  */
 public class MyTunes extends Application {

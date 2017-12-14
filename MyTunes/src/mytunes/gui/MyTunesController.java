@@ -32,9 +32,8 @@ import javafx.stage.Stage;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
 import mytunes.bll.BLLManager;
-
 /**
- * FXML Controller class
+ * FXML Controller class our main window
  *
  * @author pmj
  */
@@ -76,6 +75,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Song, String> songsOnPlaylistTitleColumn;
     
+    //set the property value of the parameters on our song objects
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SongsTitleColumn.setCellValueFactory(
@@ -87,6 +87,7 @@ public class MyTunesController implements Initializable {
         SongsGenreColumn.setCellValueFactory(
             new PropertyValueFactory("genre"));
 
+    //Get our songs and insert them into our song tableview.
         TVSongs.setItems(myTunesModel.getSongs());
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
@@ -96,7 +97,8 @@ public class MyTunesController implements Initializable {
         songsOnPlaylistTitleColumn.setCellValueFactory(new PropertyValueFactory("title"));
         TVSongsOnPlaylist.setItems(myTunesModel.getSongsOnPlaylist());
     }  
-
+    
+    //Open the new playlist window
     @FXML
     private void btnNewPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
@@ -107,7 +109,9 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+    
+    //Open the edit playlist window. Add the playlist parameter values to a 
+    //new myTunesModel instance with the new controller.
     @FXML
     private void btnEditPlaylist(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditPlaylistName.fxml"));
@@ -122,6 +126,8 @@ public class MyTunesController implements Initializable {
         stage.show();
     }
 
+    //Open the edit Song window. Add the song parameter values to a 
+    //new myTunesModel instance with the new controller.
     @FXML
     private void btnEditSong(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("EditSong.fxml"));
@@ -137,17 +143,18 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+    
+    //Close the main application
     @FXML
     private void btnClose(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
     
-  
+    //Delete the selected song in our TVSongs tableview from our object list and DB through
+    // our DeleteConfirmationController.
     @FXML
     private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
-        Song selectedSong = 
-        TVSongs.getSelectionModel().getSelectedItem();
+        Song selectedSong = TVSongs.getSelectionModel().getSelectedItem();
         if(selectedSong != null){
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
         Parent root = (Parent) fxmlLoader1.load();
@@ -158,22 +165,24 @@ public class MyTunesController implements Initializable {
         stage.show();
         }
     }
-
+    //Stop playing the current media playing.
     @FXML
     private void btnStop(ActionEvent event) {
         player.stop();
     }
-
+    //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
         player.pause();
     }
-
+    //Load our songs fro the DB
     @FXML
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();
     } 
     
+    //Delete the selected playlist in our TVPlaylists tableview from our object list and DB through
+    // our btnDelete method in DeleteConfirmationController.
      @FXML
     private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
         Playlist selectedPlaylist = 
@@ -189,6 +198,7 @@ public class MyTunesController implements Initializable {
         }
     }
     
+    //Shows the current media playing.
     @FXML
     private void btnPlaySong(ActionEvent event) {
         lblNowPlaying.setText(songSelected.getArtist()+": "+ songSelected.getTitle());
@@ -203,6 +213,7 @@ public class MyTunesController implements Initializable {
     private void btnPreviousSong(ActionEvent event) {
     }
 
+    //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
     private void btnFilter(ActionEvent event) {
         TVSongs.getItems().clear();
@@ -218,7 +229,7 @@ public class MyTunesController implements Initializable {
     }
 
     
-
+    //Opens the New song window
     @FXML
     private void btnNewSong(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("NewSong.fxml"));
@@ -229,11 +240,14 @@ public class MyTunesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+    
+    //load our playlists
     @FXML
     private void btnLoadPlaylists(ActionEvent event) {
         myTunesModel.loadPlaylists();
     }
+    
+    //define a new mediaplayer with the selected song from TVSongs table as media.
     @FXML
     private void mouseClickedSongs(MouseEvent event) {
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
@@ -241,6 +255,7 @@ public class MyTunesController implements Initializable {
         player = new MediaPlayer(new Media(file.toURI().toString()));
     }
 
+    // We clear our search filter, songs tableview and load our songs
     @FXML
     private void btnClearFilter(ActionEvent event) {
             txtFilter.clear();
@@ -249,12 +264,14 @@ public class MyTunesController implements Initializable {
             myTunesModel.loadSongs();
     }
 
+    //Show the songs in the selected playlist
     @FXML
     private void mouseClickedPlaylists(MouseEvent event) {
         playlistSelected = TVPlaylists.getSelectionModel().getSelectedItem();
         myTunesModel.showSongsOnPlaylist(playlistSelected);
     }    
     
+    //Add the selected song to the selected playlist using both their id's.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
         playlistSelected.addSongToPlaylist(songSelected);

@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * Controller class for edit song
  *
  * @author Anders
  */
@@ -37,7 +37,7 @@ public class EditSongController implements Initializable {
     private TextField txtEditSongArtist;
     
     /**
-     * Initializes the controller class.
+     * Initializes the controller class for edit song.
      * @param url
      * @param rb
      */
@@ -47,7 +47,7 @@ public class EditSongController implements Initializable {
     }      
 
     /**
-     *
+     *@ Edit artist, title and genre on a song with id i and loads the new songlist.
      * @param event
      * @throws SQLException
      */
@@ -68,7 +68,7 @@ public class EditSongController implements Initializable {
     }
 
     /**
-     *
+     *@set id
      * @param id
      */
     public void setId(int id) {
@@ -76,7 +76,7 @@ public class EditSongController implements Initializable {
     } 
 
     /**
-     *
+     *@set Artist
      * @param Artist
      */
     public void setArtist(String Artist) {
@@ -84,7 +84,7 @@ public class EditSongController implements Initializable {
     }
 
     /**
-     *
+     *@ set genre
      * @param Genre
      */
     public void setGenre(String Genre) {
@@ -92,7 +92,7 @@ public class EditSongController implements Initializable {
     }
 
     /**
-     *
+     *@ set title
      * @param Title
      */
     public void setTitle(String Title) {
@@ -100,7 +100,7 @@ public class EditSongController implements Initializable {
     }
     
     /**
-     *
+     *@ Fill out the song info in the edit song window with current parameters before editing.
      */
     public void insertSongInfo(){
     txtEditSongArtist.setText(Artist);
@@ -109,10 +109,12 @@ public class EditSongController implements Initializable {
     } 
 
     /**
-     *
+     * @ Receive myTunesModel and set to new instance with new controller.
      * @param myTunesModel
      */
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
     }
-}
+}   
+    
+
