@@ -24,6 +24,10 @@ import mytunes.be.Song;
 public class SongDAO {
    ConnectionManager cm = new ConnectionManager();
 
+    /**
+     *
+     * @return
+     */
     public List<Song> getAllSongs() {
         List<Song> songs = new ArrayList();
         
@@ -49,6 +53,12 @@ public class SongDAO {
         return songs;
     }
 
+    /**
+     *
+     * @param song
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void remove(Song song) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
@@ -56,6 +66,17 @@ public class SongDAO {
         }       
     }
     
+    /**
+     *
+     * @param title
+     * @param genre
+     * @param duration
+     * @param songPath
+     * @param artist
+     * @return
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
     {   
         
@@ -82,6 +103,16 @@ public class SongDAO {
             throw new RuntimeException("Can't create song");
         }
     }
+
+    /**
+     *
+     * @param i
+     * @param title
+     * @param artist
+     * @param genre
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException{
         String query = "UPDATE MyTunesSongs2 SET song_title = ?, artist_name = ?, song_genre = ? WHERE song_id = ?;";
      try (Connection con = cm.getConnection())

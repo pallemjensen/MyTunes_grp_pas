@@ -53,6 +53,8 @@ public class NewSongController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -115,6 +117,11 @@ public class NewSongController implements Initializable {
         m_myTunesModel.loadSongs();
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
+
+    /**
+     *
+     * @param myTunesModel
+     */
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
        

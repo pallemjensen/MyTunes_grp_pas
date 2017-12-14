@@ -19,6 +19,16 @@ public class Song {
     private String songPath;
     private String artist;
 
+    /**
+     *
+     * @param id
+     * @param title
+     * @param genre
+     * @param duration
+     * @param songPath
+     * @param artist
+     * @Song constructor
+     */
     public Song(int id, String title, String genre, String duration, String songPath, String artist) {
         this.id = id;
         this.title = title;
@@ -28,6 +38,9 @@ public class Song {
         this.artist = artist;
     }
 
+    /**
+     *
+     */
     public Song() {
     }
     /**

@@ -13,7 +13,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mytunes.gui.EditSongController;
 
-
+/**
+ *
+ * @author pmj
+ */
 public class MyTunes extends Application {
     @Override
     public void start(Stage stage) throws Exception {

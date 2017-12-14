@@ -32,6 +32,8 @@ public class EditPlaylistNameController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,14 +54,25 @@ public class EditPlaylistNameController implements Initializable {
     ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
     
+    /**
+     *
+     */
     public void insertPlaylistInfo(){
     txtEditPlaylistName.setText(name);
     } 
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }

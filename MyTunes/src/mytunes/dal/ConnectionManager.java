@@ -16,6 +16,10 @@ import java.sql.Connection;
 public class ConnectionManager {
     private SQLServerDataSource ds
                 = new SQLServerDataSource();
+
+    /**
+     *
+     */
     public ConnectionManager() {
         ds.setDatabaseName("MytunesAPS");
         ds.setUser("CS2017A_28");
@@ -24,6 +28,11 @@ public class ConnectionManager {
         ds.setPortNumber(1433);
     }
     
+    /**
+     *
+     * @return
+     * @throws SQLServerException
+     */
     public Connection getConnection() throws SQLServerException
     {
         return ds.getConnection();

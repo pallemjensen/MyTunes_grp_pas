@@ -38,12 +38,19 @@ public class EditSongController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
     }      
 
+    /**
+     *
+     * @param event
+     * @throws SQLException
+     */
     @FXML
     public void btnEditSongSave(ActionEvent event) throws SQLException {
       int i = id;
@@ -60,27 +67,51 @@ public class EditSongController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     } 
 
+    /**
+     *
+     * @param Artist
+     */
     public void setArtist(String Artist) {
         this.Artist = Artist;
     }
 
+    /**
+     *
+     * @param Genre
+     */
     public void setGenre(String Genre) {
         this.Genre = Genre;
     }
 
+    /**
+     *
+     * @param Title
+     */
     public void setTitle(String Title) {
         this.Title = Title;
     }
     
+    /**
+     *
+     */
     public void insertSongInfo(){
     txtEditSongArtist.setText(Artist);
     txtEditSongTitle.setText(Title);
     txtEditSongGenre.setText(Genre);
     } 
+
+    /**
+     *
+     * @param myTunesModel
+     */
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
     }

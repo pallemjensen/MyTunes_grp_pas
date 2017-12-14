@@ -24,9 +24,16 @@ import mytunes.be.Playlist;
 public class PlaylistDAO {
     ConnectionManager cm = new ConnectionManager();
 
+    /**
+     *
+     */
     public PlaylistDAO() {
     }
     
+    /**
+     *
+     * @return
+     */
     public List<Playlist> getAllPlaylists() {
         List<Playlist> playlists = new ArrayList();
         
@@ -47,6 +54,13 @@ public class PlaylistDAO {
         return playlists;
     }
     
+    /**
+     *
+     * @param name
+     * @return
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public Playlist createPlaylist(String name) throws SQLServerException, SQLException 
     {   
         try (Connection con = cm.getConnection())
@@ -70,12 +84,26 @@ public class PlaylistDAO {
         }
     }
     
+    /**
+     *
+     * @param playlist
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void remove(Playlist playlist) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
             stmt.execute("DELETE FROM playlist WHERE playlist_id="+playlist.getId());
         }       
     }
+
+    /**
+     *
+     * @param name
+     * @param i
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void editPlaylist(String name, int i ) throws SQLServerException, SQLException{
         String query = "UPDATE playlist SET playlist_name = ? WHERE playlist_id = ?;";
      try (Connection con = cm.getConnection())
@@ -87,6 +115,11 @@ public class PlaylistDAO {
 }
     }
 
+    /**
+     *
+     * @param selectedPlaylistId
+     * @param selectedSongId
+     */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         // To Doo
     }

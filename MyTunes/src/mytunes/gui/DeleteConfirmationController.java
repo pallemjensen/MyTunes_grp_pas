@@ -31,6 +31,8 @@ public class DeleteConfirmationController implements Initializable {
     
     /**
      * Initializes the controller class...
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -57,12 +59,21 @@ public class DeleteConfirmationController implements Initializable {
         
     }
 
-
-
+    /**
+     *
+     * @param myTunesModel
+     * @param selectedSong
+     */
     public void setUp(MyTunesModel myTunesModel, Song selectedSong) {
         m_myTunesModel = myTunesModel;
         m_selectedSong = selectedSong;
     }
+
+    /**
+     *
+     * @param myTunesModel
+     * @param selectedPlaylist
+     */
     public void setUp2(MyTunesModel myTunesModel, Playlist selectedPlaylist) {
         m_myTunesModel = myTunesModel;
         m_selectedPlaylist = selectedPlaylist;

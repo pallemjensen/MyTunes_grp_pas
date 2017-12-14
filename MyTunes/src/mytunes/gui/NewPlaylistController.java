@@ -32,6 +32,8 @@ public class NewPlaylistController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,6 +53,11 @@ public class NewPlaylistController implements Initializable {
         m_myTunesModel.loadPlaylists();
        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();  
     }
+
+    /**
+     *
+     * @param myTunesModel
+     */
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
        
