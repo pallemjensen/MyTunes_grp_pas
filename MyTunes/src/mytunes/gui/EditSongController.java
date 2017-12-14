@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class for edit song
+ * Controller class for edit song
  *
  * @author Anders
  */

@@ -13,8 +13,6 @@ import javafx.collections.ObservableList;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
 import mytunes.bll.BLLManager;
-import mytunes.dal.PlaylistDAO;
-
 /**
  *
  * @author Anders
@@ -22,7 +20,6 @@ import mytunes.dal.PlaylistDAO;
 
 public class MyTunesModel {
     private final BLLManager bllManager = new BLLManager();
-    private final PlaylistDAO playlistDAO = new PlaylistDAO();
 
     private final ObservableList<Song> songs
             = FXCollections.observableArrayList();
@@ -68,7 +65,7 @@ public class MyTunesModel {
     }
     
     /**
-     *
+     *@load our playlists from the DB
      */
     public void loadPlaylists() {
         List<Playlist> loadedPlaylists = bllManager.getAllPlaylists();
@@ -77,7 +74,7 @@ public class MyTunesModel {
     }
     
     /**
-     *
+     *@Load our songs from the DB and add them into our songs list.
      */
     public void loadSongs() {
         List<Song> loadedSongs = bllManager.getAllSongs();
