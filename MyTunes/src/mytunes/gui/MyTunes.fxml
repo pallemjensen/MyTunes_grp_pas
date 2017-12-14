@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
+<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
    <children>
       <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPlaySong" prefHeight="25.0" prefWidth="43.0" text="Play" />
       <Button layoutX="172.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnNextSong" prefHeight="25.0" prefWidth="54.0" text="Next" />
@@ -26,12 +26,12 @@
             <TableColumn fx:id="PlaylistsSongDurationColumn" prefWidth="66.0" text="Duration" />
         </columns>
       </TableView>
-      <TableView fx:id="TVSongs" layoutX="590.0" layoutY="105.0" onMouseClicked="#mouseClickedSongs" prefHeight="417.0" prefWidth="517.0">
+      <TableView fx:id="TVSongs" layoutX="623.0" layoutY="105.0" onMouseClicked="#mouseClickedSongs" prefHeight="417.0" prefWidth="484.0">
         <columns>
-          <TableColumn fx:id="SongsTitleColumn" prefWidth="174.0" text="Title" />
-          <TableColumn fx:id="SongsArtistColumn" prefWidth="128.0" text="Artist" />
-            <TableColumn fx:id="SongsGenreColumn" prefWidth="118.0" text="Genre" />
-            <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="96.0" text="Duration" />
+          <TableColumn fx:id="SongsTitleColumn" prefWidth="132.0" text="Title" />
+          <TableColumn fx:id="SongsArtistColumn" prefWidth="138.0" text="Artist" />
+            <TableColumn fx:id="SongsGenreColumn" prefWidth="93.0" text="Genre" />
+            <TableColumn fx:id="SongsDurationColumn" minWidth="0.0" prefWidth="153.0" text="Duration" />
         </columns>
       </TableView>
       <Label layoutX="427.0" layoutY="100.0" prefHeight="25.0" prefWidth="132.0" text="Songs on playlist">
@@ -40,7 +40,7 @@
          </font>
       </Label>
       <TextField fx:id="txtFilter" layoutX="950.0" layoutY="63.0" />
-      <Button layoutX="417.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnAddSongToPlaylist" prefHeight="25.0" prefWidth="174.0" text="Add selected song to playlist" />
+      <Button layoutX="427.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnAddSongToPlaylist" prefHeight="25.0" prefWidth="73.0" text="Add song" />
       <Button layoutX="23.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnNewPlaylist" prefHeight="25.0" prefWidth="113.0" text="New playlist" />
       <Button layoutX="149.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnEditPlaylist" prefHeight="25.0" prefWidth="113.0" text="Edit playlist name" />
       <Button layoutX="286.0" layoutY="539.0" mnemonicParsing="false" onAction="#btnDeletePlaylist" prefHeight="25.0" prefWidth="92.0" text="Delete playlist" />
@@ -56,10 +56,11 @@
       <Label layoutX="343.0" layoutY="31.0" prefHeight="17.0" prefWidth="84.0" text="Now playing:" />
       <Label fx:id="lblNowPlaying" layoutX="427.0" layoutY="27.0" prefHeight="25.0" prefWidth="322.0" />
       <Button layoutX="819.0" layoutY="63.0" mnemonicParsing="false" onAction="#btnClearFilter" prefHeight="25.0" prefWidth="125.0" text="Clear filter" />
-      <TableView fx:id="TVSongsOnPlaylist" layoutX="427.0" layoutY="125.0" prefHeight="395.0" prefWidth="149.0">
+      <TableView fx:id="TVSongsOnPlaylist" layoutX="427.0" layoutY="125.0" prefHeight="395.0" prefWidth="187.0">
         <columns>
-          <TableColumn fx:id="songsOnPlaylistTitleColumn" prefWidth="148.0" text="Title" />
+          <TableColumn fx:id="songsOnPlaylistTitleColumn" prefWidth="186.0" text="Title" />
         </columns>
       </TableView>
+      <Button layoutX="508.0" layoutY="527.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Remove song" />
    </children>
 </AnchorPane>
