@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mytunes.be.Playlist;
-import mytunes.be.Song;
-
 /**
  * @In this class we manage all traffic from and to our DB concerning our playlists.
  * @author pmj
@@ -67,6 +65,7 @@ public class PlaylistDAO {
     /**
      *
      * @param name
+     * @return 
      * @Create a new playlist in our DB with parameter name and returns a new playlist object
      * @throws SQLServerException
      * @throws SQLException
@@ -131,6 +130,7 @@ public class PlaylistDAO {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
+     * @throws com.microsoft.sqlserver.jdbc.SQLServerException
      * @@Recieves playlist id and song id and adds the song to the playlist in our DB.
      */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLServerException, SQLException {
