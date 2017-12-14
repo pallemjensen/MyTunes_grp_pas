@@ -60,8 +60,10 @@ public class NewSongController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
-        // Opens up thenew file dialog. If the song file is MP3V1 version, the song info is automatically filled out.
-        //If not, the user have to manually fill out the song info. Some info is already filled with the file name text.
+        // Opens up the new file dialog. Filter on mp3 and wav files.
+        //If the song file is MP3v1 version, the song info is automatically filled out.
+        //If not, the user have to manually fill out the song info. Some info is already filled with the file name text,
+        //but can be altered as pr the users wish.
     @FXML
     private void btnChoose(ActionEvent event) throws MalformedURLException {
         String songTitle = null;
