@@ -18,21 +18,20 @@ import java.util.logging.Logger;
 import mytunes.be.Playlist;
 
 /**
- *
+ * @In this class we manage all traffic from and to our DB concerning our playlists.
  * @author pmj
  */
 public class PlaylistDAO {
     ConnectionManager cm = new ConnectionManager();
 
     /**
-     *
+     *@playlist constructor
      */
     public PlaylistDAO() {
     }
     
     /**
-     *
-     * @return
+     * @return our playlists after a DB query
      */
     public List<Playlist> getAllPlaylists() {
         List<Playlist> playlists = new ArrayList();
@@ -57,7 +56,7 @@ public class PlaylistDAO {
     /**
      *
      * @param name
-     * @return
+     * @Create a new playlist in our DB with parameter name and returns a new playlist object
      * @throws SQLServerException
      * @throws SQLException
      */
@@ -89,6 +88,7 @@ public class PlaylistDAO {
      * @param playlist
      * @throws SQLServerException
      * @throws SQLException
+     * @Receives a playlist object and deletes it in our DB
      */
     public void remove(Playlist playlist) throws SQLServerException, SQLException {
         try (Connection con = cm.getConnection();) {
@@ -103,6 +103,7 @@ public class PlaylistDAO {
      * @param i
      * @throws SQLServerException
      * @throws SQLException
+     * @Receives parameters for a playlist and edits the playlist name in our DB.
      */
     public void editPlaylist(String name, int i ) throws SQLServerException, SQLException{
         String query = "UPDATE playlist SET playlist_name = ? WHERE playlist_id = ?;";
@@ -119,6 +120,7 @@ public class PlaylistDAO {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
+     * @@Recieves playlist id and song id and adds the song to the playlist in our DB.
      */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         // To Doo
