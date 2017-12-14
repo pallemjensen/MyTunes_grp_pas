@@ -159,17 +159,17 @@ public class MyTunesController implements Initializable {
         stage.show();
         }
     }
-
+    //Stop playing the current media playing.
     @FXML
     private void btnStop(ActionEvent event) {
         player.stop();
     }
-
+    //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
         player.pause();
     }
-
+    //
     @FXML
     private void btnLoadSongs(ActionEvent event) {
         myTunesModel.loadSongs();

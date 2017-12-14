@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class for edit playlist
  *
  * @author pmj
  */
@@ -44,7 +44,8 @@ public class EditPlaylistNameController implements Initializable {
     private void btnCancelEditPlaylistNAme(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
-
+    
+    //Change the name of the playlist and load the playlist with new name
     @FXML
     private void btnSaveEditPlaylistName(ActionEvent event) throws SQLException {
     int i = id;
@@ -55,14 +56,14 @@ public class EditPlaylistNameController implements Initializable {
     }
     
     /**
-     *
+     *Set the playlist name in the name field
      */
     public void insertPlaylistInfo(){
     txtEditPlaylistName.setText(name);
     } 
 
     /**
-     *
+     * @set name 
      * @param name
      */
     public void setName(String name) {
@@ -78,6 +79,7 @@ public class EditPlaylistNameController implements Initializable {
         this.id = id;
     }
     
+    // Set myTunesModel to the instance with a new controller
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
     }

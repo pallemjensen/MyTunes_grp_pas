@@ -25,6 +25,7 @@
             <word>datatraffic</word>
             <word>playlist</word>
             <word>playlists</word>
+            <word>songlist</word>
             <word>totalduration</word>
         </spellchecker-wordlist>
     </configuration>
