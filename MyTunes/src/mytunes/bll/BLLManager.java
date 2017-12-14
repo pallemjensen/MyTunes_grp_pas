@@ -123,7 +123,7 @@ public class BLLManager {
      * @param selectedPlaylistId
      * @param selectedSongId
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {
         playlistDAO.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
 }

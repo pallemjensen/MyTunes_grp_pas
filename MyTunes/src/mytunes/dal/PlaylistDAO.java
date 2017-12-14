@@ -120,7 +120,33 @@ public class PlaylistDAO {
      * @param selectedPlaylistId
      * @param selectedSongId
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
-        // To Doo
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLServerException, SQLException {
+        try (Connection con = cm.getConnection())
+        {
+            int firstEmptyPlaylistSongIndex = 0;
+            String selectQuery = "SELECT * FROM playlist WHERE playlist_id = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(selectQuery);
+            prepStmt.setInt(1, selectedPlaylistId);
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            System.out.println(rs.getString(2));
+            for (int i = 3; i <= 12; i++) {
+                if (rs.getInt(i) == 0) {
+                    firstEmptyPlaylistSongIndex = i-2;
+                    break;
+                }
+            }
+            if(firstEmptyPlaylistSongIndex != 0){
+            String column = "Song" + firstEmptyPlaylistSongIndex;
+            String updateQuery = "UPDATE playlist SET "+column+" = ? WHERE playlist_id = ?;"; 
+            PreparedStatement prepStmtUpdate = con.prepareStatement(updateQuery);
+           
+            prepStmtUpdate.setInt(1, selectedSongId);
+            prepStmtUpdate.setInt(2, selectedPlaylistId);
+            prepStmtUpdate.executeUpdate();
+                System.out.println("column " + column);
+                System.out.println("songid: "+ selectedSongId + " playlistid: "+ selectedPlaylistId);
+            }
+        }
     }
      }   

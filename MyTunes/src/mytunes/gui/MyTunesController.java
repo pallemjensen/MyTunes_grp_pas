@@ -256,7 +256,7 @@ public class MyTunesController implements Initializable {
     }    
     
     @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) {
+    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
         playlistSelected.addSongToPlaylist(songSelected);
     int selectedSongId =  songSelected.getId();
     int selectedPlaylistId = playlistSelected.getId();
