@@ -44,6 +44,7 @@ public class PlaylistDAO {
                 Playlist currentPlaylist = new Playlist();
                 currentPlaylist.setId(rs.getInt("playlist_id"));
                 currentPlaylist.setName(rs.getString("playlist_name"));
+                
                 playlists.add(currentPlaylist);
             }
         }
