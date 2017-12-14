@@ -61,6 +61,10 @@ public class BLLManager {
     public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
         playlistDAO.editPlaylist(name, i);
     }
+
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+        playlistDAO.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+    }
     
     
 

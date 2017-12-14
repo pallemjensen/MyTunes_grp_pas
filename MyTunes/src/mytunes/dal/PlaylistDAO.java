@@ -86,4 +86,8 @@ public class PlaylistDAO {
          preparedStmt.executeUpdate();
 }
     }
+
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
+        // To Doo
+    }
      }   
