@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 /**
  * FXML Controller class
- *
+ * @ Controller for creating new playlists
  * @author pmj
  */
 public class NewPlaylistController implements Initializable {
@@ -46,7 +46,7 @@ public class NewPlaylistController implements Initializable {
      *
      * @param event
      * @throws SQLException
-     * Create a new playlist
+     * Create a new playlist and load the new playlists
      */
     @FXML
     public void btnCreateNewPlaylist(ActionEvent event) throws SQLException {
