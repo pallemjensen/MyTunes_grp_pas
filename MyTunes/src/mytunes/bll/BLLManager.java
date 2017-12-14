@@ -41,7 +41,17 @@ public class BLLManager {
      * @return list with all playlists
      */
     public List<Playlist> getAllPlaylists() {
-        return playlistDAO.getAllPlaylists();
+    List<Playlist> pl = playlistDAO.getAllPlaylists();
+        for (Playlist playlist : pl) {
+            List<Integer> idList = playlist.getPlaylistSongIdsList();
+            for (Integer integer : idList) {
+                if(integer != 0){
+                    Song nextSong = songDAO.getSongFromId(integer);
+                    playlist.addSongToPlaylist(nextSong);
+                }
+            }
+        }
+    return pl;
     }
 
     /**

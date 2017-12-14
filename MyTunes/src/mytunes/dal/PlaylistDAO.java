@@ -36,26 +36,20 @@ public class PlaylistDAO {
      */
     public List<Playlist> getAllPlaylists() {
         List<Playlist> playlists = new ArrayList();
-        
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
-            ResultSet rs
-                    = stmt.executeQuery("SELECT * FROM playlist");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM playlist");
             while (rs.next()) {
-                Playlist currentPlaylist = new Playlist();
-                currentPlaylist.setId(rs.getInt("playlist_id"));
-                currentPlaylist.setName(rs.getString("playlist_name"));
-                
-//                for (int i = 3; i <= 12; i++) {
-//                    int playlistSongId = rs.getInt(i);
-//                        if(playlistSongId != 0){
-//                            Song ns = new Song();
-//                            ns.setId(playlistSongId);
-//                            
-//                        }
-//                }
-                
-                playlists.add(currentPlaylist);
+                Playlist nextPlaylist = new Playlist();
+                nextPlaylist.setId(rs.getInt("playlist_id"));
+                nextPlaylist.setName(rs.getString("playlist_name"));
+                for (int i = 3; i <= 12; i++) {
+                    int playlistSongId = rs.getInt(i);
+                        if(playlistSongId != 0){
+                            nextPlaylist.addIdToPlaylistSongIdsList(playlistSongId);
+                        }
+                }
+                playlists.add(nextPlaylist);
             }
         }
         catch (SQLException ex) {

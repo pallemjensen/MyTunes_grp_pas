@@ -19,12 +19,22 @@ public class Playlist {
     private String name;
     private final List<Song> playlistSongs;
     private double totalDuration;
+    private List<Integer> playlistSongIdsList;
+
+    public List<Integer> getPlaylistSongIdsList() {
+        return playlistSongIdsList;
+    }
+    
+    public void addIdToPlaylistSongIdsList(int id){
+        playlistSongIdsList.add(id);
+    }
 
     /**
      * @Playlist constructor
      */
     public Playlist() {
         playlistSongs = new ArrayList<>();
+        playlistSongIdsList = new ArrayList<>();
     }
 
     /**
@@ -37,6 +47,7 @@ public class Playlist {
         this.id = id;
         this.name = name;
         playlistSongs = new ArrayList<>();
+        playlistSongIdsList = new ArrayList<>();
     }
 
     /**

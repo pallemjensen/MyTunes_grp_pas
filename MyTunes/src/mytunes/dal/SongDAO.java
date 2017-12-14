@@ -52,6 +52,30 @@ public class SongDAO {
         
         return songs;
     }
+    
+    public Song getSongFromId(int id){
+        Song currentSong = new Song();
+        try (Connection con = cm.getConnection())
+        {
+            String selectQuery = "SELECT * FROM MytunesSongs2 WHERE song_id = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(selectQuery);
+            prepStmt.setInt(1, id);
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            currentSong.setId(rs.getInt("song_id"));
+            currentSong.setTitle(rs.getString("song_title"));
+            currentSong.setArtist(rs.getString("artist_name"));
+            currentSong.setDuration(rs.getString("song_duration"));
+            currentSong.setGenre(rs.getString("song_genre"));
+            currentSong.setSongPath(rs.getString("song_path"));            
+        } catch (SQLServerException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (SQLException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+        return currentSong;
+    }
 
     /**
      *
