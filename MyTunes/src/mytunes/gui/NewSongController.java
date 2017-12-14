@@ -24,7 +24,7 @@ import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.id3.ID3v1Tag;
 
 /**
- * FXML Controller class
+ * FXML Controller class for making a new song
  *
  * @author Anders
  */
@@ -54,12 +54,16 @@ public class NewSongController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    //Closes the window
     @FXML
     private void btnCancel(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
+        // Opens up the new file dialog. Filter on mp3 and wav files.
+        //If the song file is MP3v1 version, the song info is automatically filled out.
+        //If not, the user have to manually fill out the song info. Some info is already filled with the file name text,
+        //but can be altered as pr the users wish.
     @FXML
     private void btnChoose(ActionEvent event) throws MalformedURLException {
         String songTitle = null;
@@ -100,7 +104,8 @@ public class NewSongController implements Initializable {
         }     
     }
     
-    
+    //Create a new song and store it in our DB.
+    //It then loads all songs from the DB.
     @FXML
     private void btnSave(ActionEvent event) throws SQLException {
         String title = txtNewSongTitle.getText();
@@ -113,7 +118,7 @@ public class NewSongController implements Initializable {
     }
 
     /**
-     *
+     *@ Create a new instance of myTunesModel with a new controller.
      * @param myTunesModel
      */
     public void setUp(MyTunesModel myTunesModel) {

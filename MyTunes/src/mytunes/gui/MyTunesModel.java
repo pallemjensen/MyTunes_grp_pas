@@ -147,6 +147,7 @@ public class MyTunesModel {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
+     * @throws java.sql.SQLException
      * @ Add the selected song to the selected playlist
      */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {

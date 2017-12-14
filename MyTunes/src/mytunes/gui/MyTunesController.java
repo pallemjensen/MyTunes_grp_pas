@@ -213,10 +213,17 @@ public class MyTunesController implements Initializable {
 
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
-    private void btnFilter(ActionEvent event) {
-        TVSongs.getItems().clear();
+    private void btnFilter(ActionEvent event) {    
         String filterString = txtFilter.getText().toLowerCase().trim();
-        List<Song> loadedSongs = myTunesModel.getSongs();
+        List<Song> loadedSongs = myTunesModel.getSongs();       
+        for (Song song : loadedSongs) {
+            if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
+            {
+                filteredSongs.add(song);
+                TVSongs.setItems(filteredSongs);
+            }
+        }
+        TVSongs.getItems().clear();
         for (Song song : loadedSongs) {
             if (song.getArtist().toLowerCase().trim().contains(filterString) || (song.getTitle().toLowerCase().trim().contains(filterString)))
             {
@@ -226,7 +233,6 @@ public class MyTunesController implements Initializable {
         }
     }
 
-    
     //Opens the New song window
     @FXML
     private void btnNewSong(ActionEvent event) throws IOException {
@@ -248,6 +254,7 @@ public class MyTunesController implements Initializable {
     //define a new mediaplayer with the selected song from TVSongs table as media.
     @FXML
     private void mouseClickedSongs(MouseEvent event) {
+        TVSongsOnPlaylist.getSelectionModel().clearSelection();
         songSelected = TVSongs.getSelectionModel().getSelectedItem();
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
@@ -272,9 +279,17 @@ public class MyTunesController implements Initializable {
     //Add the selected song to the selected playlist using both their id's.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
-        playlistSelected.addSongToPlaylist(songSelected);
+    playlistSelected.addSongToPlaylist(songSelected);
     int selectedSongId =  songSelected.getId();
     int selectedPlaylistId = playlistSelected.getId();
     myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
+
+    @FXML
+    private void mouseClickedTVSongsOnPlaylist(MouseEvent event) {
+    TVSongs.getSelectionModel().clearSelection();
+    TVPlaylists.getSelectionModel().clearSelection();
+    }
+    
+    
 }
