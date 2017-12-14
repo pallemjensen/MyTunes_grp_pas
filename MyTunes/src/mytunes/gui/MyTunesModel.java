@@ -33,60 +33,123 @@ public class MyTunesModel {
     private final ObservableList<Song> songsOnPlaylists
             = FXCollections.observableArrayList();
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Song> getSongsOnPlaylist() {
         return songsOnPlaylists;
     }
     
+    /**
+     *
+     * @param playlistSelected
+     */
     public void showSongsOnPlaylist(Playlist playlistSelected) {
         List<Song> songList = playlistSelected.getSongs();
         songsOnPlaylists.clear();
         songsOnPlaylists.addAll(songList);
     }
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Song> getSongs() {
         return songs;
     }
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Playlist> getPlaylists() {
         return playlists;
     }
     
+    /**
+     *
+     */
     public void loadPlaylists() {
         List<Playlist> loadedPlaylists = bllManager.getAllPlaylists();
         playlists.clear();
         playlists.addAll(loadedPlaylists);
     }
     
+    /**
+     *
+     */
     public void loadSongs() {
         List<Song> loadedSongs = bllManager.getAllSongs();
         songs.clear();
         songs.addAll(loadedSongs);
     }
 
+    /**
+     *
+     * @param selectedSongs
+     * @throws SQLException
+     */
     public void remove(Song selectedSongs) throws SQLException {
         songs.remove(selectedSongs);
         bllManager.remove(selectedSongs);
     }
     
+    /**
+     *
+     * @param title
+     * @param genre
+     * @param duration
+     * @param newSongPath
+     * @param artist
+     * @throws SQLException
+     */
     public void addNewSong(String title, String genre, String duration, String newSongPath, String artist) throws SQLException{
         Song newSong =
         bllManager.createSong(title, genre, duration, newSongPath, artist);
         songs.add(newSong);
     }
+
+    /**
+     *
+     * @param i
+     * @param title
+     * @param artist
+     * @param genre
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
         bllManager.editSong(i, title, artist, genre);
     }
 
+    /**
+     *
+     * @param playlist
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void remove(Playlist playlist) throws SQLServerException, SQLException {
         playlists.remove(playlist);
         bllManager.remove(playlist);
     }
 
+    /**
+     *
+     * @param name
+     * @param i
+     * @throws SQLServerException
+     * @throws SQLException
+     */
     public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
         bllManager.editPlaylist(name, i);
     }
 
-
+    /**
+     *
+     * @param selectedPlaylistId
+     * @param selectedSongId
+     */
     public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
