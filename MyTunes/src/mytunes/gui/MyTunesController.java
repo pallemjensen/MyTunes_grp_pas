@@ -279,7 +279,7 @@ public class MyTunesController implements Initializable {
     //Add the selected song to the selected playlist using both their id's.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
-        playlistSelected.addSongToPlaylist(songSelected);
+    playlistSelected.addSongToPlaylist(songSelected);
     int selectedSongId =  songSelected.getId();
     int selectedPlaylistId = playlistSelected.getId();
     myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
@@ -288,6 +288,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private void mouseClickedTVSongsOnPlaylist(MouseEvent event) {
     TVSongs.getSelectionModel().clearSelection();
+    TVPlaylists.getSelectionModel().clearSelection();
     }
     
     
