@@ -258,8 +258,8 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) {
         playlistSelected.addSongToPlaylist(songSelected);
-    int selectedSongId =  TVSongs.getSelectionModel().getSelectedItem().getId();
-    int selectedPlaylistId = TVPlaylists.getSelectionModel().getSelectedItem().getId();
+    int selectedSongId =  songSelected.getId();
+    int selectedPlaylistId = playlistSelected.getId();
     myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
 }
