@@ -86,7 +86,4 @@ public class MyTunesModel {
         bllManager.editPlaylist(name, i);
     }
 
-    
-    
-    
 }

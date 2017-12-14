@@ -28,11 +28,6 @@ public class Playlist {
     private int song9;
     private int song10;
     
-//    public Playlist(int id, String name) {
-//        this.songs = new ArrayList<>();
-//        this.id = id;
-//        this.name = name;
-//    }
 
     public Playlist() {
     }
@@ -64,22 +59,10 @@ public class Playlist {
         this.songs = songs;
     }
 
-    
-    
-    /**
-     * Get the value of name
-     *
-     * @return the value of name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @param name new value of name
-     */
     public void setName(String name) {
         this.name = name;
     }
