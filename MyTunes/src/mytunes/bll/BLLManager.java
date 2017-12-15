@@ -42,6 +42,7 @@ public class BLLManager {
      */
     public List<Playlist> getAllPlaylists() {
     List<Playlist> pl = playlistDAO.getAllPlaylists();
+//    int 
         for (Playlist playlist : pl) {
             List<Integer> idList = playlist.getPlaylistSongIdsList();
             for (Integer integer : idList) {
@@ -51,6 +52,7 @@ public class BLLManager {
                     playlist.addOneToNumberOfSongs();
                 }
             }
+            // add total playtime to playlist
         }
     return pl;
     }

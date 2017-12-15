@@ -287,6 +287,7 @@ public class MyTunesController implements Initializable {
         int selectedSongId = songSelected.getId();
         int selectedPlaylistId = playlistSelected.getId();
         myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+        myTunesModel.showSongsOnPlaylist(playlistSelected);
     }
 
     @FXML

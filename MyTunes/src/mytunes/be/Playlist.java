@@ -38,14 +38,26 @@ public class Playlist {
     public void setNumberOfSongs(int numberOfSongs) {
         this.numberOfSongs = numberOfSongs;
     }
+
+    /**
+     * increses numberOfSongs by one
+     */
     public void addOneToNumberOfSongs(){
         numberOfSongs = numberOfSongs + 1;
     }
     
+    /**
+     * get a list of songId of songs on the playlist
+     * @return playListSongIdsList
+     */
     public List<Integer> getPlaylistSongIdsList() {
         return playlistSongIdsList;
     }
     
+    /**
+     *adds a songId to playlistSongIdsList
+     * @param id
+     */
     public void addIdToPlaylistSongIdsList(int id){
         playlistSongIdsList.add(id);
     }
