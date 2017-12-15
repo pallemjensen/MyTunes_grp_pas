@@ -20,7 +20,28 @@ public class Playlist {
     private final List<Song> playlistSongs;
     private double totalDuration;
     private List<Integer> playlistSongIdsList;
+    private int numberOfSongs = 0;
 
+    /**
+     * Get the value of numberOfSongs
+     *
+     * @return the value of numberOfSongs
+     */
+    public int getNumberOfSongs() {
+        return numberOfSongs;
+    }
+    /**
+     * Set the value of numberOfSongs
+     *
+     * @param numberOfSongs new value of numberOfSongs
+     */
+    public void setNumberOfSongs(int numberOfSongs) {
+        this.numberOfSongs = numberOfSongs;
+    }
+    public void addOneToNumberOfSongs(){
+        numberOfSongs = numberOfSongs + 1;
+    }
+    
     public List<Integer> getPlaylistSongIdsList() {
         return playlistSongIdsList;
     }

@@ -48,6 +48,7 @@ public class BLLManager {
                 if(integer != 0){
                     Song nextSong = songDAO.getSongFromId(integer);
                     playlist.addSongToPlaylist(nextSong);
+                    playlist.addOneToNumberOfSongs();
                 }
             }
         }

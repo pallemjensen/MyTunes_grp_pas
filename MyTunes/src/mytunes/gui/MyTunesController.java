@@ -88,7 +88,7 @@ public class MyTunesController implements Initializable {
         //Get our songs and insert them into our song tableview.
         TVSongs.setItems(myTunesModel.getSongs());
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
-        PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("id"));
+        PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("numberOfSongs"));
         PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
 
