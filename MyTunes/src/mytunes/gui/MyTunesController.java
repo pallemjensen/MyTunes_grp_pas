@@ -298,4 +298,10 @@ public class MyTunesController implements Initializable {
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
     }
+    //removes a song from playlist.
+    @FXML
+    private void btnRemoveSongOnPlaylist(ActionEvent event) {
+        
+        myTunesModel.getSongsOnPlaylist().remove(songSelected);
+    }
 }
