@@ -90,6 +90,7 @@ public class Playlist {
      */
     public void addSongToPlaylist(Song song) {
         playlistSongs.add(song);
+        numberOfSongs = numberOfSongs + 1;
     }
 
     /**

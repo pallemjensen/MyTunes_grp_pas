@@ -13,7 +13,7 @@ public class Song {
     private int id;
     private String title;
     private String genre;
-    private String duration;
+    private String duration = "";
     private String songPath;
     private String artist;
 

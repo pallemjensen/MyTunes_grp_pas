@@ -42,17 +42,21 @@ public class BLLManager {
      */
     public List<Playlist> getAllPlaylists() {
     List<Playlist> pl = playlistDAO.getAllPlaylists();
-//    int 
         for (Playlist playlist : pl) {
+            double durationInSeconds = 0;
             List<Integer> idList = playlist.getPlaylistSongIdsList();
             for (Integer integer : idList) {
                 if(integer != 0){
                     Song nextSong = songDAO.getSongFromId(integer);
+                    if(!nextSong.getDuration().isEmpty()){
+                    durationInSeconds = durationInSeconds + Double.parseDouble(nextSong.getDuration());
+                }
                     playlist.addSongToPlaylist(nextSong);
-                    playlist.addOneToNumberOfSongs();
                 }
             }
-            // add total playtime to playlist
+        //    add total playtime to playlist;
+            playlist.setTotalDuration(durationInSeconds/60);
+            System.out.println("duration:  "+ playlist.getTotalDuration());
         }
     return pl;
     }

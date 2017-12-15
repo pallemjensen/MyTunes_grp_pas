@@ -57,7 +57,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Playlist, Integer> PlaylistsNrOfSongsColumn;
     @FXML
-    private TableColumn<Playlist, Float> PlaylistsSongDurationColumn;
+    private TableColumn<Playlist, Double> PlaylistsSongDurationColumn;
     @FXML
     private TableColumn<Song, String> SongsTitleColumn;
     @FXML
@@ -89,7 +89,7 @@ public class MyTunesController implements Initializable {
         TVSongs.setItems(myTunesModel.getSongs());
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("numberOfSongs"));
-        PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("duration"));
+        PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("totalDuration"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
 
         songsOnPlaylistTitleColumn.setCellValueFactory(new PropertyValueFactory("title"));
