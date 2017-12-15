@@ -136,7 +136,6 @@ public class PlaylistDAO {
             prepStmt.setInt(1, selectedPlaylistId);
             ResultSet rs = prepStmt.executeQuery();
             rs.next();
-            System.out.println(rs.getString(2));
             for (int i = 3; i <= 12; i++) {
                 if (rs.getInt(i) == 0) {
                     firstEmptyPlaylistSongIndex = i-2;
@@ -151,8 +150,6 @@ public class PlaylistDAO {
             prepStmtUpdate.setInt(1, selectedSongId);
             prepStmtUpdate.setInt(2, selectedPlaylistId);
             prepStmtUpdate.executeUpdate();
-                System.out.println("column " + column);
-                System.out.println("songid: "+ selectedSongId + " playlistid: "+ selectedPlaylistId);
             }
         }
     }

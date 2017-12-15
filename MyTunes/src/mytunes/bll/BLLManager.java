@@ -56,7 +56,6 @@ public class BLLManager {
             }
         //    add total playtime to playlist;
             playlist.setTotalDuration(durationInSeconds/60);
-            System.out.println("duration:  "+ playlist.getTotalDuration());
         }
     return pl;
     }
