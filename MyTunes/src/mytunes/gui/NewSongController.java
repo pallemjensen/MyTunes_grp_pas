@@ -6,6 +6,7 @@
 package mytunes.gui;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -19,8 +20,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.exceptions.CannotReadException;
+import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
+import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.id3.ID3v1Tag;
 
 /**
@@ -65,7 +70,7 @@ public class NewSongController implements Initializable {
         //If not, the user have to manually fill out the song info. Some info is already filled with the file name text,
         //but can be altered as pr the users wish.
     @FXML
-    private void btnChoose(ActionEvent event) throws MalformedURLException {
+    private void btnChoose(ActionEvent event) throws MalformedURLException, CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException {
         String songTitle = null;
         String songArtist = null;
         String songGenre = null;
@@ -81,20 +86,19 @@ public class NewSongController implements Initializable {
             txtNewSongPath.setText(newSongPath);
             txtNewSongArtist.setText(file.getName());
             txtNewSongTitle.setText(file.getName());
-            
-            try {
             AudioFile audioFile = AudioFileIO.read(file);
+            duration = audioFile.getAudioHeader().getTrackLength();
+            txtNewSongDuration.setText(Integer.toString(duration));
+            try {
             
             MP3File mp3file = new MP3File(file);
             Tag tag = mp3file.getTag();
             ID3v1Tag v1Tag = (ID3v1Tag) tag;
 
-            duration = audioFile.getAudioHeader().getTrackLength();
             songTitle = v1Tag.getFirstTitle();
             songArtist = v1Tag.getFirstArtist();
             songGenre = v1Tag.getFirstGenre();
 
-            txtNewSongDuration.setText(Integer.toString(duration));
             txtNewSongArtist.setText(songArtist);
             txtNewSongTitle.setText(songTitle);
             txtNewSongGenre.setText(songGenre);
