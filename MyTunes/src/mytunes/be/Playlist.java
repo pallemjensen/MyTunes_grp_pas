@@ -21,13 +21,38 @@ public class Playlist {
     private final List<Song> playlistSongs;
     private double totalDuration;
     private String totalDurationAsString;
-
+    private List<Integer> playlistSongIdsList;
+    private int numberOfSongs = 0;
+    
+    /**
+     * @Playlist constructor
+     */
+    public Playlist() {
+        playlistSongs = new ArrayList<>();
+        playlistSongIdsList = new ArrayList<>();
+    }
+    
+    /**
+     * @param id
+     * @param name
+     * @Playlist constructor
+     */
+    
+    public Playlist(int id, String name) {
+        this.id = id;
+        this.name = name;
+        playlistSongs = new ArrayList<>();
+        playlistSongIdsList = new ArrayList<>();
+    }
+    
+    /**
+     *Get the value of totalDurationAsString
+     * @return totalDurationAsString
+     */
     public String getTotalDurationAsString() {
         return totalDurationAsString;
     }
-    private List<Integer> playlistSongIdsList;
-    private int numberOfSongs = 0;
-
+    
     /**
      * Get the value of numberOfSongs
      *
@@ -36,6 +61,7 @@ public class Playlist {
     public int getNumberOfSongs() {
         return numberOfSongs;
     }
+    
     /**
      * Set the value of numberOfSongs
      *
@@ -44,7 +70,7 @@ public class Playlist {
     public void setNumberOfSongs(int numberOfSongs) {
         this.numberOfSongs = numberOfSongs;
     }
-
+    
     /**
      * increses numberOfSongs by one
      */
@@ -67,28 +93,7 @@ public class Playlist {
     public void addIdToPlaylistSongIdsList(int id){
         playlistSongIdsList.add(id);
     }
-
-    /**
-     * @Playlist constructor
-     */
-    public Playlist() {
-        playlistSongs = new ArrayList<>();
-        playlistSongIdsList = new ArrayList<>();
-    }
-
-    /**
-     *
-     * @param id
-     * @param name
-     * @Playlist constructor
-     */
-    public Playlist(int id, String name) {
-        this.id = id;
-        this.name = name;
-        playlistSongs = new ArrayList<>();
-        playlistSongIdsList = new ArrayList<>();
-    }
-
+    
     /**
      *
      * @param song
@@ -160,5 +165,4 @@ public class Playlist {
         DecimalFormat df = new DecimalFormat("#.00");
         totalDurationAsString = df.format(td);
     }
-
 }
