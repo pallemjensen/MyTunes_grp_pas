@@ -5,6 +5,7 @@
  */
 package mytunes.be;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,11 @@ public class Playlist {
     private String name;
     private final List<Song> playlistSongs;
     private double totalDuration;
+    private String totalDurationAsString;
+
+    public String getTotalDurationAsString() {
+        return totalDurationAsString;
+    }
     private List<Integer> playlistSongIdsList;
     private int numberOfSongs = 0;
 
@@ -149,7 +155,10 @@ public class Playlist {
      * @set totalDuration
      */
     public void setTotalDuration(double totalDuration) {
-        this.totalDuration = totalDuration;
+        double td = Math.floor(totalDuration/60) + (totalDuration%60)/100;
+        this.totalDuration = td;
+        DecimalFormat df = new DecimalFormat("#.00");
+        totalDurationAsString = df.format(td);
     }
 
 }
