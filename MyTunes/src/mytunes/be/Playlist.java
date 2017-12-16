@@ -103,6 +103,11 @@ public class Playlist {
         playlistSongs.add(song);
         numberOfSongs = numberOfSongs + 1;
     }
+    
+    public void removeSongFromPlaylist(Song song){
+        playlistSongs.remove(song);
+        numberOfSongs = numberOfSongs - 1;
+    }
 
     /**
      *

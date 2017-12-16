@@ -57,7 +57,6 @@ public class PlaylistDAO {
     }
     
     /**
-     *
      * @param name
      * @return 
      * @Create a new playlist in our DB with parameter name and returns a new playlist object
@@ -81,14 +80,12 @@ public class PlaylistDAO {
                 int id = rs.getInt(1);
                 Playlist newPlaylist = new Playlist(id, name);
                 return newPlaylist; 
-                
             }
             throw new RuntimeException("Can't create playlist");
         }
     }
     
     /**
-     *
      * @param playlist
      * @throws SQLServerException
      * @throws SQLException
@@ -102,7 +99,6 @@ public class PlaylistDAO {
     }
 
     /**
-     *
      * @param name
      * @param i
      * @throws SQLServerException
@@ -117,7 +113,7 @@ public class PlaylistDAO {
          preparedStmt.setString(1, name);
          preparedStmt.setInt(2, i);
          preparedStmt.executeUpdate();
-}
+     }
     }
 
     /**
@@ -146,11 +142,10 @@ public class PlaylistDAO {
             String column = "Song" + firstEmptyPlaylistSongIndex;
             String updateQuery = "UPDATE playlist SET "+column+" = ? WHERE playlist_id = ?;"; 
             PreparedStatement prepStmtUpdate = con.prepareStatement(updateQuery);
-           
             prepStmtUpdate.setInt(1, selectedSongId);
             prepStmtUpdate.setInt(2, selectedPlaylistId);
             prepStmtUpdate.executeUpdate();
             }
         }
     }
-     }   
+}
