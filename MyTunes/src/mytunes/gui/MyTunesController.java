@@ -57,7 +57,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private TableColumn<Playlist, Integer> PlaylistsNrOfSongsColumn;
     @FXML
-    private TableColumn<Playlist, Double> PlaylistsSongDurationColumn;
+    private TableColumn<Playlist, String> PlaylistsSongDurationColumn;
     @FXML
     private TableColumn<Song, String> SongsTitleColumn;
     @FXML
@@ -89,7 +89,7 @@ public class MyTunesController implements Initializable {
         TVSongs.setItems(myTunesModel.getSongs());
         PlaylistsNameColumn.setCellValueFactory(new PropertyValueFactory("name"));
         PlaylistsNrOfSongsColumn.setCellValueFactory(new PropertyValueFactory("numberOfSongs"));
-        PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("totalDuration"));
+        PlaylistsSongDurationColumn.setCellValueFactory(new PropertyValueFactory("totalDurationAsString"));
         TVPlaylists.setItems(myTunesModel.getPlaylists());
 
         songsOnPlaylistTitleColumn.setCellValueFactory(new PropertyValueFactory("title"));
@@ -301,7 +301,7 @@ public class MyTunesController implements Initializable {
     //removes a song from playlist.
     @FXML
     private void btnRemoveSongOnPlaylist(ActionEvent event) {
-        
+        playlistSelected.removeSongFromPlaylist(songSelected);
         myTunesModel.getSongsOnPlaylist().remove(songSelected);
     }
 }
