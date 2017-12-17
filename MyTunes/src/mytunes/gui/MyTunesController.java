@@ -219,7 +219,6 @@ public class MyTunesController implements Initializable {
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
     private void btnFilter(ActionEvent event) {
-      
         String filterString = txtFilter.getText().toLowerCase().trim();
         List<Song> loadedSongs = myTunesModel.getSongs();
         for (Song song : loadedSongs) {
