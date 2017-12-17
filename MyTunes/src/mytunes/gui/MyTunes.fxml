@@ -8,11 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
+<AnchorPane id="AnchorPane" prefHeight="895.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.gui.MyTunesController">
    <children>
       <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPlaySong" prefHeight="25.0" prefWidth="43.0" text="Play" />
-      <Button layoutX="172.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnNextSong" prefHeight="25.0" prefWidth="54.0" text="Next" />
-      <Button layoutX="85.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnPreviousSong" prefHeight="25.0" prefWidth="73.0" text="Previous" />
       <Label layoutX="477.0" layoutY="1.0" prefHeight="17.0" prefWidth="113.0" text="MyTunes">
          <font>
             <Font name="System Bold" size="17.0" />

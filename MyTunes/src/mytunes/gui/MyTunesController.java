@@ -208,13 +208,6 @@ public class MyTunesController implements Initializable {
         
     }
 
-    @FXML
-    private void btnNextSong(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnPreviousSong(ActionEvent event) {
-    }
 
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
