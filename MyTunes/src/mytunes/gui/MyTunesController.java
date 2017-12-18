@@ -151,7 +151,7 @@ public class MyTunesController implements Initializable {
     //Delete the selected song in our TVSongs tableview from our object list and DB through
     // our DeleteConfirmationController.
     @FXML
-    private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
+    private void btnDeleteSong(ActionEvent event) throws IOException {
         Song selectedSong = TVSongs.getSelectionModel().getSelectedItem();
         if (selectedSong != null) {
             FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
@@ -173,7 +173,8 @@ public class MyTunesController implements Initializable {
     //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
-        player.stop();
+    player.pause(); 
+
     }
 
     //Load our songs from the DB
@@ -185,7 +186,7 @@ public class MyTunesController implements Initializable {
     //Delete the selected playlist in our TVPlaylists tableview from our object list and DB through
     // our btnDelete method in DeleteConfirmationController.
     @FXML
-    private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
+    private void btnDeletePlaylist(ActionEvent event) throws IOException {
         Playlist selectedPlaylist
                 = TVPlaylists.getSelectionModel().getSelectedItem();
         if (selectedPlaylist != null) {

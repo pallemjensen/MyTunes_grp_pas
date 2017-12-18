@@ -80,15 +80,17 @@ public class SongDAO {
     /**
      *
      * @param song
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives a song object and then deletes it from our DB MytunesSongs2 table where the song_id matches.
      */
-    public void remove(Song song) throws SQLServerException, SQLException {
+    public void remove(Song song){
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
             stmt.execute("DELETE FROM MytunesSongs2 WHERE song_id="+song.getId());
-        }       
+        } catch (SQLServerException ex) {       
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (SQLException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }       
     }
     
     /**
@@ -99,13 +101,10 @@ public class SongDAO {
      * @param songPath
      * @param artist
      * @return
-     * @throws SQLServerException
-     * @throws SQLException
      * Create a new song object in our DB with the parameters given and returns a new song object
      */
-    public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLServerException, SQLException 
-    {   
-        
+    public Song createSong(String title, String genre, String duration, String songPath, String artist)
+    {
         try (Connection con = cm.getConnection())
         {
             String sql = "INSERT INTO MyTunesSongs2 VALUES (?, ?, ?, ?, ?);";
@@ -118,7 +117,7 @@ public class SongDAO {
             statement.setString(4, genre);
             statement.setString(5, songPath);
 
-            if (statement.executeUpdate() == 1)
+            if(statement.executeUpdate() == 1);
             {
                 ResultSet rs = statement.getGeneratedKeys();
                 rs.next();
@@ -126,8 +125,13 @@ public class SongDAO {
                 Song newSong = new Song(id, title, artist, duration, genre, songPath);
                 return newSong;
             }
-            throw new RuntimeException("Can't create song");
-        }
+            
+        } catch (SQLServerException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (SQLException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return null;
     }
 
     /**
@@ -136,11 +140,9 @@ public class SongDAO {
      * @param title
      * @param artist
      * @param genre
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives parameters for a song and edits the song parameters in our DB.
      */
-    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException{
+    public void editSong(int i, String title, String artist, String genre){
         String query = "UPDATE MyTunesSongs2 SET song_title = ?, artist_name = ?, song_genre = ? WHERE song_id = ?;";
      try (Connection con = cm.getConnection())
      {
@@ -150,7 +152,11 @@ public class SongDAO {
          preparedStmt.setString(3, genre);
          preparedStmt.setInt(4, i);
          preparedStmt.executeUpdate();
-     }   
+     } catch (SQLServerException ex) {   
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (SQLException ex) {
+           Logger.getLogger(SongDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }   
     }         
 }
 

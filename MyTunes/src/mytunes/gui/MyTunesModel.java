@@ -5,7 +5,6 @@
  */
 package mytunes.gui;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -88,9 +87,8 @@ public class MyTunesModel {
     /**
      *
      * @param selectedSongs
-     * @throws SQLException
      */
-    public void remove(Song selectedSongs) throws SQLException {
+    public void remove(Song selectedSongs){
         songs.remove(selectedSongs);
         bllManager.remove(selectedSongs);
     }
@@ -102,9 +100,8 @@ public class MyTunesModel {
      * @param duration
      * @param newSongPath
      * @param artist
-     * @throws SQLException
      */
-    public void addNewSong(String title, String genre, String duration, String newSongPath, String artist) throws SQLException{
+    public void addNewSong(String title, String genre, String duration, String newSongPath, String artist){
         Song newSong =
         bllManager.createSong(title, genre, duration, newSongPath, artist);
         songs.add(newSong);
@@ -116,20 +113,16 @@ public class MyTunesModel {
      * @param title
      * @param artist
      * @param genre
-     * @throws SQLServerException
-     * @throws SQLException
      */
-    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
+    public void editSong(int i, String title, String artist, String genre){
         bllManager.editSong(i, title, artist, genre);
     }
 
     /**
      *
      * @param playlist
-     * @throws SQLServerException
-     * @throws SQLException
      */
-    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+    public void remove(Playlist playlist){
         playlists.remove(playlist);
         bllManager.remove(playlist);
     }
@@ -138,11 +131,9 @@ public class MyTunesModel {
      *
      * @param name
      * @param i
-     * @throws SQLServerException
-     * @throws SQLException
      * @Edit the name of the selected playlist
      */
-    public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
+    public void editPlaylist(String name, int i){
         bllManager.editPlaylist(name, i);
     }
 
@@ -150,10 +141,9 @@ public class MyTunesModel {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
-     * @throws java.sql.SQLException
      * @ Add the selected song to the selected playlist
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId){
         bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
     

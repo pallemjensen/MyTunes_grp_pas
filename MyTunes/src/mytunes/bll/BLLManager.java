@@ -5,8 +5,6 @@
  */
 package mytunes.bll;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
-import java.sql.SQLException;
 import java.util.List;
 import mytunes.be.Playlist;
 import mytunes.be.Song;
@@ -63,10 +61,8 @@ public class BLLManager {
     /**
      *
      * @param song
-     * @throws SQLException
-     * receives a song object and calls the remove song method in our songDAO DAl class.
      */
-    public void remove(Song song) throws SQLException {
+    public void remove(Song song){
         songDAO.remove(song);
     }
     
@@ -78,10 +74,9 @@ public class BLLManager {
      * @param songPath
      * @param artist
      * @return
-     * @throws SQLException
      * @Receives song parameters, calls the createSong method in songDAO, returns a newSong object.
      */
-    public Song createSong(String title, String genre, String duration, String songPath, String artist) throws SQLException{
+    public Song createSong(String title, String genre, String duration, String songPath, String artist){
         Song newSong = songDAO.createSong(title, genre, duration, songPath, artist);
         return newSong;
     }
@@ -92,22 +87,18 @@ public class BLLManager {
      * @param title
      * @param artist
      * @param genre
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives song parameters, calls the editSong method in songDAO. Edits the song in our DB.
      */
-    public void editSong(int i, String title, String artist, String genre) throws SQLServerException, SQLException {
+    public void editSong(int i, String title, String artist, String genre){
         songDAO.editSong(i, title, artist, genre);
     }
 
     /**
      *
      * @param playlist
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives a playlist object. Calls the remove method in playlistDAO and deletes a playlist.
      */
-    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+    public void remove(Playlist playlist){
         playlistDAO.remove(playlist);
     }
 
@@ -115,11 +106,9 @@ public class BLLManager {
      *
      * @param name
      * @param i
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives playlist parameters. Calls editPlaylist method in playlistDAO and edits the name in DB.
      */
-    public void editPlaylist(String name, int i) throws SQLServerException, SQLException {
+    public void editPlaylist(String name, int i){
         playlistDAO.editPlaylist(name, i);
     }
 
@@ -129,11 +118,11 @@ public class BLLManager {
      * @param selectedSongId
      * @Recieves playlist id and song id and adds  song to a playlist in our DB via addSongToPlaylist in playlistDAO.
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLException {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId){
         playlistDAO.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
     
-    public void createNewPlaylist(String name) throws SQLException{
+    public void createNewPlaylist(String name){
     playlistDAO.createPlaylist(name);
     }
 
