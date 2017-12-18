@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mytunes.be.Playlist;
+
 /**
  * @In this class we manage all traffic from and to our DB concerning our playlists.
  * @author pmj
@@ -105,15 +106,16 @@ public class PlaylistDAO {
      * @throws SQLException
      * @Receives parameters for a playlist and edits the playlist name in our DB.
      */
-    public void editPlaylist(String name, int i ) throws SQLServerException, SQLException{
+    public void editPlaylist(String name, int i ) throws SQLServerException, SQLException
+    {
         String query = "UPDATE playlist SET playlist_name = ? WHERE playlist_id = ?;";
-     try (Connection con = cm.getConnection())
-     {
-         PreparedStatement preparedStmt = con.prepareStatement(query);
-         preparedStmt.setString(1, name);
-         preparedStmt.setInt(2, i);
-         preparedStmt.executeUpdate();
-     }
+        try (Connection con = cm.getConnection())
+        {
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, name);
+            preparedStmt.setInt(2, i);
+            preparedStmt.executeUpdate();
+        }
     }
 
     /**
