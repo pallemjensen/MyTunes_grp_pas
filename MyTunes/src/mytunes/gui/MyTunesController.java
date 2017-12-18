@@ -8,7 +8,6 @@ package mytunes.gui;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -151,7 +150,7 @@ public class MyTunesController implements Initializable {
     //Delete the selected song in our TVSongs tableview from our object list and DB through
     // our DeleteConfirmationController.
     @FXML
-    private void btnDeleteSong(ActionEvent event) throws SQLException, IOException {
+    private void btnDeleteSong(ActionEvent event) throws IOException {
         Song selectedSong = TVSongs.getSelectionModel().getSelectedItem();
         if (selectedSong != null) {
             FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("DeleteConfirmation.fxml"));
@@ -173,7 +172,7 @@ public class MyTunesController implements Initializable {
     //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
-    player.stop(); 
+    player.pause(); 
     }
 
     //Load our songs from the DB
@@ -185,7 +184,7 @@ public class MyTunesController implements Initializable {
     //Delete the selected playlist in our TVPlaylists tableview from our object list and DB through
     // our btnDelete method in DeleteConfirmationController.
     @FXML
-    private void btnDeletePlaylist(ActionEvent event) throws IOException, SQLException {
+    private void btnDeletePlaylist(ActionEvent event) throws IOException {
         Playlist selectedPlaylist
                 = TVPlaylists.getSelectionModel().getSelectedItem();
         if (selectedPlaylist != null) {
@@ -275,7 +274,7 @@ public class MyTunesController implements Initializable {
     //Add the selected song to the selected playlist using both their id's.
     // Checks if the playlist is 10, max, if not, adds the song.
     @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException, IOException {
+    private void btnAddSongToPlaylist(ActionEvent event) throws IOException{
         int a = 0;
         a = myTunesModel.showSongsOnPlaylist(playlistSelected);
         if ( a == 10){

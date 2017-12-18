@@ -61,11 +61,11 @@ public class PlaylistDAO {
     /**
      * @param name
      * @return 
+     * @throws com.microsoft.sqlserver.jdbc.SQLServerException 
+     * @throws java.sql.SQLException 
      * @Create a new playlist in our DB with parameter name and returns a new playlist object
-     * @throws SQLServerException
-     * @throws SQLException
      */
-    public Playlist createPlaylist(String name) throws SQLServerException, SQLException 
+    public Playlist createPlaylist(String name)
     {   
         try (Connection con = cm.getConnection())
         {
@@ -83,31 +83,36 @@ public class PlaylistDAO {
                 Playlist newPlaylist = new Playlist(id, name);
                 return newPlaylist; 
             }
-            throw new RuntimeException("Can't create playlist");
+        } catch (SQLServerException ex) { 
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
     
     /**
      * @param playlist
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives a playlist object and deletes it in our DB
      */
-    public void remove(Playlist playlist) throws SQLServerException, SQLException {
+    public void remove(Playlist playlist){
         try (Connection con = cm.getConnection();) {
             Statement stmt = con.createStatement();
             stmt.execute("DELETE FROM playlist WHERE playlist_id="+playlist.getId());
+        } catch (SQLServerException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
         }       
     }
 
     /**
      * @param name
      * @param i
-     * @throws SQLServerException
-     * @throws SQLException
      * @Receives parameters for a playlist and edits the playlist name in our DB.
      */
-    public void editPlaylist(String name, int i ) throws SQLServerException, SQLException
+    public void editPlaylist(String name, int i )
+            
     {
         String query = "UPDATE playlist SET playlist_name = ? WHERE playlist_id = ?;";
         try (Connection con = cm.getConnection())
@@ -116,6 +121,10 @@ public class PlaylistDAO {
             preparedStmt.setString(1, name);
             preparedStmt.setInt(2, i);
             preparedStmt.executeUpdate();
+        } catch (SQLServerException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -123,10 +132,9 @@ public class PlaylistDAO {
      *
      * @param selectedPlaylistId
      * @param selectedSongId
-     * @throws com.microsoft.sqlserver.jdbc.SQLServerException
      * @@Recieves playlist id and song id and adds the song to the playlist in our DB.
      */
-    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) throws SQLServerException, SQLException {
+    public void addSongToPlaylist(int selectedPlaylistId, int selectedSongId) {
         try (Connection con = cm.getConnection())
         {
             int firstEmptyPlaylistSongIndex = 0;
@@ -149,6 +157,10 @@ public class PlaylistDAO {
             prepStmtUpdate.setInt(2, selectedPlaylistId);
             prepStmtUpdate.executeUpdate();
             }
+        } catch (SQLServerException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
