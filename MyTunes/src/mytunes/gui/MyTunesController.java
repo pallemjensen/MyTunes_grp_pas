@@ -282,6 +282,8 @@ public class MyTunesController implements Initializable {
         myTunesModel.showSongsOnPlaylist(playlistSelected);
     }
 
+    //Unselect playlist and songs window. Sets the current song to the selected song
+    //in the playlist songs window. Sets the player to that song.
     @FXML
     private void mouseClickedTVSongsOnPlaylist(MouseEvent event) {
         TVSongs.getSelectionModel().clearSelection();
