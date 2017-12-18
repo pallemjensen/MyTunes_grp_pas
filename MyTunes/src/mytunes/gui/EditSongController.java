@@ -6,7 +6,6 @@
 package mytunes.gui;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,10 +48,9 @@ public class EditSongController implements Initializable {
     /**
      *@ Edit artist, title and genre on a song with id i and loads the new songlist.
      * @param event
-     * @throws SQLException
      */
     @FXML
-    public void btnEditSongSave(ActionEvent event) throws SQLException {
+    public void btnEditSongSave(ActionEvent event){
       int i = id;
       String artist = txtEditSongArtist.getText();
       String title = txtEditSongTitle.getText();

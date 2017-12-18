@@ -6,7 +6,6 @@
 package mytunes.gui;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +38,7 @@ public class DeleteConfirmationController implements Initializable {
     
     // We delete a song if one is selected or a playlist if one is selected.
     @FXML
-    private void btnDelete(ActionEvent event) throws SQLException {
+    private void btnDelete(ActionEvent event){
         if (m_selectedSong != null) 
         { 
             m_myTunesModel.remove(m_selectedSong);

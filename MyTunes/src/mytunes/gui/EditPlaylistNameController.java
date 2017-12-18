@@ -6,7 +6,6 @@
 package mytunes.gui;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +46,7 @@ public class EditPlaylistNameController implements Initializable {
     
     //Change the name of the playlist and load the playlist with new name
     @FXML
-    private void btnSaveEditPlaylistName(ActionEvent event) throws SQLException {
+    private void btnSaveEditPlaylistName(ActionEvent event){
     int i = id;
     String name2 = txtEditPlaylistName.getText();
     m_myTunesModel.editPlaylist(name2, i);

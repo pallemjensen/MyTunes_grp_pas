@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -111,7 +110,7 @@ public class NewSongController implements Initializable {
     //Create a new song and store it in our DB.
     //It then loads all songs from the DB.
     @FXML
-    private void btnSave(ActionEvent event) throws SQLException {
+    private void btnSave(ActionEvent event){
         String title = txtNewSongTitle.getText();
         String genre = txtNewSongGenre.getText();
         String duration = txtNewSongDuration.getText();

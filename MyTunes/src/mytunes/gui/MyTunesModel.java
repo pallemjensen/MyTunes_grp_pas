@@ -5,7 +5,6 @@
  */
 package mytunes.gui;
 
-import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -147,7 +146,7 @@ public class MyTunesModel {
         bllManager.addSongToPlaylist(selectedPlaylistId, selectedSongId);
     }
     
-    public void createNewPlaylist(String name) throws SQLException{
+    public void createNewPlaylist(String name){
     bllManager.createNewPlaylist(name);
     }
 

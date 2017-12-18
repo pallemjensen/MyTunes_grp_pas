@@ -6,7 +6,6 @@
 package mytunes.gui;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,11 +44,9 @@ public class NewPlaylistController implements Initializable {
     /**
      *
      * @param event
-     * @throws SQLException
-     * Create a new playlist and load the new playlists
      */
     @FXML
-    public void btnCreateNewPlaylist(ActionEvent event) throws SQLException {
+    public void btnCreateNewPlaylist(ActionEvent event) {
         String name = null;
         name = txtNewPlaylistName.getText();
         m_myTunesModel.createNewPlaylist(name);

@@ -8,7 +8,6 @@ package mytunes.gui;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -275,7 +274,7 @@ public class MyTunesController implements Initializable {
     //Add the selected song to the selected playlist using both their id's.
     // Checks if the playlist is 10, max, if not, adds the song.
     @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException, IOException {
+    private void btnAddSongToPlaylist(ActionEvent event) throws IOException {
         if (TVSongs.getSelectionModel().isEmpty()) {
             FXMLLoader fxloader = new FXMLLoader(getClass().getResource("needToChooseASong.fxml"));
             Parent root = fxloader.load();
