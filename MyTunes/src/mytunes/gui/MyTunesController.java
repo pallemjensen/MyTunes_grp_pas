@@ -274,12 +274,27 @@ public class MyTunesController implements Initializable {
 
     //Add the selected song to the selected playlist using both their id's.
     @FXML
-    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException {
+    private void btnAddSongToPlaylist(ActionEvent event) throws SQLException, IOException {
+        int a = 0;
+        a = myTunesModel.showSongsOnPlaylist(playlistSelected);
+        if ( a == 10){
+        FXMLLoader fxloader = new FXMLLoader(getClass().getResource("onlyTenSongs.fxml"));
+        Parent root = fxloader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        }
+        else {
+        
         playlistSelected.addSongToPlaylist(songSelected);
         int selectedSongId = songSelected.getId();
         int selectedPlaylistId = playlistSelected.getId();
         myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
         myTunesModel.showSongsOnPlaylist(playlistSelected);
+        }
+        
+
     }
 
     //Unselect playlist and songs window. Sets the current song to the selected song

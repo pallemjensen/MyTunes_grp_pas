@@ -41,11 +41,14 @@ public class MyTunesModel {
     /**
      *
      * @param playlistSelected
+     * @return 
      */
-    public void showSongsOnPlaylist(Playlist playlistSelected) {
+    public int showSongsOnPlaylist(Playlist playlistSelected) {
         List<Song> songList = playlistSelected.getplaylistSongs();
         songsOnPlaylists.clear();
         songsOnPlaylists.addAll(songList);
+        int a = songList.size();
+        return a;
     }
     
     /**

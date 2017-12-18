@@ -72,7 +72,7 @@ public class Playlist {
     }
     
     /**
-     * increses numberOfSongs by one
+     * increases numberOfSongs by one
      */
     public void addOneToNumberOfSongs(){
         numberOfSongs = numberOfSongs + 1;
@@ -104,6 +104,7 @@ public class Playlist {
         numberOfSongs = numberOfSongs + 1;
     }
     
+    //Removes a song from the playlist
     public void removeSongFromPlaylist(Song song){
         playlistSongs.remove(song);
         numberOfSongs = numberOfSongs - 1;
