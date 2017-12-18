@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mytunes.be.Playlist;
+import mytunes.be.Song;
 
 /**
  * @In this class we manage all traffic from and to our DB concerning our playlists.
@@ -150,4 +151,33 @@ public class PlaylistDAO {
             }
         }
     }
-}
+
+    public void removeSongFromPlaylist(Playlist playlistSelected, Song songSelected) {
+        try (Connection con = cm.getConnection())
+        {
+            int songIndex = 0;
+            String selectQuery = "SELECT * FROM playlist WHERE playlist_id = ?;";
+            PreparedStatement prepStmt = con.prepareStatement(selectQuery);
+            prepStmt.setInt(1, playlistSelected.getId());
+            ResultSet rs = prepStmt.executeQuery();
+            rs.next();
+            for (int i = 3; i <= 12; i++) {
+                if (rs.getInt(i) == songSelected.getId()) {
+                    songIndex = i-2;
+                    break;
+                }
+            }
+            if(songIndex != 0){
+            String column = "Song" + songIndex;
+            String updateQuery = "UPDATE playlist SET "+column+" = 0 WHERE playlist_id = ?;"; 
+            PreparedStatement prepStmtUpdate = con.prepareStatement(updateQuery);
+            prepStmtUpdate.setInt(1, playlistSelected.getId());
+            prepStmtUpdate.executeUpdate();
+            }
+        } catch (SQLServerException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PlaylistDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+} 

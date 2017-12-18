@@ -312,6 +312,6 @@ public class MyTunesController implements Initializable {
     @FXML
     private void btnRemoveSongOnPlaylist(ActionEvent event) {
         playlistSelected.removeSongFromPlaylist(songSelected);
-        myTunesModel.getSongsOnPlaylist().remove(songSelected);
+        myTunesModel.removeSongFromPlaylist(playlistSelected, songSelected);
     }
 }

@@ -137,4 +137,8 @@ public class BLLManager {
     playlistDAO.createPlaylist(name);
     }
 
+    public void removeSongFromPlaylist(Playlist playlistSelected, Song songSelected) {
+        playlistDAO.removeSongFromPlaylist(playlistSelected, songSelected);
+    }
+
 }

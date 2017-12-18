@@ -160,4 +160,9 @@ public class MyTunesModel {
     public void createNewPlaylist(String name) throws SQLException{
     bllManager.createNewPlaylist(name);
     }
+
+    void removeSongFromPlaylist(Playlist playlistSelected, Song songSelected) {
+        getSongsOnPlaylist().remove(songSelected);
+        bllManager.removeSongFromPlaylist(playlistSelected, songSelected);
+    }
 }
