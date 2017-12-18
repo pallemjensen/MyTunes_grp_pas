@@ -167,13 +167,13 @@ public class MyTunesController implements Initializable {
     //Stop playing the current media playing.
     @FXML
     private void btnStop(ActionEvent event) {
-    player.stop();
+        player.stop();
     }
 
     //Pause the current media.
     @FXML
     private void btnPause(ActionEvent event) {
-    player.stop(); 
+        player.stop();
     }
 
     //Load our songs from the DB
@@ -205,9 +205,8 @@ public class MyTunesController implements Initializable {
         player.stop();
         lblNowPlaying.setText(songSelected.getArtist() + ": " + songSelected.getTitle());
         player.play();
-        
-    }
 
+    }
 
     //Filter the songs in tableview on artist and title on the text input given and shows the new list. 
     @FXML
@@ -276,26 +275,34 @@ public class MyTunesController implements Initializable {
     // Checks if the playlist is 10, max, if not, adds the song.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException, IOException {
+        if (TVSongs.getSelectionModel().isEmpty()) {
+            FXMLLoader fxloader = new FXMLLoader(getClass().getResource("needToChooseASong.fxml"));
+            Parent root = fxloader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
         int a = 0;
         a = myTunesModel.showSongsOnPlaylist(playlistSelected);
-        if ( a == 10){
-        FXMLLoader fxloader = new FXMLLoader(getClass().getResource("onlyTenSongs.fxml"));
-        Parent root = fxloader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        }
-        else {
-        
-        playlistSelected.addSongToPlaylist(songSelected);
-        int selectedSongId = songSelected.getId();
-        int selectedPlaylistId = playlistSelected.getId();
-        myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
-        myTunesModel.showSongsOnPlaylist(playlistSelected);
-        }
-        
+        if (a == 10) {
+            FXMLLoader fxloader = new FXMLLoader(getClass().getResource("onlyTenSongs.fxml"));
+            Parent root = fxloader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } else {
 
+            playlistSelected.addSongToPlaylist(songSelected);
+            int selectedSongId = songSelected.getId();
+            int selectedPlaylistId = playlistSelected.getId();
+            myTunesModel.addSongToPlaylist(selectedPlaylistId, selectedSongId);
+            myTunesModel.showSongsOnPlaylist(playlistSelected);
+        }
+    }
     }
 
     //Unselect playlist and songs window. Sets the current song to the selected song
@@ -309,6 +316,7 @@ public class MyTunesController implements Initializable {
         File file = new File(songSelected.getSongPath());
         player = new MediaPlayer(new Media(file.toURI().toString()));
     }
+
     //removes a song from playlist.
     @FXML
     private void btnRemoveSongOnPlaylist(ActionEvent event) {
