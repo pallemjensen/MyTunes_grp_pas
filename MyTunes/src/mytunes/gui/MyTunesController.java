@@ -273,6 +273,7 @@ public class MyTunesController implements Initializable {
     }
 
     //Add the selected song to the selected playlist using both their id's.
+    // Checks if the playlist is 10, max, if not, adds the song.
     @FXML
     private void btnAddSongToPlaylist(ActionEvent event) throws SQLException, IOException {
         int a = 0;
