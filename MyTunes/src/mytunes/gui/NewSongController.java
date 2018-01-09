@@ -33,7 +33,7 @@ import org.jaudiotagger.tag.id3.ID3v1Tag;
  * @author Anders
  */
 public class NewSongController implements Initializable {
-    private final MyTunesModel model = new MyTunesModel();
+
     
     private MyTunesModel m_myTunesModel;
     private Stage stage;
@@ -115,7 +115,7 @@ public class NewSongController implements Initializable {
         String genre = txtNewSongGenre.getText();
         String duration = txtNewSongDuration.getText();
         String artist = txtNewSongArtist.getText();
-        model.addNewSong(title, genre, duration, newSongPath, artist); 
+        m_myTunesModel.addNewSong(title, genre, duration, newSongPath, artist); 
         m_myTunesModel.loadSongs();
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close(); 
     }
@@ -126,7 +126,6 @@ public class NewSongController implements Initializable {
      */
     public void setUp(MyTunesModel myTunesModel) {
         m_myTunesModel = myTunesModel;
-       
     }
 }
 
